@@ -1,20 +1,16 @@
 using UnityEngine;
-
-public enum CustomerState
-{
-    WalkToTable,
-    WaitForOrder,
-    OrderTaken,
-    Eating,
-    Leaving,
-}
+using System.Collections;
 
 public class Customer : MonoBehaviour, IInteractable
 {
-    [SerializeField]private float speed = 2f;
-    public CustomerState State {get; private set;}
+    [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private float eatDuration = 5f;
+    [SerializeField] private int incomeReward = 50;
 
-    Table targetTable;
+    public CustomerState State { get; private set; }
+
+    private Table targetTable;
+    private bool isSeated;
 
     void Start()
     {
@@ -22,74 +18,104 @@ public class Customer : MonoBehaviour, IInteractable
 
         if (targetTable == null)
         {
-            Debug.Log("All Table occupied");
+            Debug.Log("No available tables.");
             Destroy(gameObject);
             return;
         }
 
         targetTable.AssignCustomer(this);
-        State = CustomerState.WalkToTable;
-        Debug.Log("Customer spawned and walking to table");
+        ChangeState(CustomerState.WalkToTable);
     }
 
     void Update()
     {
-        if (State == CustomerState.WalkToTable)
+        if (State == CustomerState.WalkToTable && targetTable != null)
         {
-            MoveCustomer(targetTable.seatPoint.position);
+            MoveToSeat(targetTable.SeatPoint.position);
         }
     }
 
-    private void MoveCustomer(Vector3 target)
+    private void MoveToSeat(Vector3 targetPos)
     {
-        Vector3 pos = transform.position;
+        if (isSeated) return;
 
-        if (Mathf.Abs(target.x - pos.x) > 0.05f)
-            pos.x = Mathf.MoveTowards(pos.x, target.x, speed * Time.deltaTime);
-        else
-            pos.y = Mathf.MoveTowards(pos.y, target.y, speed * Time.deltaTime);
-        
-        transform.position = pos;
+        Vector3 currentPos = transform.position;
 
-        float distance = Vector3.Distance(transform.position, target);
-
-        if (distance <= 0.1f)
+        if (Mathf.Abs(targetPos.x - currentPos.x) > 0.05f)
         {
-            State = CustomerState.WaitForOrder;
-            Debug.Log("Customer is now waiting for their order kek");
+            currentPos.x = Mathf.MoveTowards(currentPos.x,targetPos.x,moveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            currentPos.y = Mathf.MoveTowards(currentPos.y, targetPos.y, moveSpeed * Time.deltaTime);
+        }
+
+        transform.position = currentPos;
+
+        if (Vector3.Distance(transform.position, targetPos) <= 0.1f)
+        {
+            isSeated = true;
+            Debug.Log("Customer seated.");
+            ChangeState(CustomerState.WaitForOrder);
         }
     }
-
     public void Interact()
     {
-        Debug.Log("Interacting with Customer");
-        Debug.Log("Customer current state: " + State);
+        Debug.Log($"State: {State}");
 
-        if (State != CustomerState.WaitForOrder)
+        switch (State)
         {
-            Debug.Log("Customer cannot take order right now");
-            return;
+            case CustomerState.WaitForOrder:
+                Debug.Log("Order taken.");
+                ChangeState(CustomerState.WaitingForFood);
+                break;
+
+            case CustomerState.WaitingForFood:
+                Debug.Log("Serving dish.");
+                ServeDish();
+                break;
+
+            default:
+                Debug.Log("Nothing to do");
+                break;
         }
-
-        State = CustomerState.OrderTaken;
-        Debug.Log("Order Taken");
     }
-
-    public void CustomerEating()
+    public void ServeDish()
     {
-        if (State != CustomerState.OrderTaken) return;
+        if (State != CustomerState.WaitingForFood) return;
 
-        State = CustomerState.Eating;
-        Debug.Log("Customer started eating");
+        ChangeState(CustomerState.Eating);
 
-        Invoke(nameof(Leave), 3f);
+        StartCoroutine(EatRoutine());
+
+        IEnumerator EatRoutine()
+        {
+            yield return new WaitForSeconds(eatDuration);
+
+            if (LevelManager.main != null)
+            {
+                LevelManager.main.AddIncome(incomeReward);
+            }
+
+            Leave();
+        }
     }
-
     private void Leave()
     {
-        State = CustomerState.Leaving;
-        Debug.Log("Customer is done and is leaving");
+        ChangeState(CustomerState.Leaving);
+
+        if (targetTable != null)
+        {
+            targetTable.ClearTable();
+            targetTable = null;
+        }
 
         Destroy(gameObject, 1f);
+    }
+
+    private void ChangeState(CustomerState newState)
+    {
+        State = newState;
+        Debug.Log(State);
     }
 }

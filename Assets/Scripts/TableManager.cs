@@ -3,17 +3,12 @@ using UnityEngine;
 
 public class TableManager : MonoBehaviour
 {
-    public static TableManager main;
-    public List<Table> tables;
+    public static TableManager main { get; private set; }
+
+    [SerializeField] private List<Table> tables = new List<Table>();
 
     void Awake()
     {
-        if (main != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
         main = this;
     }
 
@@ -21,8 +16,10 @@ public class TableManager : MonoBehaviour
     {
         foreach (Table table in tables)
         {
-            if (!table.isOccupied)
+            if (table != null && !table.IsOccupied)
+            {
                 return table;
+            }
         }
         return null;
     }
