@@ -15,11 +15,12 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private int currentIncome = 0;
 
-    private bool levelCompleted = false;
+    private bool levelCompleted;
 
     public int CurrentIncome => currentIncome;
     public int TargetIncome => levels[currentLevelIndex].targetIncome;
     public int CurrentDay => currentLevelIndex + 1;
+    public bool IsLevelCompleted => levelCompleted;
 
     void Awake()
     {
@@ -28,8 +29,21 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        StartDay();
+    }
+
+    public void StartDay()
+    {
         currentIncome = 0;
         levelCompleted = false;
+
+        Debug.Log($"DAY {CurrentDay} STARTED");
+
+        if (CustomerSpawner.main != null)
+        {
+            CustomerSpawner.main.ResetSpawner();
+            CustomerSpawner.main.SpawnForAvailableTables(); 
+        }
     }
 
     public void AddIncome(int amount)
@@ -37,8 +51,7 @@ public class LevelManager : MonoBehaviour
         if (levelCompleted) return;
 
         currentIncome += amount;
-
-        Debug.Log("Income updated: " + currentIncome);
+        Debug.Log($"Income: {currentIncome}");
 
         if (currentIncome >= TargetIncome)
         {
@@ -49,12 +62,8 @@ public class LevelManager : MonoBehaviour
     private void CompleteDay()
     {
         levelCompleted = true;
-
         Debug.Log("DAY COMPLETE!");
 
-        if (CustomerSpawner.main != null)
-        {
-            CustomerSpawner.main.StopSpawner();
-        }
+        CustomerSpawner.main?.StopSpawning();
     }
 }

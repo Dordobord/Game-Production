@@ -2,44 +2,77 @@ using UnityEngine;
 
 public class CustomerSpawner : MonoBehaviour
 {
-    public static CustomerSpawner main;
-    [SerializeField]private GameObject customerPrefab;
-    [SerializeField]private float spawnTimer = 5f;
+    public static CustomerSpawner main { get; private set; }
+    [SerializeField] private GameObject customerPrefab;
+    [SerializeField] private float spawnDelay = 0.5f;
 
-    bool canSpawn = true;
+    private int spawnQueue = 0;
+    private float spawnTimer;
+    private bool spawningEnabled = true;
 
     void Awake()
     {
         main = this;
     }
-    void Start()
+
+    void Update()
     {
-        InvokeRepeating(nameof(SpawnCustomer), 1f, spawnTimer);
+        if (!spawningEnabled) return;
+
+        if (spawnQueue <= 0) return;
+
+        spawnTimer += Time.deltaTime;
+
+        if (spawnTimer >= spawnDelay)
+        {
+            SpawnCustomer();
+            spawnTimer = 0f;
+            spawnQueue--;
+        }
+    }
+
+    public void SpawnForAvailableTables()
+    {
+        if (TableManager.main == null) return;
+
+        int freeTables = TableManager.main.GetFreeTableCount();
+
+        spawnQueue += freeTables;
+
+        Debug.Log($"Queued {freeTables} customers for spawn");
+    }
+
+    public void SpawnOneCustomer()
+    {
+        if (!spawningEnabled)
+            return;
+
+        spawnQueue++;
+        Debug.Log("Queued 1 customer");
     }
 
     private void SpawnCustomer()
     {
-        if (!canSpawn) return;
+        if (TableManager.main == null) return;
 
-        if (TableManager.main.GetFreeTable() == null)
-        {
-            Debug.Log("No Free tables, not spawning");
-            return;
-        }
+        if (TableManager.main.GetFreeTable() == null) return;
 
-        Debug.Log("Spawning Customer means table is free lmao");
         Instantiate(customerPrefab, transform.position, Quaternion.identity);
+        Debug.Log("Customer spawned");
     }
 
-    public void StopSpawner()
+    public void StopSpawning()
     {
-        canSpawn = false;
-        Debug.Log("Spawner is disabled");
+        spawningEnabled = false;
+        spawnQueue = 0;
+        Debug.Log("Spawner stopped");
     }
 
-    public void StartSpawner()
+    public void ResetSpawner()
     {
-        canSpawn = true;
-        Debug.Log("Spawner is enabled");
+        spawningEnabled = true;
+        spawnQueue = 0;
+        spawnTimer = 0f;
+        Debug.Log("Spawner reset");
     }
 }

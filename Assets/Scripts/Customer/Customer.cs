@@ -11,14 +11,13 @@ public class Customer : MonoBehaviour, IInteractable
 
     private Table targetTable;
     private bool isSeated;
-
     void Start()
     {
         targetTable = TableManager.main.GetFreeTable();
 
         if (targetTable == null)
         {
-            Debug.Log("No available tables.");
+            Debug.Log("No free tables available.");
             Destroy(gameObject);
             return;
         }
@@ -41,37 +40,38 @@ public class Customer : MonoBehaviour, IInteractable
 
         Vector3 currentPos = transform.position;
 
-        if (Mathf.Abs(targetPos.x - currentPos.x) > 0.05f)
+        if (Mathf.Abs(targetPos.x - currentPos.x) > 0.05f)//move x if currentPos it still away from target
         {
-            currentPos.x = Mathf.MoveTowards(currentPos.x,targetPos.x,moveSpeed * Time.deltaTime);
+            currentPos.x = Mathf.MoveTowards(currentPos.x, targetPos.x,moveSpeed * Time.deltaTime);
         }
-        else
+        else//go down if near target
         {
             currentPos.y = Mathf.MoveTowards(currentPos.y, targetPos.y, moveSpeed * Time.deltaTime);
         }
-
         transform.position = currentPos;
 
-        if (Vector3.Distance(transform.position, targetPos) <= 0.1f)
+        float distance = Vector3.Distance(transform.position, targetPos);
+        if (distance <= 0.1f)
         {
             isSeated = true;
-            Debug.Log("Customer seated.");
+            Debug.Log("Customer seated");
             ChangeState(CustomerState.WaitForOrder);
         }
     }
+
     public void Interact()
     {
-        Debug.Log($"State: {State}");
+        Debug.Log($"Customer Interaction | State: {State}");
 
         switch (State)
         {
             case CustomerState.WaitForOrder:
-                Debug.Log("Order taken.");
+                Debug.Log("Order taken");
                 ChangeState(CustomerState.WaitingForFood);
                 break;
 
             case CustomerState.WaitingForFood:
-                Debug.Log("Serving dish.");
+                Debug.Log("Serving dish (test)");
                 ServeDish();
                 break;
 
@@ -80,26 +80,28 @@ public class Customer : MonoBehaviour, IInteractable
                 break;
         }
     }
-    public void ServeDish()
+
+    private void ServeDish()
     {
-        if (State != CustomerState.WaitingForFood) return;
+        if (State != CustomerState.WaitingForFood)
+            return;
 
         ChangeState(CustomerState.Eating);
-
         StartCoroutine(EatRoutine());
-
-        IEnumerator EatRoutine()
-        {
-            yield return new WaitForSeconds(eatDuration);
-
-            if (LevelManager.main != null)
-            {
-                LevelManager.main.AddIncome(incomeReward);
-            }
-
-            Leave();
-        }
     }
+
+    private IEnumerator EatRoutine()
+    {
+        yield return new WaitForSeconds(eatDuration);
+
+        if (LevelManager.main != null)
+        {
+            LevelManager.main.AddIncome(incomeReward);
+        }
+
+        Leave();
+    }
+
     private void Leave()
     {
         ChangeState(CustomerState.Leaving);
@@ -110,12 +112,17 @@ public class Customer : MonoBehaviour, IInteractable
             targetTable = null;
         }
 
+        if (CustomerSpawner.main != null)
+        {
+            CustomerSpawner.main.SpawnOneCustomer();
+        }
+
         Destroy(gameObject, 1f);
     }
 
     private void ChangeState(CustomerState newState)
     {
         State = newState;
-        Debug.Log(State);
+        Debug.Log("Customer state changed to: " + State);
     }
 }

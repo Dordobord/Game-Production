@@ -17,10 +17,19 @@ public class TableManager : MonoBehaviour
         foreach (Table table in tables)
         {
             if (table != null && !table.IsOccupied)
-            {
                 return table;
-            }
         }
         return null;
+    }
+
+    public int GetFreeTableCount()
+    {
+        int count = 0;
+        foreach (Table table in tables)
+        {
+            if (table != null && !table.IsOccupied)
+                count++;
+        }
+        return count;
     }
 }
