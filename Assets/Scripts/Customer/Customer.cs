@@ -1,18 +1,29 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class Customer : MonoBehaviour, IInteractable
 {
-    [SerializeField] private float moveSpeed = 2f;
-    [SerializeField] private float eatDuration = 5f;
-    [SerializeField] private int incomeReward = 50;
+    [SerializeField]private float moveSpeed = 2f;
+    [SerializeField]private float eatDuration = 5f;
+    [SerializeField]private int incomeReward = 50;
+    [SerializeField]private float orderTimer = 15f;
+    [SerializeField]private float serveTimer = 15f;
+    [SerializeField]private float warningTimer = 5f;
+    [SerializeField]private int penalty = 20;
 
     public CustomerState State { get; private set; }
 
     private Table targetTable;
+    private SpriteRenderer sr;
+    private Color origCol;
+    private float patienceTimer;
     private bool isSeated;
     void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
+        origCol = sr.color;
+
         targetTable = TableManager.main.GetFreeTable();
 
         if (targetTable == null)
@@ -31,6 +42,11 @@ public class Customer : MonoBehaviour, IInteractable
         if (State == CustomerState.WalkToTable && targetTable != null)
         {
             MoveToSeat(targetTable.SeatPoint.position);
+        }
+
+        if (State == CustomerState.WaitForOrder || State == CustomerState.WaitingForFood)
+        {
+            Patience();
         }
     }
 
@@ -54,14 +70,14 @@ public class Customer : MonoBehaviour, IInteractable
         if (distance <= 0.1f)
         {
             isSeated = true;
-            Debug.Log("Customer seated");
+            Debug.Log("Customer is seated");
             ChangeState(CustomerState.WaitForOrder);
         }
     }
 
     public void Interact()
     {
-        Debug.Log($"Customer Interaction | State: {State}");
+        Debug.Log($"Customer State: {State}");
 
         switch (State)
         {
@@ -81,10 +97,31 @@ public class Customer : MonoBehaviour, IInteractable
         }
     }
 
+    private void Patience()
+    {
+        patienceTimer -= Time.deltaTime;
+
+        if (patienceTimer <= warningTimer)
+        {
+            sr.color = Color.red;
+        }
+
+        if (patienceTimer <= 0)
+        {
+            FailToServe();
+        }
+    }
+
+    private void FailToServe()
+    {
+        Debug.Log("Failed to server customer womp womp");
+        LevelManager.main?.AddIncome(-penalty);
+        Leave();
+    }
+
     private void ServeDish()
     {
-        if (State != CustomerState.WaitingForFood)
-            return;
+        if (State != CustomerState.WaitingForFood) return;
 
         ChangeState(CustomerState.Eating);
         StartCoroutine(EatRoutine());
@@ -123,6 +160,17 @@ public class Customer : MonoBehaviour, IInteractable
     private void ChangeState(CustomerState newState)
     {
         State = newState;
-        Debug.Log("Customer state changed to: " + State);
+
+        sr.color = origCol; //resets color
+        
+        switch (newState)
+        {
+            case CustomerState.WaitForOrder:
+                patienceTimer = orderTimer;
+                break;
+            case CustomerState.WaitingForFood:
+                patienceTimer = serveTimer;
+                break;
+        }
     }
 }
