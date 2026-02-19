@@ -41,5 +41,23 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Structure
+    uniqueID: 205875543
+    locked: 0
+  - name: Furniture
+    uniqueID: 950663081
+    locked: 0
+  - name: Chair
+    uniqueID: 4035658547
+    locked: 0
+  - name: KitchenStation
+    uniqueID: 577651497
+    locked: 0
+  - name: UI
+    uniqueID: 1409648099
+    locked: 0
+  - name: Player
+    uniqueID: 3337656527
+    locked: 0
   m_RenderingLayers:
   - Default

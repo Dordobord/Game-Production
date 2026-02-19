@@ -1,0 +1,1365 @@
+fileFormatVersion: 2
+guid: e028ab34ee675c9478a374af524aa866
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 404931356017359144
+    second: BackTrackDinnerCharacters_0
+  - first:
+      213: -53805199861553953
+    second: BackTrackDinnerCharacters_1
+  - first:
+      213: 847622177482227595
+    second: BackTrackDinnerCharacters_2
+  - first:
+      213: 1356606036891643474
+    second: BackTrackDinnerCharacters_3
+  - first:
+      213: 3490619578442399035
+    second: BackTrackDinnerCharacters_4
+  - first:
+      213: 8031075220763093672
+    second: BackTrackDinnerCharacters_5
+  - first:
+      213: 3497515019643128323
+    second: BackTrackDinnerCharacters_6
+  - first:
+      213: 3367413813567972228
+    second: BackTrackDinnerCharacters_7
+  - first:
+      213: -8403323154063016082
+    second: BackTrackDinnerCharacters_8
+  - first:
+      213: -1089486756907491234
+    second: BackTrackDinnerCharacters_9
+  - first:
+      213: -1829444519279771442
+    second: BackTrackDinnerCharacters_10
+  - first:
+      213: 7089323188222573103
+    second: BackTrackDinnerCharacters_11
+  - first:
+      213: -1018337143779651978
+    second: BackTrackDinnerCharacters_12
+  - first:
+      213: 3208554294394614485
+    second: BackTrackDinnerCharacters_13
+  - first:
+      213: 1745108631978761262
+    second: BackTrackDinnerCharacters_14
+  - first:
+      213: -4744960559484647382
+    second: BackTrackDinnerCharacters_15
+  - first:
+      213: -4993203750846601226
+    second: BackTrackDinnerCharacters_16
+  - first:
+      213: -7577372226924087369
+    second: BackTrackDinnerCharacters_17
+  - first:
+      213: 7013779232274189879
+    second: BackTrackDinnerCharacters_18
+  - first:
+      213: 334142368345892088
+    second: BackTrackDinnerCharacters_19
+  - first:
+      213: 5843796308773022316
+    second: BackTrackDinnerCharacters_20
+  - first:
+      213: 2543366523556476099
+    second: BackTrackDinnerCharacters_21
+  - first:
+      213: 4699541808945752020
+    second: BackTrackDinnerCharacters_22
+  - first:
+      213: -9058857597802356317
+    second: BackTrackDinnerCharacters_23
+  - first:
+      213: -8997043553997116443
+    second: BackTrackDinnerCharacters_24
+  - first:
+      213: -4804377824531786362
+    second: BackTrackDinnerCharacters_25
+  - first:
+      213: -396829023573841172
+    second: BackTrackDinnerCharacters_26
+  - first:
+      213: 1452153634698319677
+    second: BackTrackDinnerCharacters_27
+  - first:
+      213: -1839371104962191281
+    second: BackTrackDinnerCharacters_28
+  - first:
+      213: -7160764187978906573
+    second: BackTrackDinnerCharacters_29
+  - first:
+      213: -1814130581651199291
+    second: BackTrackDinnerCharacters_30
+  - first:
+      213: 6175233619134829880
+    second: BackTrackDinnerCharacters_31
+  - first:
+      213: -715780580553016839
+    second: BackTrackDinnerCharacters_32
+  - first:
+      213: -7915529519753083907
+    second: BackTrackDinnerCharacters_33
+  - first:
+      213: 5691736225124218029
+    second: BackTrackDinnerCharacters_34
+  - first:
+      213: -1075507972498114402
+    second: BackTrackDinnerCharacters_35
+  - first:
+      213: 328094683921338827
+    second: BackTrackDinnerCharacters_36
+  - first:
+      213: -8800283792307166301
+    second: BackTrackDinnerCharacters_37
+  - first:
+      213: 3464813553505879929
+    second: BackTrackDinnerCharacters_38
+  - first:
+      213: -4750002481618662263
+    second: BackTrackDinnerCharacters_39
+  - first:
+      213: 2811574874942394376
+    second: BackTrackDinnerCharacters_40
+  - first:
+      213: 8262943320583375340
+    second: BackTrackDinnerCharacters_41
+  - first:
+      213: -5803386614863446344
+    second: BackTrackDinnerCharacters_42
+  - first:
+      213: -4432339312394466858
+    second: BackTrackDinnerCharacters_43
+  - first:
+      213: 5844532987924121035
+    second: BackTrackDinnerCharacters_44
+  - first:
+      213: -1978800311402854684
+    second: BackTrackDinnerCharacters_45
+  - first:
+      213: -4772281795151332203
+    second: BackTrackDinnerCharacters_46
+  - first:
+      213: -1541863312719690825
+    second: BackTrackDinnerCharacters_47
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 352
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 829f4d14cea9e9500800000000000000
+      internalID: 404931356017359144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 352
+        width: 11
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd4ee2fa478d04ff0800000000000000
+      internalID: -53805199861553953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_2
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 352
+        width: 11
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8f329821eb53cb00800000000000000
+      internalID: 847622177482227595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_3
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 352
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25ea311c002a3d210800000000000000
+      internalID: 1356606036891643474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_4
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 320
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3d3513330c217030800000000000000
+      internalID: 3490619578442399035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_5
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 320
+        width: 11
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8aaa602ec5c147f60800000000000000
+      internalID: 8031075220763093672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_6
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 320
+        width: 11
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30a0c66316ba98030800000000000000
+      internalID: 3497515019643128323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_7
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 320
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4836679a5057bbe20800000000000000
+      internalID: 3367413813567972228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_8
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 288
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6f32453d16616b80800000000000000
+      internalID: -8403323154063016082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_9
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 256
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e506903219d51e0f0800000000000000
+      internalID: -1089486756907491234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_10
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 288
+        width: 12
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec04b0c07e18c96e0800000000000000
+      internalID: -1829444519279771442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_11
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 256
+        width: 14
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2a32fbf0e5526260800000000000000
+      internalID: 7089323188222573103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_12
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 256
+        width: 14
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67e8d6b53c32ed1f0800000000000000
+      internalID: -1018337143779651978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_13
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 288
+        width: 12
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d2f1ff8123178c20800000000000000
+      internalID: 3208554294394614485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_14
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 288
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2cdf870e0fd73810800000000000000
+      internalID: 1745108631978761262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_15
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 256
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a28cda2d283862eb0800000000000000
+      internalID: -4744960559484647382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_16
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 224
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f7e3abc4a394bab0800000000000000
+      internalID: -4993203750846601226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_17
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 224
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b777433b14c7d690800000000000000
+      internalID: -7577372226924087369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_18
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 224
+        width: 15
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73e07b81d03f55160800000000000000
+      internalID: 7013779232274189879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_19
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 224
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f42aa1b6bc13a400800000000000000
+      internalID: 334142368345892088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_20
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 192
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6aa724f7c5591150800000000000000
+      internalID: 5843796308773022316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_21
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 192
+        width: 13
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c4343ab06adb4320800000000000000
+      internalID: 2543366523556476099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_22
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 192
+        width: 13
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d7ee414060283140800000000000000
+      internalID: 4699541808945752020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_23
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 192
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a1642cb209784280800000000000000
+      internalID: -9058857597802356317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_24
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 160
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5eba8475e84142380800000000000000
+      internalID: -8997043553997116443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_25
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 160
+        width: 12
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 685d402c2db635db0800000000000000
+      internalID: -4804377824531786362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_26
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 160
+        width: 12
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ceae0550b1e2e7af0800000000000000
+      internalID: -396829023573841172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_27
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 160
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d375c737906172410800000000000000
+      internalID: 1452153634698319677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_28
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 128
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f406c96b9bd3976e0800000000000000
+      internalID: -1839371104962191281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_29
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 128
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 334cd2f09eadf9c90800000000000000
+      internalID: -7160764187978906573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_30
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 128
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cae18009d9e2d6e0800000000000000
+      internalID: -1814130581651199291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_31
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 128
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 835d4914246d2b550800000000000000
+      internalID: 6175233619134829880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_32
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 96
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f9b307ba590116f0800000000000000
+      internalID: -715780580553016839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_33
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 96
+        width: 15
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df3cffd07d3662290800000000000000
+      internalID: -7915529519753083907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_34
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 96
+        width: 15
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da470cdc0fb1dfe40800000000000000
+      internalID: 5691736225124218029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_35
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 96
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e98362282370311f0800000000000000
+      internalID: -1075507972498114402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_36
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 64
+        width: 16
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc153df6060ad8400800000000000000
+      internalID: 328094683921338827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_37
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 64
+        width: 15
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a367ec448c1fd580800000000000000
+      internalID: -8800283792307166301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_38
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 64
+        width: 15
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9774dadc19d751030800000000000000
+      internalID: 3464813553505879929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_39
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 64
+        width: 16
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98c45e8d8e9941eb0800000000000000
+      internalID: -4750002481618662263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_40
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 32
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 800da50d378b40720800000000000000
+      internalID: 2811574874942394376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_41
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 16
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce90f8ecb2fdba270800000000000000
+      internalID: 8262943320583375340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_42
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 32
+        width: 13
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bebec61f9a367fa0800000000000000
+      internalID: -5803386614863446344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_43
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 0
+        width: 12
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d98ab001ea2d72c0800000000000000
+      internalID: -4432339312394466858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_44
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 32
+        width: 13
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc5054f69c3fb1150800000000000000
+      internalID: 5844532987924121035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_45
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 0
+        width: 12
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e68665d993e984e0800000000000000
+      internalID: -1978800311402854684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_46
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 32
+        width: 16
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59cf0ffedf275cdb0800000000000000
+      internalID: -4772281795151332203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackTrackDinnerCharacters_47
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 0
+        width: 16
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b3c2297c733a9ae0800000000000000
+      internalID: -1541863312719690825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BackTrackDinnerCharacters_0: 404931356017359144
+      BackTrackDinnerCharacters_1: -53805199861553953
+      BackTrackDinnerCharacters_10: -1829444519279771442
+      BackTrackDinnerCharacters_11: 7089323188222573103
+      BackTrackDinnerCharacters_12: -1018337143779651978
+      BackTrackDinnerCharacters_13: 3208554294394614485
+      BackTrackDinnerCharacters_14: 1745108631978761262
+      BackTrackDinnerCharacters_15: -4744960559484647382
+      BackTrackDinnerCharacters_16: -4993203750846601226
+      BackTrackDinnerCharacters_17: -7577372226924087369
+      BackTrackDinnerCharacters_18: 7013779232274189879
+      BackTrackDinnerCharacters_19: 334142368345892088
+      BackTrackDinnerCharacters_2: 847622177482227595
+      BackTrackDinnerCharacters_20: 5843796308773022316
+      BackTrackDinnerCharacters_21: 2543366523556476099
+      BackTrackDinnerCharacters_22: 4699541808945752020
+      BackTrackDinnerCharacters_23: -9058857597802356317
+      BackTrackDinnerCharacters_24: -8997043553997116443
+      BackTrackDinnerCharacters_25: -4804377824531786362
+      BackTrackDinnerCharacters_26: -396829023573841172
+      BackTrackDinnerCharacters_27: 1452153634698319677
+      BackTrackDinnerCharacters_28: -1839371104962191281
+      BackTrackDinnerCharacters_29: -7160764187978906573
+      BackTrackDinnerCharacters_3: 1356606036891643474
+      BackTrackDinnerCharacters_30: -1814130581651199291
+      BackTrackDinnerCharacters_31: 6175233619134829880
+      BackTrackDinnerCharacters_32: -715780580553016839
+      BackTrackDinnerCharacters_33: -7915529519753083907
+      BackTrackDinnerCharacters_34: 5691736225124218029
+      BackTrackDinnerCharacters_35: -1075507972498114402
+      BackTrackDinnerCharacters_36: 328094683921338827
+      BackTrackDinnerCharacters_37: -8800283792307166301
+      BackTrackDinnerCharacters_38: 3464813553505879929
+      BackTrackDinnerCharacters_39: -4750002481618662263
+      BackTrackDinnerCharacters_4: 3490619578442399035
+      BackTrackDinnerCharacters_40: 2811574874942394376
+      BackTrackDinnerCharacters_41: 8262943320583375340
+      BackTrackDinnerCharacters_42: -5803386614863446344
+      BackTrackDinnerCharacters_43: -4432339312394466858
+      BackTrackDinnerCharacters_44: 5844532987924121035
+      BackTrackDinnerCharacters_45: -1978800311402854684
+      BackTrackDinnerCharacters_46: -4772281795151332203
+      BackTrackDinnerCharacters_47: -1541863312719690825
+      BackTrackDinnerCharacters_5: 8031075220763093672
+      BackTrackDinnerCharacters_6: 3497515019643128323
+      BackTrackDinnerCharacters_7: 3367413813567972228
+      BackTrackDinnerCharacters_8: -8403323154063016082
+      BackTrackDinnerCharacters_9: -1089486756907491234
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
