@@ -13,22 +13,29 @@ public class AssemblyStation : MonoBehaviour, IInteractable
 
     private PlayerInventory playerInventory;
 
-    [System.Obsolete]
-    void Start()
+    private PlayerInventory GetInventory()
     {
-        playerInventory = FindObjectOfType<PlayerInventory>();
+        if (playerInventory == null)
+            playerInventory = PlayerInventory.main;
+
+        return playerInventory;
     }
 
     public void Interact()
     {
-        if (playerInventory == null)
+        PlayerInventory inv = GetInventory();
+
+        if (inv == null)
+        {
+            Debug.LogError("PlayerInventory not found");
             return;
+        }
 
         foreach (Recipe recipe in recipes)
         {
-            if (CanCraft(recipe))
+            if (CanCraft(recipe, inv))
             {
-                Craft(recipe);
+                Craft(recipe, inv);
                 return;
             }
         }
@@ -36,28 +43,28 @@ public class AssemblyStation : MonoBehaviour, IInteractable
         Debug.Log("No matching recipe.");
     }
 
-    private bool CanCraft(Recipe recipe)
+    private bool CanCraft(Recipe recipe, PlayerInventory inv)
     {
+        if (recipe == null || recipe.requiredItems == null)
+            return false;
+
         foreach (ItemType item in recipe.requiredItems)
         {
-            if (!playerInventory.HasItem(item))
+            if (!inv.HasItem(item))
                 return false;
         }
+
         return true;
     }
 
-    private void Craft(Recipe recipe)
+    private void Craft(Recipe recipe, PlayerInventory inv)
     {
         foreach (ItemType item in recipe.requiredItems)
-        {
-            playerInventory.RemoveItem(item);
-        }
+            inv.RemoveItem(item);
 
-        bool added = playerInventory.AddItem(recipe.resultItem);
-
-        if (added)
-            Debug.Log("Crafted " + recipe.resultItem);
+        if (inv.AddItem(recipe.resultItem))
+            Debug.Log("Crafted: " + recipe.resultItem);
         else
-            Debug.Log("Inventory full! Could not craft.");
+            Debug.Log("Inventory full!");
     }
 }

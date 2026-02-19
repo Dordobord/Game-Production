@@ -165,4 +165,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90029726a46847c48b1ae298d423d444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  customerTextPrefab: {fileID: 696448282187332269, guid: a7a91670bdbaeaf4580c42ac468ede19, type: 3}
+  menuList: 090000000a0000000b000000
+  moveSpeed: 2
+  orderTimer: 30
+  serveTimer: 30
+  warningTimer: 5
+  reward: 50
+  penalty: 20
