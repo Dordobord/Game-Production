@@ -184,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fridge 1_0: 5597406549828049875
+      Fridge 1_1: 3586173177539600448
+      Fridge 1_2: 8464218006373908256
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

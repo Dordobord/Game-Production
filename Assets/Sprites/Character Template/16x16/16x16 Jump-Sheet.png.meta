@@ -734,7 +734,32 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      16x16 Jump-Sheet_0: -8277007878375336819
+      16x16 Jump-Sheet_1: -7899083497869600683
+      16x16 Jump-Sheet_10: -3693001974973092368
+      16x16 Jump-Sheet_11: -1404447370479586324
+      16x16 Jump-Sheet_12: -7378128766488785602
+      16x16 Jump-Sheet_13: 4698917043849897302
+      16x16 Jump-Sheet_14: 492967604716057088
+      16x16 Jump-Sheet_15: -7085304085497838694
+      16x16 Jump-Sheet_16: -4268391605517001169
+      16x16 Jump-Sheet_17: -1499411823324756306
+      16x16 Jump-Sheet_18: 3533513349390328511
+      16x16 Jump-Sheet_19: -3007187359999506061
+      16x16 Jump-Sheet_2: 4798983448856988895
+      16x16 Jump-Sheet_20: 6542922940031730220
+      16x16 Jump-Sheet_21: 3454945892918667742
+      16x16 Jump-Sheet_22: -667539056855958484
+      16x16 Jump-Sheet_23: 5978098417050646717
+      16x16 Jump-Sheet_24: 2245254565247303759
+      16x16 Jump-Sheet_3: 5121958853196551758
+      16x16 Jump-Sheet_4: -6980863979844613439
+      16x16 Jump-Sheet_5: 592168194714359432
+      16x16 Jump-Sheet_6: -6944455256065657465
+      16x16 Jump-Sheet_7: 4575761431172836170
+      16x16 Jump-Sheet_8: 5744197743064689200
+      16x16 Jump-Sheet_9: 4952435138353748226
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
