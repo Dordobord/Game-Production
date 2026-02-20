@@ -56,4 +56,10 @@ public class PlayerMovement : MonoBehaviour
         input.Normalize();
     }
 
+    public void AllowMovement(bool canMove)
+    {
+        enabled = canMove;
+        _rb.linearVelocity = Vector2.zero;
+    }
+
 }

@@ -97,6 +97,8 @@ public class Customer : MonoBehaviour, IInteractable
 
         if (worldText != null)
             worldText.text = orderedItem.ToString();
+        
+        TutorialManager.main?.OnOrderTaken();
     }
 
     private void ServeFood()
@@ -112,6 +114,8 @@ public class Customer : MonoBehaviour, IInteractable
         inv.RemoveItem(orderedItem);
 
         State = CustomerState.Eating;
+
+        sr.color = origCol;
 
         if (worldText != null)
             worldText.text = "";
@@ -173,15 +177,19 @@ public class Customer : MonoBehaviour, IInteractable
     private IEnumerator EatingRoutine()
     {
         yield return new WaitForSeconds(5f);
+
         LevelManager.main?.AddIncome(reward);
         LevelManager.main?.AddExp(expReward);
+
+        TutorialManager.main?.OnCustomerServed();
+
         Leave();
     }
 
     private void FailCustomer()
     {
         LevelManager.main?.AddIncome(-penalty);
-        LevelManager.main?.AddIncome(-expPenalty);
+        LevelManager.main?.AddExp(-expPenalty);
         Leave();
     }
 

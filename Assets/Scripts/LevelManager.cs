@@ -10,19 +10,22 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager main { get; private set; }
 
+    [Header("Level Settings")]
     [SerializeField] private LevelData[] levels;
     [SerializeField] private int currentLevelIndex = 0;
-    [SerializeField] private int currentIncome = 0;
-    [SerializeField] private int currentExp = 0;
 
+    [Header("References")]
+    [SerializeField] private DayTimer dayManager;
 
-    private bool levelCompleted;
+    private int currentIncome;
+    private int currentExp;
+    private bool dayEnded;
 
     public int CurrentIncome => currentIncome;
     public int TargetIncome => levels[currentLevelIndex].targetIncome;
     public int CurrentDay => currentLevelIndex + 1;
-    public bool IsLevelCompleted => levelCompleted;
     public int CurrentExp => currentExp;
+    public bool IsDayEnded => dayEnded;
 
     void Awake()
     {
@@ -38,38 +41,38 @@ public class LevelManager : MonoBehaviour
     {
         currentIncome = 0;
         currentExp = 0;
-        levelCompleted = false;
+        dayEnded = false;
 
         Debug.Log($"DAY {CurrentDay} STARTED");
 
-        if (CustomerSpawner.main != null)
-        {
-            CustomerSpawner.main.ResetSpawner();
-            CustomerSpawner.main.SpawnForAvailableTables();
-        }
+        dayManager.StartTimer();
+
+        CustomerSpawner.main?.ResetSpawner();
+        CustomerSpawner.main?.SpawnForAvailableTables();
+
+        Object.FindAnyObjectByType<PlayerMovement>()?.AllowMovement(true);
+    }
+
+    public void EndDay()
+    {
+        if (dayEnded) return;
+
+        dayEnded = true;
+        Debug.Log("DAY ENDED");
+
+        CustomerSpawner.main?.StopSpawning();
+        Object.FindAnyObjectByType<PlayerMovement>()?.AllowMovement(false);
     }
 
     public void AddIncome(int amount)
     {
-        if (levelCompleted) return;
-
-        currentIncome = Mathf.Max(0, currentIncome + amount);
-
-        if (currentIncome >= TargetIncome)
-        {
-            CompleteDay();
-        }
+        if (dayEnded) return;
+        currentIncome += amount;
     }
 
     public void AddExp(int amount)
     {
-        currentExp = Mathf.Max(0, currentExp + amount);
-    }
-    private void CompleteDay()
-    {
-        levelCompleted = true;
-        Debug.Log("DAY COMPLETE!");
-
-        CustomerSpawner.main?.StopSpawning();
+        if (dayEnded) return;
+        currentExp += amount;
     }
 }

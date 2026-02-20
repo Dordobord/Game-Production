@@ -64,7 +64,10 @@ public class AssemblyStation : MonoBehaviour, IInteractable
             inv.RemoveItem(item);
 
         if (inv.AddItem(recipe.resultItem))
+        {
             Debug.Log("Crafted: " + recipe.resultItem);
+            TutorialManager.main?.OnFoodAssembled();
+        }
         else
             Debug.Log("Inventory full!");
     }

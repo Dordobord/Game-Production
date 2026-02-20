@@ -64,6 +64,6 @@ public class UICookbook : MonoBehaviour
             if (i < recipe.requiredItems.Length - 1) ingredients += " + ";
         }
 
-        return ingredients + "  ->  " + recipe.resultItem;
+        return ingredients + " = " + recipe.resultItem;
     }
 }
