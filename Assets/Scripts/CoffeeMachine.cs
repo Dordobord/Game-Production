@@ -7,6 +7,8 @@ public class CoffeeMachine : MonoBehaviour, IInteractable
 
     private bool isBrewing = false;
     private bool coffeeReady = false;
+    private Color origCol;
+    private SpriteRenderer sr;
 
     private PlayerInventory playerInventory;
 
@@ -14,6 +16,9 @@ public class CoffeeMachine : MonoBehaviour, IInteractable
     void Start()
     {
         playerInventory = FindObjectOfType<PlayerInventory>();
+        sr = GetComponent<SpriteRenderer>();
+
+        origCol = sr.color;
     }
 
     public void Interact()
@@ -50,13 +55,14 @@ public class CoffeeMachine : MonoBehaviour, IInteractable
     private IEnumerator BrewCoffee()
     {
         isBrewing = true;
+        sr.color = Color.blue;
         Debug.Log("Brewing coffee...");
 
         yield return new WaitForSeconds(brewTime);
 
         isBrewing = false;
         coffeeReady = true;
-
+        sr.color = origCol;
         Debug.Log("Coffee is ready!");
     }
 }

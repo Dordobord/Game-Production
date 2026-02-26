@@ -9,17 +9,17 @@ public class LevelData
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager main { get; private set; }
-
-    [Header("Level Settings")]
     [SerializeField] private LevelData[] levels;
     [SerializeField] private int currentLevelIndex = 0;
 
-    [Header("References")]
-    [SerializeField] private DayTimer dayManager;
+    [SerializeField] private DayTimer dayTimer; //reference
 
     private int currentIncome;
     private int currentExp;
     private bool dayEnded;
+
+    private PlayerMovement playerMovement;
+    private PlayerStats playerStats;
 
     public int CurrentIncome => currentIncome;
     public int TargetIncome => levels[currentLevelIndex].targetIncome;
@@ -34,8 +34,12 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        playerMovement = Object.FindAnyObjectByType<PlayerMovement>();
+        playerStats = Object.FindAnyObjectByType<PlayerStats>();
+
         StartDay();
     }
+
 
     public void StartDay()
     {
@@ -45,12 +49,12 @@ public class LevelManager : MonoBehaviour
 
         Debug.Log($"DAY {CurrentDay} STARTED");
 
-        dayManager.StartTimer();
+        dayTimer?.StartTimer();
 
         CustomerSpawner.main?.ResetSpawner();
         CustomerSpawner.main?.SpawnForAvailableTables();
 
-        Object.FindAnyObjectByType<PlayerMovement>()?.AllowMovement(true);
+        playerMovement?.AllowMovement(true);
     }
 
     public void EndDay()
@@ -61,18 +65,21 @@ public class LevelManager : MonoBehaviour
         Debug.Log("DAY ENDED");
 
         CustomerSpawner.main?.StopSpawning();
-        Object.FindAnyObjectByType<PlayerMovement>()?.AllowMovement(false);
+        playerMovement?.AllowMovement(false);
     }
 
     public void AddIncome(int amount)
     {
         if (dayEnded) return;
+
         currentIncome += amount;
     }
 
     public void AddExp(int amount)
     {
         if (dayEnded) return;
+
         currentExp += amount;
+        playerStats?.AddExp(amount);
     }
 }

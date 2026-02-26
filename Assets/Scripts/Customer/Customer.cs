@@ -23,20 +23,20 @@ public class Customer : MonoBehaviour, IInteractable
     [Header("Economy")]
     [SerializeField] private int reward = 50;
     [SerializeField] private int penalty = 20;
-    [SerializeField] private int expReward = 20;
+    [SerializeField] private int expReward = 50;
     [SerializeField] private int expPenalty = 20;
 
     public CustomerState State { get; private set; }
 
-    private Table table;
     private bool isSeated;
     private float patienceTimer;
-
+    private Table table;
     private SpriteRenderer sr;
     private Color origCol;
-
     private TextMeshProUGUI worldText;
     private Coroutine orderPromptCor;
+    private Transform[] path;
+    private int currentpathIndex;
 
     private void Start()
     {
@@ -54,6 +54,13 @@ public class Customer : MonoBehaviour, IInteractable
 
         table.AssignCustomer(this);
         State = CustomerState.WalkToTable;
+
+        SeatPath seatPath = table.GetComponent<SeatPath>();
+        if (seatPath != null && seatPath.Waypoints != null && seatPath.Waypoints.Length > 0)
+        {
+            path = seatPath.Waypoints;
+            currentpathIndex = 0;
+        }
 
         SpawnCustomerText();
     }
@@ -127,23 +134,31 @@ public class Customer : MonoBehaviour, IInteractable
     {
         if (isSeated) return;
 
+        if (path != null && currentpathIndex < path.Length)
+        {
+            MoveTo(path[currentpathIndex].position);
+
+            if ((transform.position - path[currentpathIndex].position).sqrMagnitude < 0.01f) currentpathIndex++;
+            
+            return;
+        }
+
         Vector3 target = table.SeatPoint.position;
-        Vector3 currentPos = transform.position;
+        MoveTo(target);
 
-        if (Mathf.Abs(target.x - currentPos.x) > 0.05f)
-            currentPos.x = Mathf.MoveTowards(currentPos.x, target.x, moveSpeed * Time.deltaTime);
-        else
-            currentPos.y = Mathf.MoveTowards(currentPos.y, target.y, moveSpeed * Time.deltaTime);
-
-        transform.position = currentPos;
-
-        float distance = Vector3.Distance(transform.position, target);
-
-        if (distance <= 0.1f)
+        if ((transform.position - target).sqrMagnitude < 0.01f)
         {
             isSeated = true;
             EnterWaitForOrder();
         }
+    }
+
+    private void MoveTo(Vector3 target)
+    {
+        Vector3 currentPos = transform.position;
+        currentPos.x = Mathf.MoveTowards(currentPos.x, target.x, moveSpeed * Time.deltaTime);
+        currentPos.y = Mathf.MoveTowards(currentPos.y, target.y, moveSpeed * Time.deltaTime);
+        transform.position = currentPos;
     }
 
     private void EnterWaitForOrder()

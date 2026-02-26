@@ -65,7 +65,7 @@ public class TutorialManager : MonoBehaviour
         switch (currentStep)
         {
             case TutorialStep.GetOrder:
-                tutorialText.text = "Step 1 : Talk to the customer to take their order.";
+                tutorialText.text = "Step 1 : Talk to the customer to take their order.\n W,A,S,D, & [E] Interact";
                 break;
 
             case TutorialStep.PrepareFood:

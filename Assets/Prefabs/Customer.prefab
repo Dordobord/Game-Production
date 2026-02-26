@@ -173,5 +173,5 @@ MonoBehaviour:
   warningTimer: 5
   reward: 50
   penalty: 20
-  expReward: 20
+  expReward: 50
   expPenalty: 20

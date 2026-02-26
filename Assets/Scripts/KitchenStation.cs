@@ -12,14 +12,18 @@ public class KitchenStation : MonoBehaviour, IInteractable
 
 
     private bool isProcessing = false;
+    private Color origCol;
     private ItemType? currentItem = null;
-
+    private SpriteRenderer sr;
     private PlayerInventory playerInventory;
 
     [System.Obsolete]
     void Start()
     {
         playerInventory = FindObjectOfType<PlayerInventory>();
+        sr = GetComponent<SpriteRenderer>();
+
+        origCol = sr.color;
     }
 
     public void Interact()
@@ -78,13 +82,14 @@ public class KitchenStation : MonoBehaviour, IInteractable
     private IEnumerator ProcessItem()
     {
         isProcessing = true;
+        sr.color = Color.blue;
         Debug.Log("Processing " + inputItem + "...");
 
         yield return new WaitForSeconds(processingTime);
 
         currentItem = outputItem;
         isProcessing = false;
-
+        sr.color = origCol;
         Debug.Log("Finished " + outputItem + "!");
     }
 }

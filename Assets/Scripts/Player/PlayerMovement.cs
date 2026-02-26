@@ -1,8 +1,8 @@
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
-{
-    [SerializeField] private float speed = 10f;
+{   
+    private PlayerStats stats;
     private Rigidbody2D _rb;
     private Animator _anim;
     private bool moving;
@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb = GetComponentInChildren<Rigidbody2D>();
         _anim = GetComponentInChildren<Animator>();
+        stats = GetComponent<PlayerStats>();
     }
 
     void Update()
@@ -24,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        _rb.linearVelocity = input * speed;
+        _rb.linearVelocity = input * stats.MoveSpeed;
     }
 
     private void WalkAnimation()
