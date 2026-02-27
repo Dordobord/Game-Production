@@ -1153,6 +1153,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4278190080
       objectReference: {fileID: 0}
+    - target: {fileID: 1021089051707030887, guid: 60899da7ecf3de34e95198cad3e03758, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2609027264447857437, guid: 60899da7ecf3de34e95198cad3e03758, type: 3}
       propertyPath: m_SortingLayerID
       value: 1409648099
@@ -1873,7 +1877,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 950663081
   m_SortingLayer: 4
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.03333336, y: 0.03333336, z: 0}
   m_MaxChunkCount: 16
@@ -17682,6 +17686,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4278190080
       objectReference: {fileID: 0}
+    - target: {fileID: 2737116193508330925, guid: bbe3dab4472bceb488c6bb0b66cfef66, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5381110772419344851, guid: bbe3dab4472bceb488c6bb0b66cfef66, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -18609,7 +18617,7 @@ PrefabInstance:
       objectReference: {fileID: -4447327762876398091, guid: 4d4b090fb1feb4142ac725e1005b62a3, type: 3}
     - target: {fileID: 4802431967981623600, guid: 8cfcc14152b15e4489802b8d9d5d3444, type: 3}
       propertyPath: m_SortingLayer
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4802431967981623600, guid: 8cfcc14152b15e4489802b8d9d5d3444, type: 3}
       propertyPath: m_SortingOrder
@@ -18617,7 +18625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4802431967981623600, guid: 8cfcc14152b15e4489802b8d9d5d3444, type: 3}
       propertyPath: m_SortingLayerID
-      value: -957310769
+      value: 1409648099
       objectReference: {fileID: 0}
     - target: {fileID: 4802431967981623600, guid: 8cfcc14152b15e4489802b8d9d5d3444, type: 3}
       propertyPath: m_WasSpriteAssigned
@@ -18716,7 +18724,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1900100933
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20240,6 +20248,10 @@ PrefabInstance:
     - target: {fileID: 4275879194286212091, guid: c8ceb8ac0aad9ac408df6ce7d39fbd11, type: 3}
       propertyPath: m_SortingLayerID
       value: 1409648099
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196949931116997805, guid: c8ceb8ac0aad9ac408df6ce7d39fbd11, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8073073252501173533, guid: c8ceb8ac0aad9ac408df6ce7d39fbd11, type: 3}
       propertyPath: m_Name
