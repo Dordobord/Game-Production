@@ -44,8 +44,17 @@ TagManager:
   - name: Structure
     uniqueID: 205875543
     locked: 0
+  - name: Customer
+    uniqueID: 2146890629
+    locked: 0
+  - name: Player
+    uniqueID: 3337656527
+    locked: 0
   - name: Furniture
     uniqueID: 950663081
+    locked: 0
+  - name: CoffeeStation
+    uniqueID: 2673711191
     locked: 0
   - name: Chair
     uniqueID: 4035658547
@@ -53,11 +62,14 @@ TagManager:
   - name: KitchenStation
     uniqueID: 577651497
     locked: 0
+  - name: CounterWall
+    uniqueID: 451278205
+    locked: 0
+  - name: Baricade
+    uniqueID: 4138958835
+    locked: 0
   - name: UI
     uniqueID: 1409648099
-    locked: 0
-  - name: Player
-    uniqueID: 3337656527
     locked: 0
   m_RenderingLayers:
   - Default

@@ -1,0 +1,819 @@
+fileFormatVersion: 2
+guid: c2596a69190088b4aa74450964845aab
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6333003568599237631
+    second: BTD_CoffeeMachine_Animations_0
+  - first:
+      213: 2234101984447259949
+    second: BTD_CoffeeMachine_Animations_1
+  - first:
+      213: 2509085346906914135
+    second: BTD_CoffeeMachine_Animations_2
+  - first:
+      213: 6695163237741447491
+    second: BTD_CoffeeMachine_Animations_3
+  - first:
+      213: -1881027706212715058
+    second: BTD_CoffeeMachine_Animations_4
+  - first:
+      213: -4025347431407406822
+    second: BTD_CoffeeMachine_Animations_5
+  - first:
+      213: -1618661553459902148
+    second: BTD_CoffeeMachine_Animations_6
+  - first:
+      213: 4428373205578278269
+    second: BTD_CoffeeMachine_Animations_7
+  - first:
+      213: -8666420582790897711
+    second: BTD_CoffeeMachine_Animations_8
+  - first:
+      213: -5952244186300670764
+    second: BTD_CoffeeMachine_Animations_9
+  - first:
+      213: -8798264890299852672
+    second: BTD_CoffeeMachine_Animations_10
+  - first:
+      213: -7081522390679725471
+    second: BTD_CoffeeMachine_Animations_11
+  - first:
+      213: 1972807155199310229
+    second: BTD_CoffeeMachine_Animations_12
+  - first:
+      213: -1499552280012577630
+    second: BTD_CoffeeMachine_Animations_13
+  - first:
+      213: -3677503919440918009
+    second: BTD_CoffeeMachine_Animations_14
+  - first:
+      213: 4266845752410478231
+    second: BTD_CoffeeMachine_Animations_15
+  - first:
+      213: 4674380389622848091
+    second: BTD_CoffeeMachine_Animations_16
+  - first:
+      213: -4687975443481580638
+    second: BTD_CoffeeMachine_Animations_17
+  - first:
+      213: -7678502080562411777
+    second: BTD_CoffeeMachine_Animations_18
+  - first:
+      213: 4496763262556128263
+    second: BTD_CoffeeMachine_Animations_19
+  - first:
+      213: -6072471830370354110
+    second: BTD_CoffeeMachine_Animations_20
+  - first:
+      213: 3910297795949563541
+    second: BTD_CoffeeMachine_Animations_21
+  - first:
+      213: -5172313696533475550
+    second: BTD_CoffeeMachine_Animations_22
+  - first:
+      213: 4054889027957748494
+    second: BTD_CoffeeMachine_Animations_23
+  - first:
+      213: 5617618793616300710
+    second: BTD_CoffeeMachine_Animations_24
+  - first:
+      213: -6519939445068366503
+    second: BTD_CoffeeMachine_Animations_25
+  - first:
+      213: 7558199733196970018
+    second: BTD_CoffeeMachine_Animations_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff383a3213953e750800000000000000
+      internalID: 6333003568599237631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2569f60bef110f10800000000000000
+      internalID: 2234101984447259949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75d368d44df02d220800000000000000
+      internalID: 2509085346906914135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34945d20e7ff9ec50800000000000000
+      internalID: 6695163237741447491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec5f58e644f35e5e0800000000000000
+      internalID: -1881027706212715058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_5
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a113e6d96d71328c0800000000000000
+      internalID: -4025347431407406822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_6
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c39c076a4eb5989e0800000000000000
+      internalID: -1618661553459902148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_7
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d75e95bc7fdb47d30800000000000000
+      internalID: 4428373205578278269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_8
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1df5d988560bab780800000000000000
+      internalID: -8666420582790897711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_9
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dc1a2be271656da0800000000000000
+      internalID: -5952244186300670764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_10
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 088d2ed82b846e580800000000000000
+      internalID: -8798264890299852672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_11
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16a5f8ab7e069bd90800000000000000
+      internalID: -7081522390679725471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_12
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 599f000c7a1d06b10800000000000000
+      internalID: 1972807155199310229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_13
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a429b37525803be0800000000000000
+      internalID: -1499552280012577630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_14
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70a0e956ba1e6fcc0800000000000000
+      internalID: -3677503919440918009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_15
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7969fc7ea91e63b30800000000000000
+      internalID: 4266845752410478231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_16
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5a958cc23cbed040800000000000000
+      internalID: 4674380389622848091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_17
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aba68f0c27f0feb0800000000000000
+      internalID: -4687975443481580638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_18
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff6caf84a0b707590800000000000000
+      internalID: -7678502080562411777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_19
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7044fa7cc56b76e30800000000000000
+      internalID: 4496763262556128263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_20
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24c753a2b0f3abba0800000000000000
+      internalID: -6072471830370354110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_21
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59e0195b02b244630800000000000000
+      internalID: 3910297795949563541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_22
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22f0c3bd8104838b0800000000000000
+      internalID: -5172313696533475550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_23
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e03fc03561cd54830800000000000000
+      internalID: 4054889027957748494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_24
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6aade05878ac5fd40800000000000000
+      internalID: 5617618793616300710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_25
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95d74ab6e958485a0800000000000000
+      internalID: -6519939445068366503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_CoffeeMachine_Animations_26
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22858aebc9e14e860800000000000000
+      internalID: 7558199733196970018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: cd9ee25afe4b67b439b0c5e66d22043f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BTD_CoffeeMachine_Animations_0: 6333003568599237631
+      BTD_CoffeeMachine_Animations_1: 2234101984447259949
+      BTD_CoffeeMachine_Animations_10: -8798264890299852672
+      BTD_CoffeeMachine_Animations_11: -7081522390679725471
+      BTD_CoffeeMachine_Animations_12: 1972807155199310229
+      BTD_CoffeeMachine_Animations_13: -1499552280012577630
+      BTD_CoffeeMachine_Animations_14: -3677503919440918009
+      BTD_CoffeeMachine_Animations_15: 4266845752410478231
+      BTD_CoffeeMachine_Animations_16: 4674380389622848091
+      BTD_CoffeeMachine_Animations_17: -4687975443481580638
+      BTD_CoffeeMachine_Animations_18: -7678502080562411777
+      BTD_CoffeeMachine_Animations_19: 4496763262556128263
+      BTD_CoffeeMachine_Animations_2: 2509085346906914135
+      BTD_CoffeeMachine_Animations_20: -6072471830370354110
+      BTD_CoffeeMachine_Animations_21: 3910297795949563541
+      BTD_CoffeeMachine_Animations_22: -5172313696533475550
+      BTD_CoffeeMachine_Animations_23: 4054889027957748494
+      BTD_CoffeeMachine_Animations_24: 5617618793616300710
+      BTD_CoffeeMachine_Animations_25: -6519939445068366503
+      BTD_CoffeeMachine_Animations_26: 7558199733196970018
+      BTD_CoffeeMachine_Animations_3: 6695163237741447491
+      BTD_CoffeeMachine_Animations_4: -1881027706212715058
+      BTD_CoffeeMachine_Animations_5: -4025347431407406822
+      BTD_CoffeeMachine_Animations_6: -1618661553459902148
+      BTD_CoffeeMachine_Animations_7: 4428373205578278269
+      BTD_CoffeeMachine_Animations_8: -8666420582790897711
+      BTD_CoffeeMachine_Animations_9: -5952244186300670764
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

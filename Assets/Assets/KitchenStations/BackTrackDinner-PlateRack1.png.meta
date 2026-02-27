@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cab434213bd4de94bb465991cf576326
+guid: 18027a7eba4eb04468ad8ef79f60186b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1869606734555673049
-    second: BackTrackDinner-Vault_0
+      213: -73938121667273157
+    second: BackTrackDinner-PlateRack1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BackTrackDinner-Vault_0
+      name: BackTrackDinner-PlateRack1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 160
-        height: 111
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9d17ed26b6d22f910800000000000000
-      internalID: 1869606734555673049
+      spriteID: b3e99aa8ba159fef0800000000000000
+      internalID: -73938121667273157
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BackTrackDinner-Vault_0: 1869606734555673049
+      BackTrackDinner-PlateRack1_0: -73938121667273157
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

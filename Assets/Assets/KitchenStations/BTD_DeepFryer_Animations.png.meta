@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: cab434213bd4de94bb465991cf576326
+guid: 4c21c2a71e4e2a547bb25fab3e300d62
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1869606734555673049
-    second: BackTrackDinner-Vault_0
+      213: -8062444262008985974
+    second: BTD_DeepFryer_Animations_0
+  - first:
+      213: 5533059350507274977
+    second: BTD_DeepFryer_Animations_1
+  - first:
+      213: 9209008257101440105
+    second: BTD_DeepFryer_Animations_2
+  - first:
+      213: 1177351789171095809
+    second: BTD_DeepFryer_Animations_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BackTrackDinner-Vault_0
+      name: BTD_DeepFryer_Animations_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 160
-        height: 111
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9d17ed26b6d22f910800000000000000
-      internalID: 1869606734555673049
+      spriteID: a86619d09a17c1090800000000000000
+      internalID: -8062444262008985974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_DeepFryer_Animations_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e2c324f92069cc40800000000000000
+      internalID: 5533059350507274977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_DeepFryer_Animations_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 964ab2ae738fccf70800000000000000
+      internalID: 9209008257101440105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BTD_DeepFryer_Animations_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 109b631e63bc65010800000000000000
+      internalID: 1177351789171095809
       vertices: []
       indices: 
       edges: []
@@ -125,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 64ec1d6abbf031c4bace55492754352a
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BackTrackDinner-Vault_0: 1869606734555673049
+      BTD_DeepFryer_Animations_0: -8062444262008985974
+      BTD_DeepFryer_Animations_1: 5533059350507274977
+      BTD_DeepFryer_Animations_2: 9209008257101440105
+      BTD_DeepFryer_Animations_3: 1177351789171095809
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
