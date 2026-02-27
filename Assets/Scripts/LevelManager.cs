@@ -62,10 +62,28 @@ public class LevelManager : MonoBehaviour
         if (dayEnded) return;
 
         dayEnded = true;
-        Debug.Log("DAY ENDED");
 
         CustomerSpawner.main?.StopSpawning();
+
+        foreach (Customer customer in Object.FindObjectsByType<Customer>(FindObjectsSortMode.None))
+        {
+            Destroy(customer.gameObject);
+        }
+        
         playerMovement?.AllowMovement(false);
+    }
+
+    public void NextDay()
+    {
+        currentLevelIndex++;
+
+        if (currentLevelIndex >= levels.Length) 
+        { 
+            Debug.Log("No more days!"); currentLevelIndex = levels.Length - 1; 
+            return;  
+        }
+
+        StartDay();
     }
 
     public void AddIncome(int amount)

@@ -23,4 +23,9 @@ public class UIDayStats : MonoBehaviour
         targetTxt.text = $"Target: ${LevelManager.main.TargetIncome}";
         expTxt.text = $"EXP Gained: {LevelManager.main.CurrentExp}";
     }
+
+    public void ClosePanel()
+    {
+        gameObject.SetActive(false);
+    }
 }
