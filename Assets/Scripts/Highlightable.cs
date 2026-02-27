@@ -2,23 +2,19 @@ using UnityEngine;
 
 public class Highlightable : MonoBehaviour
 {
-    [SerializeField] private Color highlightCol;
-
-    private SpriteRenderer _sr;
-    private Color origCol;
+    [SerializeField]private SpriteRenderer highlightRenderer;
     private bool isHighlighted;
 
     private void Awake()
     {
-        _sr = GetComponent<SpriteRenderer>();
-        origCol = _sr.color;
+        highlightRenderer.enabled = false;
     }
 
     public void Highlight()
     {
         if (isHighlighted) return;
 
-        _sr.color = highlightCol;
+        highlightRenderer.enabled = true;
         isHighlighted = true;
 
         if (TryGetComponent(out IFocusable focusable))
@@ -31,7 +27,7 @@ public class Highlightable : MonoBehaviour
     {
         if (!isHighlighted) return;
 
-        _sr.color = origCol;
+        highlightRenderer.enabled = false;
         isHighlighted = false;
 
         if (TryGetComponent(out IFocusable focusable))

@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 input;
     private float x;
     private float y;
+    private float idleTimer;
   
     void Awake()
     {
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     {
         WalkAnimation();
         PlayerInput();
+        IdleAnimation();
     }
 
     void FixedUpdate()
@@ -46,6 +48,20 @@ public class PlayerMovement : MonoBehaviour
         }
 
         _anim.SetBool("Moving", moving);
+    }
+
+    private void IdleAnimation()
+    {
+        if (input.magnitude < 0.1f)
+        {
+            idleTimer += Time.deltaTime;
+        }
+        else
+        {
+            idleTimer = 0f;
+        }
+
+        _anim.SetFloat("Idletimer", idleTimer);
     }
 
     private void PlayerInput()

@@ -47,8 +47,6 @@ public class LevelManager : MonoBehaviour
         currentExp = 0;
         dayEnded = false;
 
-        Debug.Log($"DAY {CurrentDay} STARTED");
-
         dayTimer?.StartTimer();
 
         CustomerSpawner.main?.ResetSpawner();

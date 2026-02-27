@@ -18,7 +18,7 @@ public class KitchenStation : MonoBehaviour, IInteractable
     private PlayerInventory playerInventory;
 
     [System.Obsolete]
-    void Start()
+    void Awake()
     {
         playerInventory = FindObjectOfType<PlayerInventory>();
         sr = GetComponent<SpriteRenderer>();
