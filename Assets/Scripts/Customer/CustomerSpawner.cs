@@ -3,12 +3,14 @@ using UnityEngine;
 public class CustomerSpawner : MonoBehaviour
 {
     public static CustomerSpawner main { get; private set; }
-    [SerializeField] private GameObject customerPrefab;
+    [SerializeField] private GameObject basicCustomer;
+    [SerializeField] private GameObject[] specialCustomer;
     [SerializeField] private float spawnDelay = 0.5f;
 
+    private bool[] canSpawnSpecial; 
     private int spawnQueue = 0;
     private float spawnTimer;
-    private bool spawningEnabled = true;
+    private bool canSpawn = true;
 
     void Awake()
     {
@@ -17,7 +19,7 @@ public class CustomerSpawner : MonoBehaviour
 
     void Update()
     {
-        if (!spawningEnabled) return;
+        if (!canSpawn) return;
 
         if (spawnQueue <= 0) return;
 
@@ -31,6 +33,17 @@ public class CustomerSpawner : MonoBehaviour
         }
     }
 
+    public void ResetSpawner()
+    {
+        canSpawn = true;
+        spawnQueue = 0;
+        spawnTimer = 0;
+
+        if (specialCustomer != null)
+        {
+            canSpawnSpecial = new bool[specialCustomer.Length];
+        }
+    }
     public void SpawnForAvailableTables()
     {
         if (TableManager.main == null) return;
@@ -44,7 +57,7 @@ public class CustomerSpawner : MonoBehaviour
 
     public void SpawnOneCustomer()
     {
-        if (!spawningEnabled)
+        if (!canSpawn)
             return;
 
         spawnQueue++;
@@ -54,25 +67,35 @@ public class CustomerSpawner : MonoBehaviour
     private void SpawnCustomer()
     {
         if (TableManager.main == null) return;
-
         if (TableManager.main.GetFreeTable() == null) return;
 
-        Instantiate(customerPrefab, transform.position, Quaternion.identity);
-        Debug.Log("Customer spawned");
+        bool trySpawn = Random.value < 0.2f;
+
+        if (canSpawnSpecial == null || canSpawnSpecial.Length == 0)
+        {
+            Instantiate(basicCustomer, transform.position, Quaternion.identity);
+            return;
+        }
+        
+        if (trySpawn)
+        {
+            for (int i = 0; i < specialCustomer.Length; i++)
+            {
+                if (!canSpawnSpecial[i] && specialCustomer[i] != null)
+                {
+                    Instantiate(specialCustomer[i], transform.position, Quaternion.identity);
+                    canSpawnSpecial[i] = true;
+                    return;
+                }
+            }
+        }
+        Instantiate(basicCustomer, transform.position, Quaternion.identity);
     }
 
     public void StopSpawning()
     {
-        spawningEnabled = false;
+        canSpawn = false;
         spawnQueue = 0;
         Debug.Log("Spawner stopped");
-    }
-
-    public void ResetSpawner()
-    {
-        spawningEnabled = true;
-        spawnQueue = 0;
-        spawnTimer = 0f;
-        Debug.Log("Spawner reset");
     }
 }

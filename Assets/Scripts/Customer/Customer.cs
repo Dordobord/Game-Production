@@ -4,32 +4,12 @@ using TMPro;
 
 public class Customer : MonoBehaviour, IInteractable
 {
-    [Header("UI")]
-    [SerializeField] private GameObject customerTextPrefab;
-
-    [Header("Order Settings")]
-    [SerializeField] private ItemType[] menuList; 
-
-    private ItemType orderedItem;
-
-    [Header("Movement")]
-    [SerializeField] private float moveSpeed = 2f;
-
-    [Header("Patience")]
-    [SerializeField] private float orderTimer = 15f;
-    [SerializeField] private float serveTimer = 15f;
-    [SerializeField] private float warningTimer = 5f;
-
-    [Header("Economy")]
-    [SerializeField] private int reward = 50;
-    [SerializeField] private int penalty = 20;
-    [SerializeField] private int expReward = 50;
-    [SerializeField] private int expPenalty = 20;
-
+    [SerializeField]private CustomerData data;
+    [SerializeField]private GameObject customerTextPrefab;
     public CustomerState State { get; private set; }
-
     private bool isSeated;
     private float patienceTimer;
+    private ItemType orderedItem;
     private Table table;
     private SpriteRenderer sr;
     private Color origCol;
@@ -40,10 +20,18 @@ public class Customer : MonoBehaviour, IInteractable
 
     private void Start()
     {
+        if (data == null)
+        {
+            Debug.LogError("CustomerData is missing");
+            Destroy(gameObject);
+            return;    
+        }
+
         sr = GetComponent<SpriteRenderer>();
+        sr.color = data.customerCol;
         origCol = sr.color;
 
-        RandomizedOrder(); 
+        AssignOrder(); 
 
         table = TableManager.main.GetFreeTable();
         if (table == null)
@@ -83,15 +71,9 @@ public class Customer : MonoBehaviour, IInteractable
             ServeFood();
     }
 
-    private void RandomizedOrder()
+    private void AssignOrder()
     {
-        if (menuList == null || menuList.Length == 0)
-        {
-            Debug.LogError("Customer: Possible Orders list is empty!");
-            return;
-        }
-
-        orderedItem = menuList[Random.Range(0, menuList.Length)];
+        orderedItem = data.menuList[Random.Range(0, data.menuList.Length)];
     }
 
     private void TakeOrder()
@@ -99,7 +81,7 @@ public class Customer : MonoBehaviour, IInteractable
         StopOrderPrompt();
 
         State = CustomerState.WaitingForFood;
-        patienceTimer = serveTimer;
+        patienceTimer = data.serveTimer;
         sr.color = origCol;
 
         if (worldText != null)
@@ -110,15 +92,15 @@ public class Customer : MonoBehaviour, IInteractable
 
     private void ServeFood()
     {
-        PlayerInventory inv = PlayerInventory.main;
+        PlayerInventory playerIventory = PlayerInventory.main;
 
-        if (inv == null || !inv.HasItem(orderedItem))
+        if (playerIventory == null || !playerIventory.HasItem(orderedItem))
         {
             Debug.Log("Player does not have ordered item");
             return;
         }
 
-        inv.RemoveItem(orderedItem);
+        playerIventory.RemoveItem(orderedItem);
 
         State = CustomerState.Eating;
 
@@ -138,14 +120,17 @@ public class Customer : MonoBehaviour, IInteractable
         {
             MoveTo(path[currentpathIndex].position);
 
-            if ((transform.position - path[currentpathIndex].position).sqrMagnitude < 0.01f) currentpathIndex++;
+            float distance = (transform.position - path[currentpathIndex].position).sqrMagnitude; 
+            if (distance < 0.01f)
+            {
+                currentpathIndex++;
+            }
             
             return;
         }
 
         Vector3 target = table.SeatPoint.position;
         MoveTo(target);
-
         if ((transform.position - target).sqrMagnitude < 0.01f)
         {
             isSeated = true;
@@ -153,20 +138,15 @@ public class Customer : MonoBehaviour, IInteractable
         }
     }
 
-    private void MoveTo(Vector3 target)
+    private void MoveTo(Vector3 targetPos)
     {
-        Vector3 currentPos = transform.position;
-        currentPos.x = Mathf.MoveTowards(currentPos.x, target.x, moveSpeed * Time.deltaTime);
-        currentPos.y = Mathf.MoveTowards(currentPos.y, target.y, moveSpeed * Time.deltaTime);
-        transform.position = currentPos;
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, data.moveSpeed * Time.deltaTime);
     }
 
     private void EnterWaitForOrder()
     {
         State = CustomerState.WaitForOrder;
-        patienceTimer = orderTimer;
-        sr.color = origCol;
-
+        patienceTimer = data.orderTimer;
         orderPromptCor = StartCoroutine(ShowOrderPrompt());
     }
 
@@ -182,7 +162,7 @@ public class Customer : MonoBehaviour, IInteractable
     {
         patienceTimer -= Time.deltaTime;
 
-        if (patienceTimer <= warningTimer)
+        if (patienceTimer <= data.warningTimer)
             sr.color = Color.red;
 
         if (patienceTimer <= 0f)
@@ -193,8 +173,8 @@ public class Customer : MonoBehaviour, IInteractable
     {
         yield return new WaitForSeconds(5f);
 
-        LevelManager.main?.AddIncome(reward);
-        LevelManager.main?.AddExp(expReward);
+        LevelManager.main?.AddIncome(data.reward);
+        LevelManager.main?.AddExp(data.expReward);
 
         TutorialManager.main?.OnCustomerServed();
 
@@ -203,8 +183,8 @@ public class Customer : MonoBehaviour, IInteractable
 
     private void FailCustomer()
     {
-        LevelManager.main?.AddIncome(-penalty);
-        LevelManager.main?.AddExp(-expPenalty);
+        LevelManager.main?.AddIncome(-data.penalty);
+        LevelManager.main?.AddExp(-data.expPenalty);
         Leave();
     }
 

@@ -7,6 +7,7 @@ public class UIAbility : MonoBehaviour
     [SerializeField]private TextMeshProUGUI levelTxt;
     [SerializeField]private TextMeshProUGUI abilityPointsTxt;
     [SerializeField]private TextMeshProUGUI moveSpeedTxt;
+    [SerializeField]private TextMeshProUGUI efficiencyTxt;
 
     private PlayerStats stats;
 
@@ -32,11 +33,18 @@ public class UIAbility : MonoBehaviour
         levelTxt.text = $"Level: {stats.Level}";
         abilityPointsTxt.text = $"AP: {stats.AbilityPoints}";
         moveSpeedTxt.text = $"Move Speed: {stats.MoveSpeed}";
+        efficiencyTxt.text = $"Efficiency: {stats.Efficiency}";
     }
 
     public void IncreaseMoveSpeed()
     {
         stats.IncreaseMoveSpeed(1f);
+        RefreshPanel();
+    }
+
+    public void IncreaseEfficiency()
+    {
+        stats.IncreaseEfficiency(0.1f);
         RefreshPanel();
     }
 }

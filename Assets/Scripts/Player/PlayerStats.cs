@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    public static PlayerStats main { get; private set; }
     [SerializeField]private int level = 1;
     [SerializeField]private int currentExp;
     [SerializeField]private int expToLvlUp = 40;
@@ -11,10 +12,17 @@ public class PlayerStats : MonoBehaviour
     [SerializeField]private int abilityPoints;
     
     [SerializeField]private float moveSpeed = 5f;
-    public float MoveSpeed => moveSpeed;
+    [SerializeField]private float efficiency = 1f;
+    
     public int Level => level;
     public int AbilityPoints => abilityPoints;
+    public float MoveSpeed => moveSpeed;
+    public float Efficiency => efficiency;
 
+    void Start()
+    {
+        main = this;
+    }
     public void AddExp(int amount)
     {
         currentExp += amount;
@@ -40,6 +48,14 @@ public class PlayerStats : MonoBehaviour
         if (!CanSpendPoints()) return;
 
         moveSpeed += amount;
+        abilityPoints--;
+    }
+
+    public void IncreaseEfficiency(float amount)
+    {
+        if (!CanSpendPoints()) return;
+
+        efficiency += amount;
         abilityPoints--;
     }
 }

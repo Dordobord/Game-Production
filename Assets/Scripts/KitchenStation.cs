@@ -12,6 +12,7 @@ public class KitchenStation : MonoBehaviour, IInteractable
 
 
     private bool isProcessing = false;
+    private PlayerStats playerStats;
     private Color origCol;
     private ItemType? currentItem = null;
     private SpriteRenderer sr;
@@ -21,6 +22,7 @@ public class KitchenStation : MonoBehaviour, IInteractable
     void Awake()
     {
         playerInventory = FindObjectOfType<PlayerInventory>();
+        playerStats = FindObjectOfType<PlayerStats>();
         sr = GetComponent<SpriteRenderer>();
 
         origCol = sr.color;
@@ -83,6 +85,11 @@ public class KitchenStation : MonoBehaviour, IInteractable
     {
         isProcessing = true;
         sr.color = Color.blue;
+
+        float speed;
+        speed = PlayerStats.main.Efficiency;
+
+        float finalTime = processingTime / speed;
         Debug.Log("Processing " + inputItem + "...");
 
         yield return new WaitForSeconds(processingTime);
