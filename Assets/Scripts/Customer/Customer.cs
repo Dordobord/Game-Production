@@ -1,22 +1,26 @@
 using UnityEngine;
 using System.Collections;
-using TMPro;
+using UnityEngine.UI;
 
 public class Customer : MonoBehaviour, IInteractable
 {
     [SerializeField]private CustomerData data;
-    [SerializeField]private GameObject customerTextPrefab;
+    [SerializeField]private GameObject customerIconPrefab;
+    [SerializeField]private ItemIconDataBase iconDataBase;
+    [SerializeField]private Sprite waitingIcon; 
+
     public CustomerState State { get; private set; }
-    private bool isSeated;
-    private float patienceTimer;
     private ItemType orderedItem;
     private Table table;
     private SpriteRenderer sr;
     private Color origCol;
-    private TextMeshProUGUI worldText;
-    private Coroutine orderPromptCor;
     private Transform[] path;
+    private Image orderIcon;
     private int currentpathIndex;
+    private bool isSeated;
+    private float patienceTimer;
+
+    private Coroutine orderPromptCor;
 
     private void Start()
     {
@@ -24,14 +28,14 @@ public class Customer : MonoBehaviour, IInteractable
         {
             Debug.LogError("CustomerData is missing");
             Destroy(gameObject);
-            return;    
+            return;
         }
 
         sr = GetComponent<SpriteRenderer>();
         sr.color = data.customerCol;
         origCol = sr.color;
 
-        AssignOrder(); 
+        AssignOrder();
 
         table = TableManager.main.GetFreeTable();
         if (table == null)
@@ -50,7 +54,7 @@ public class Customer : MonoBehaviour, IInteractable
             currentpathIndex = 0;
         }
 
-        SpawnCustomerText();
+        SpawnOrderIcon();
     }
 
     private void Update()
@@ -58,8 +62,7 @@ public class Customer : MonoBehaviour, IInteractable
         if (State == CustomerState.WalkToTable)
             MoveToSeat();
 
-        if (State == CustomerState.WaitForOrder ||
-            State == CustomerState.WaitingForFood)
+        if (State == CustomerState.WaitForOrder || State == CustomerState.WaitingForFood)
             ManagePatience();
     }
 
@@ -76,41 +79,63 @@ public class Customer : MonoBehaviour, IInteractable
         orderedItem = data.menuList[Random.Range(0, data.menuList.Length)];
     }
 
+    private void EnterWaitForOrder()
+    {
+        State = CustomerState.WaitForOrder;
+        patienceTimer = data.orderTimer;
+
+        orderPromptCor = StartCoroutine(ShowWaitIcon(2f));
+    }
+
+    private IEnumerator ShowWaitIcon(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (State != CustomerState.WaitForOrder || orderIcon == null)
+            yield break;
+
+        orderIcon.sprite = waitingIcon;
+        orderIcon.enabled = true;
+    }
+
     private void TakeOrder()
     {
-        StopOrderPrompt();
+        if (orderPromptCor != null)
+        {
+            StopCoroutine(orderPromptCor);
+            orderPromptCor = null;
+        }
 
         State = CustomerState.WaitingForFood;
         patienceTimer = data.serveTimer;
         sr.color = origCol;
 
-        if (worldText != null)
-            worldText.text = orderedItem.ToString();
-        
+        if (orderIcon != null)
+        {
+            orderIcon.sprite = iconDataBase.GetIcon(orderedItem);
+            orderIcon.enabled = true;
+        }
+
         TutorialManager.main?.OnOrderTaken();
     }
 
     private void ServeFood()
     {
-        PlayerInventory playerIventory = PlayerInventory.main;
+        PlayerInventory inventory = PlayerInventory.main;
 
-        if (playerIventory == null || !playerIventory.HasItem(orderedItem))
-        {
-            Debug.Log("Player does not have ordered item");
+        if (inventory == null || !inventory.HasItem(orderedItem))
             return;
-        }
 
-        playerIventory.RemoveItem(orderedItem);
+        inventory.RemoveItem(orderedItem);
 
         State = CustomerState.Eating;
-
         sr.color = origCol;
 
-        if (worldText != null)
-            worldText.text = "";
+        if (orderIcon != null) orderIcon.enabled = false;
 
         StartCoroutine(EatingRoutine());
     }
+
 
     private void MoveToSeat()
     {
@@ -120,17 +145,15 @@ public class Customer : MonoBehaviour, IInteractable
         {
             MoveTo(path[currentpathIndex].position);
 
-            float distance = (transform.position - path[currentpathIndex].position).sqrMagnitude; 
-            if (distance < 0.01f)
-            {
+            if ((transform.position - path[currentpathIndex].position).sqrMagnitude < 0.01f)
                 currentpathIndex++;
-            }
-            
+
             return;
         }
 
         Vector3 target = table.SeatPoint.position;
         MoveTo(target);
+
         if ((transform.position - target).sqrMagnitude < 0.01f)
         {
             isSeated = true;
@@ -142,22 +165,6 @@ public class Customer : MonoBehaviour, IInteractable
     {
         transform.position = Vector3.MoveTowards(transform.position, targetPos, data.moveSpeed * Time.deltaTime);
     }
-
-    private void EnterWaitForOrder()
-    {
-        State = CustomerState.WaitForOrder;
-        patienceTimer = data.orderTimer;
-        orderPromptCor = StartCoroutine(ShowOrderPrompt());
-    }
-
-    private IEnumerator ShowOrderPrompt()
-    {
-        yield return new WaitForSeconds(2f);
-
-        if (State == CustomerState.WaitForOrder && worldText != null)
-            worldText.text = "Waiter!";
-    }
-
     private void ManagePatience()
     {
         patienceTimer -= Time.deltaTime;
@@ -177,7 +184,6 @@ public class Customer : MonoBehaviour, IInteractable
         LevelManager.main?.AddExp(data.expReward);
 
         TutorialManager.main?.OnCustomerServed();
-
         Leave();
     }
 
@@ -202,23 +208,14 @@ public class Customer : MonoBehaviour, IInteractable
         Destroy(gameObject, 1f);
     }
 
-    private void SpawnCustomerText()
+    private void SpawnOrderIcon()
     {
-        if (customerTextPrefab == null) return;
+        if (customerIconPrefab == null) return;
 
-        GameObject textObj = Instantiate(customerTextPrefab, transform.position + Vector3.up * 1.5f, Quaternion.identity, transform);
+        GameObject iconObj = Instantiate(customerIconPrefab, transform.position + Vector3.up * 2f, Quaternion.identity, transform);
 
-        worldText = textObj.GetComponentInChildren<TextMeshProUGUI>();
-        if (worldText != null)
-            worldText.text = "";
-    }
-
-    private void StopOrderPrompt()
-    {
-        if (orderPromptCor != null)
-        {
-            StopCoroutine(orderPromptCor);
-            orderPromptCor = null;
-        }
+        orderIcon = iconObj.GetComponentInChildren<Image>();
+        if (orderIcon != null)
+            orderIcon.enabled = false;
     }
 }

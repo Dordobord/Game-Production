@@ -1,10 +1,12 @@
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 using System.Collections;
 
 public class UIInventory : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI[] slotTexts;
+    [SerializeField]private Image[] slots;
+    [SerializeField]private Sprite emptySlot;
+    [SerializeField]private ItemIconDataBase iconDataBase;
 
     private PlayerInventory inventory;
 
@@ -32,18 +34,19 @@ public class UIInventory : MonoBehaviour
 
     private void UpdateInventoryUI()
     {
-        if (slotTexts == null || slotTexts.Length == 0)
-            return;
-
-        for (int i = 0; i < slotTexts.Length; i++)
+        for (int i = 0; i < slots.Length; i++)
         {
-            if (slotTexts[i] == null)
-                continue;
-
             if (i < inventory.inventory.Count)
-                slotTexts[i].text = inventory.inventory[i].ToString();
+            {
+                ItemType item = inventory.inventory[i];
+                slots[i].sprite = iconDataBase.GetIcon(item);
+                slots[i].enabled = true;
+            }
             else
-                slotTexts[i].text = "[  ]";
+            {
+                slots[i].sprite = emptySlot;
+                slots[i].enabled = true;
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class KitchenStation : MonoBehaviour, IInteractable
 {
@@ -9,23 +10,22 @@ public class KitchenStation : MonoBehaviour, IInteractable
     [SerializeField] private float processingTime = 3.5f;
     [SerializeField] private bool sendToPlateRack = false;
     [SerializeField] private PlateRack plateRack;
-
+    [SerializeField] private UIDurationBar durationBar;
 
     private bool isProcessing = false;
     private PlayerStats playerStats;
-    private Color origCol;
     private ItemType? currentItem = null;
-    private SpriteRenderer sr;
     private PlayerInventory playerInventory;
+
+    public event Action OnStartCooking;
+    public event Action OnFinishCooking;
+    public event Action OnClear;
 
     [System.Obsolete]
     void Awake()
     {
         playerInventory = FindObjectOfType<PlayerInventory>();
         playerStats = FindObjectOfType<PlayerStats>();
-        sr = GetComponent<SpriteRenderer>();
-
-        origCol = sr.color;
     }
 
     public void Interact()
@@ -47,6 +47,8 @@ public class KitchenStation : MonoBehaviour, IInteractable
             {
                 playerInventory.RemoveItem(inputItem);
                 currentItem = inputItem;
+
+                OnStartCooking?.Invoke();
                 StartCoroutine(ProcessItem());
             }
             else
@@ -55,48 +57,60 @@ public class KitchenStation : MonoBehaviour, IInteractable
             }
         }
         //Station has finished item ready
-    else if (currentItem == outputItem)
-    {
-        if (sendToPlateRack && plateRack != null)
+        else if (currentItem == outputItem)
         {
-            plateRack.AddPlate();
-            Debug.Log("Sent " + outputItem + " to plate rack.");
-            currentItem = null;
-        }
-        else
-        {
-            bool added = playerInventory.AddItem(outputItem);
-
-            if (added)
+            if (sendToPlateRack && plateRack != null)
             {
-                Debug.Log("Collected " + outputItem);
+                plateRack.AddPlate();
+                Debug.Log("Sent " + outputItem + " to plate rack.");
                 currentItem = null;
-         }
+            }
             else
             {
-                Debug.Log("Inventory full! Cannot collect " + outputItem);
+                bool added = playerInventory.AddItem(outputItem);
+
+                if (added)
+                {
+                    Debug.Log("Collected " + outputItem);
+                    currentItem = null;
+                    OnClear?.Invoke();
+            }
+                else
+                {
+                    Debug.Log("Inventory full! Cannot collect " + outputItem);
+                }
             }
         }
-    }
 
     }
 
     private IEnumerator ProcessItem()
     {
         isProcessing = true;
-        sr.color = Color.blue;
 
         float speed;
         speed = PlayerStats.main.Efficiency;
-
         float finalTime = processingTime / speed;
-        Debug.Log("Processing " + inputItem + "...");
 
-        yield return new WaitForSeconds(processingTime);
+        durationBar.EnableBar(finalTime);
+
+        float timer = finalTime;
+
+        while (timer > 0f)
+        {
+            timer -= Time.deltaTime;
+            durationBar.UpdateValue(timer);
+            yield return null;
+        }
+        // Debug.Log("Processing " + inputItem + "...");
+
+        // yield return new WaitForSeconds(processingTime);
 
         currentItem = outputItem;
         isProcessing = false;
-        sr.color = origCol;
+        OnFinishCooking?.Invoke();
         Debug.Log("Finished " + outputItem + "!");
     }
+
+    
 }

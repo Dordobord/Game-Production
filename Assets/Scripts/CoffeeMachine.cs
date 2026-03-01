@@ -1,24 +1,24 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class CoffeeMachine : MonoBehaviour, IInteractable
 {
-    [SerializeField] private float brewTime = 5f;
+    [SerializeField]private float brewTime = 5f;
+    [SerializeField]private UIDurationBar durationBar;
 
     private bool isBrewing = false;
     private bool coffeeReady = false;
-    private Color origCol;
-    private SpriteRenderer sr;
-
     private PlayerInventory playerInventory;
+
+    public event Action OnStartBrewing;
+    public event Action OnFinishBrewing;
+    public event Action OnClear;
 
     [System.Obsolete]
     void Start()
     {
         playerInventory = FindObjectOfType<PlayerInventory>();
-        sr = GetComponent<SpriteRenderer>();
-
-        origCol = sr.color;
     }
 
     public void Interact()
@@ -40,6 +40,7 @@ public class CoffeeMachine : MonoBehaviour, IInteractable
             {
                 Debug.Log("Collected Coffee!");
                 coffeeReady = false;
+                OnClear?.Invoke();
             }
             else
             {
@@ -55,14 +56,28 @@ public class CoffeeMachine : MonoBehaviour, IInteractable
     private IEnumerator BrewCoffee()
     {
         isBrewing = true;
-        sr.color = Color.blue;
-        Debug.Log("Brewing coffee...");
+        OnStartBrewing?.Invoke();
 
-        yield return new WaitForSeconds(brewTime);
+        float speed;
+        speed = PlayerStats.main.Efficiency;
+        float finalTime = brewTime / speed;
+
+        durationBar.EnableBar(finalTime);
+
+        float timer = finalTime;
+
+        while (timer > 0f)
+        {
+            timer -= Time.deltaTime;
+            durationBar.UpdateValue(timer);
+            yield return null;
+        }
+        //Debug.Log("Brewing coffee...");
+        //yield return new WaitForSeconds(brewTime);
 
         isBrewing = false;
         coffeeReady = true;
-        sr.color = origCol;
+        OnFinishBrewing?.Invoke();
         Debug.Log("Coffee is ready!");
     }
 }

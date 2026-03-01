@@ -292,6 +292,7 @@ MonoBehaviour:
   processingTime: 3.5
   sendToPlateRack: 0
   plateRack: {fileID: 0}
+  durationBar: {fileID: 0}
 --- !u!114 &457031885532660074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2405fb731533688438745a527d7ab27d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightCol: {r: 0.5411765, g: 0.14117648, b: 0.03529412, a: 0.5529412}
+  highlightRenderer: {fileID: 0}
 --- !u!1 &6910140954054992461
 GameObject:
   m_ObjectHideFlags: 0

@@ -166,4 +166,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 32760ecf37db5da499001ce0d8716186, type: 2}
-  customerTextPrefab: {fileID: 696448282187332269, guid: a7a91670bdbaeaf4580c42ac468ede19, type: 3}
+  customerIconPrefab: {fileID: 696448282187332269, guid: a7a91670bdbaeaf4580c42ac468ede19, type: 3}
+  iconDataBase: {fileID: 11400000, guid: 574c01be497da0640bcd3a6d693f2da9, type: 2}
+  waitingIcon: {fileID: -783451766, guid: 15d09f5161bef4d4583864a35a41194f, type: 3}
