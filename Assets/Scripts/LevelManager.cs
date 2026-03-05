@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [System.Serializable]
 public class LevelData
@@ -14,18 +15,20 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private DayTimer dayTimer; //reference
 
-    private int currentIncome;
+    private float currentIncome;
     private int currentExp;
     private bool dayEnded;
 
     private PlayerMovement playerMovement;
     private PlayerStats playerStats;
 
-    public int CurrentIncome => currentIncome;
+    public float CurrentIncome => currentIncome;
     public int TargetIncome => levels[currentLevelIndex].targetIncome;
     public int CurrentDay => currentLevelIndex + 1;
     public int CurrentExp => currentExp;
     public bool IsDayEnded => dayEnded;
+
+    public UnityEvent OnDayEnded;
 
     void Awake()
     {
@@ -40,17 +43,15 @@ public class LevelManager : MonoBehaviour
         StartDay();
     }
 
-
     public void StartDay()
     {
         currentIncome = 0;
         currentExp = 0;
         dayEnded = false;
 
-        dayTimer?.StartTimer();
+        //dayTimer?.StartTimer();
 
-        CustomerSpawner.main?.ResetSpawner();
-        CustomerSpawner.main?.SpawnForAvailableTables();
+        CustomerSpawner.main.StartNewDay();
 
         playerMovement?.AllowMovement(true);
     }
@@ -60,14 +61,8 @@ public class LevelManager : MonoBehaviour
         if (dayEnded) return;
 
         dayEnded = true;
+        OnDayEnded?.Invoke();
 
-        CustomerSpawner.main?.StopSpawning();
-
-        foreach (Customer customer in Object.FindObjectsByType<Customer>(FindObjectsSortMode.None))
-        {
-            Destroy(customer.gameObject);
-        }
-        
         playerMovement?.AllowMovement(false);
     }
 
@@ -75,16 +70,16 @@ public class LevelManager : MonoBehaviour
     {
         currentLevelIndex++;
 
-        if (currentLevelIndex >= levels.Length) 
-        { 
-            Debug.Log("No more days!"); currentLevelIndex = levels.Length - 1; 
-            return;  
+        if (currentLevelIndex >= levels.Length)
+        {
+            Debug.Log("No more days!"); currentLevelIndex = levels.Length - 1;
+            return;
         }
 
         StartDay();
     }
 
-    public void AddIncome(int amount)
+    public void AddIncome(float amount)
     {
         if (dayEnded) return;
 
