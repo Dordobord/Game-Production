@@ -13,7 +13,7 @@ TagManager:
   - UI
   - 
   - Interactable
-  - 
+  - UI Panel
   - 
   - 
   - 
@@ -67,6 +67,9 @@ TagManager:
     locked: 0
   - name: Baricade
     uniqueID: 4138958835
+    locked: 0
+  - name: Wall
+    uniqueID: 4179987201
     locked: 0
   - name: UI
     uniqueID: 1409648099
