@@ -22,9 +22,9 @@ public class MainMenu : MonoBehaviour
         bcUIPanel.SetActive(false);
     }
 
-    void Update()
+    public void StartGame()
     {
-        
+        SceneManager.LoadScene("LevelSelection");
     }
 
     //SettingsUI
