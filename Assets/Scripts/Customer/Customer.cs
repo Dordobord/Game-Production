@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Customer : MonoBehaviour, IInteractable
 {
-    [SerializeField]private CustomerData data;
+    [SerializeField]private CustomerDataSO data;
     [SerializeField]private GameObject customerIconPrefab;
     [SerializeField]private ItemIconDataBase iconDataBase;
     [SerializeField]private Sprite waitingIcon; 

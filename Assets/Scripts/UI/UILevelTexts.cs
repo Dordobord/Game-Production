@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class LevelUI : MonoBehaviour
+public class UILevelTexts : MonoBehaviour
 {
     [Header("Texts")]
     [SerializeField] private TextMeshProUGUI dayTxt;
@@ -9,6 +9,7 @@ public class LevelUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI targetIncomeTxt;
     [SerializeField] private TextMeshProUGUI currentIncomeTxt;
     [SerializeField] private TextMeshProUGUI currentExpTxt;
+    [SerializeField] private TextMeshProUGUI totalMoneyTxt;
 
     [Header("References")]
     [SerializeField] private DayTimer dayManager;
@@ -19,11 +20,9 @@ public class LevelUI : MonoBehaviour
 
         dayTxt.text = $"Day: {LevelManager.main.CurrentDay}";
         timerTxt.text = $"Time: {Mathf.Ceil(dayManager.GetRemainingTime())}";
-
         targetIncomeTxt.text = $"Target: ${LevelManager.main.TargetIncome}";
-
         currentIncomeTxt.text = $"Income: ${LevelManager.main.CurrentIncome}";
-
         currentExpTxt.text = $"EXP: {LevelManager.main.CurrentExp}";
+        totalMoneyTxt.text = $"Money: ${LevelManager.main.TotalMoney}";
     }
 }
