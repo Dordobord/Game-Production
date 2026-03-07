@@ -33,12 +33,28 @@ public class LevelSelectionManager : MonoBehaviour
 
     private int currentSelectedSlotlvl2 = -1;
 
+    // Level 3
+    [Header("Level3")]
+    public GameObject level3Panel;
+    public GameObject level3SaveSlots;
+    public Button level3ContinueButton;
+    public Button level3LoadButton;
+    public TextMeshProUGUI level3LastSaveText;
+
+    [Header("Level2 Slots")]
+    public int[] level3SlotDays = { 0, 0, 0, 0, 0 };
+    public int[] level3SlotWallet = { 0, 0, 0, 0, 0 };
+
+    private int currentSelectedSlotlvl3 = -1;
+
     void Start()
     {
         level1SaveSlots.SetActive(false);
         level2SaveSlots.SetActive(false);
+        level3SaveSlots.SetActive(false);
 
         level2Panel.SetActive(false);
+        level3Panel.SetActive(false);
     }
 
     //Level 1 Methods
@@ -152,5 +168,7 @@ public class LevelSelectionManager : MonoBehaviour
         level2Panel.SetActive(false);
         level1Panel.SetActive(true);
     }
+
+
 
 }

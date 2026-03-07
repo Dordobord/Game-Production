@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      WhitePeaberryOutline-preview_0: -624094277185189249
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

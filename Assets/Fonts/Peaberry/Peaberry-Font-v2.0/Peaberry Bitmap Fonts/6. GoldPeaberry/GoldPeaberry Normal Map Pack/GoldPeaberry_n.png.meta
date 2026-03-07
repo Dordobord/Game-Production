@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GoldPeaberry_n_0: 2227780409571492964
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

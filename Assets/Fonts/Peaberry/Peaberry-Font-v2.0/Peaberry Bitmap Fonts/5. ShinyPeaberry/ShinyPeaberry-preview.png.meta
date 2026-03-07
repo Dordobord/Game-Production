@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ShinyPeaberry-preview_0: 6924229317583819039
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

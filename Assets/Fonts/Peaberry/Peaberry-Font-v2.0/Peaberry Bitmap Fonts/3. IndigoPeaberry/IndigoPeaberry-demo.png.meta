@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      IndigoPeaberry-demo_0: -3755699444951578449
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
