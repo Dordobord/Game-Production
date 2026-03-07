@@ -3828,6 +3828,7 @@ Transform:
   - {fileID: 1269225312}
   - {fileID: 1017804119}
   - {fileID: 1928088224}
+  - {fileID: 2095520426}
   m_Father: {fileID: 1109452916}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &419416462
@@ -13154,7 +13155,7 @@ MonoBehaviour:
   levelTxt: {fileID: 2123937293}
   abilityPointsTxt: {fileID: 1771150545}
   moveSpeedTxt: {fileID: 1294695292}
-  efficiencyTxt: {fileID: 0}
+  efficiencyTxt: {fileID: 996408489}
 --- !u!114 &715611344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13380,6 +13381,7 @@ MonoBehaviour:
   criticLimit: 1
   homelessLimit: 1
   spawnDelay: 5
+  activeCustomers: []
 --- !u!1 &816309795
 GameObject:
   m_ObjectHideFlags: 0
@@ -17754,7 +17756,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 419416461}
-  - {fileID: 2095520426}
   m_Father: {fileID: 1273595754}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1124598494
@@ -24336,7 +24337,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095520424}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -12.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -24346,7 +24347,7 @@ Transform:
   - {fileID: 1853395424}
   - {fileID: 897527418}
   - {fileID: 702110913}
-  m_Father: {fileID: 1109452916}
+  m_Father: {fileID: 419416461}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2095520427
 MonoBehaviour:
