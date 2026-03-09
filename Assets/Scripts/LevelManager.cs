@@ -11,16 +11,12 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager main { get; private set; }
 
-<<<<<<< HEAD
+    [SerializeField] private DayTimer dayTimer;
+    [SerializeField] private LevelData[] levels;
+    [SerializeField] private int currentLevelIndex = 0;
+    [SerializeField] private int totalMoney;
+
     private float currentIncome;
-=======
-    [SerializeField]private DayTimer dayTimer; 
-    [SerializeField]private LevelData[] levels;
-    [SerializeField]private int currentLevelIndex = 0;
-    [SerializeField]private int totalMoney;
-    
-    private int currentIncome;
->>>>>>> Kitchen-Stations
     private int currentExp;
     private bool dayEnded;
 
@@ -78,7 +74,8 @@ public class LevelManager : MonoBehaviour
 
         if (currentLevelIndex >= levels.Length)
         {
-            Debug.Log("No more days!"); currentLevelIndex = levels.Length - 1;
+            Debug.Log("No more days!");
+            currentLevelIndex = levels.Length - 1;
             return;
         }
 
@@ -93,8 +90,7 @@ public class LevelManager : MonoBehaviour
         if (dayEnded) return;
 
         currentIncome += amount;
-
-        totalMoney += amount;
+        totalMoney += (int)amount;
     }
 
     public void AddExp(int amount)
@@ -107,7 +103,7 @@ public class LevelManager : MonoBehaviour
 
     public bool TrySpendMoney(int amount)
     {
-        if (totalMoney < amount) 
+        if (totalMoney < amount)
             return false;
 
         totalMoney -= amount;

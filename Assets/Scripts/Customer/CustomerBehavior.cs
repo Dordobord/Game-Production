@@ -1,5 +1,4 @@
 using System.Collections;
-using NUnit.Framework;
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
@@ -17,7 +16,7 @@ public enum CustomerState
 public class CustomerBehavior : MonoBehaviour, IInteractable
 {
     [Header("Customer References")]
-    [SerializeField] private CustomerData customerData;
+    [SerializeField] private CustomerDataSO customerData;
     [SerializeField] private PatienceManager patienceManager;
     [SerializeField] private SpriteRenderer customerSR;
 
@@ -40,11 +39,10 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
     private bool startedWithMeal = false;
     private bool isExpressing = false;
 
-    public CustomerData CustomerData => customerData;
+    public CustomerDataSO CustomerData => customerData;
 
     public void Interact()
     {
-        // Player will take the order if the customer is ready to order
         if (customerState == CustomerState.ReadyToOrder)
         {
             Debug.Log("Customer has ordered: " + orderedItem.dishItemType);
@@ -69,7 +67,6 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
 
     void Start()
     {
-        // Check if CustomerData is assigned
         if (customerData == null)
         {
             Debug.LogError("CustomerData is missing");
@@ -77,7 +74,6 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
             return;
         }
 
-        // Find a free table for the customer and find the path to the table
         table = TableManager.main.GetFreeTable();
         if (table == null)
         {
@@ -103,9 +99,8 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
             case CustomerState.Idle:
                 MoveToSeat();
                 break;
+
             case CustomerState.ReadyToOrder:
-                patienceManager.DrainPatience();
-                break;
             case CustomerState.Waiting:
                 patienceManager.DrainPatience();
                 break;
@@ -116,7 +111,6 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
     {
         customerState = newState;
 
-        // Trigger one-time events when entering a state
         if (customerState == CustomerState.Thinking)
         {
             StartCoroutine(ChoosingOrder());
@@ -148,11 +142,9 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
         Vector3 target = table.SeatPoint.position;
         MoveTo(target);
 
-        // Check if customer has reached the seat
         if ((transform.position - target).sqrMagnitude < 0.01f)
         {
             isSeated = true;
-            // Start thinking about the order after being seated
             ChangeState(CustomerState.Thinking);
         }
     }
@@ -164,28 +156,26 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
 
     private IEnumerator ChoosingOrder()
     {
-        // Filter the menu based on orderCount
         List<ItemMenuData> availableOptions = new List<ItemMenuData>();
 
-        if (orderCount == 0) // First Order: Side, Drink, or Meal
+        if (orderCount == 0)
         {
             availableOptions = MenuList.mainMenu.Where(x =>
                 x.category == ItemCategory.Side ||
                 x.category == ItemCategory.Drink ||
                 x.category == ItemCategory.Main).ToList();
         }
-        else if (orderCount == 1) // Second Order: Meal
+        else if (orderCount == 1)
         {
             availableOptions = MenuList.mainMenu.Where(x => x.category == ItemCategory.Main).ToList();
         }
-        else if (orderCount == 2) // Third Order: Dessert or Drink
+        else if (orderCount == 2)
         {
             availableOptions = MenuList.mainMenu.Where(x =>
                 x.category == ItemCategory.Dessert ||
                 x.category == ItemCategory.Drink).ToList();
         }
 
-        // If no dessert is unlocked yet, fallback to Drink or just leave
         if (availableOptions.Count == 0)
         {
             Debug.Log("No items available for this course. Customer leaving.");
@@ -193,10 +183,8 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
             yield break;
         }
 
-        // Select random item from filtered list
         orderedItem = availableOptions[Random.Range(0, availableOptions.Count)];
 
-        // Track if first item was a meal
         if (orderCount == 0 && orderedItem.category == ItemCategory.Main)
         {
             startedWithMeal = true;
@@ -213,24 +201,19 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
     private IEnumerator Eating()
     {
         yield return new WaitForSeconds(Random.Range(customerData.eatingTimer / 2f, customerData.eatingTimer));
-
-        // After eating, the customer will leave
         DoneEating();
     }
 
     private void DoneEating()
     {
-        // Handle plates
         if (orderedItem.category != ItemCategory.Drink && orderedItem.category != ItemCategory.Dessert)
             DirtyPlateRack.main.IncreasePlate();
 
-        // Rewards
-        LevelManager.main?.AddIncome(orderedItem.price);
+        LevelManager.main?.AddIncome((float)orderedItem.price);
         LevelManager.main?.AddExp(customerData.expReward);
 
         orderCount++;
 
-        // Special logic for Homeless
         if (customerData.customerType == CustomerType.Homeless)
         {
             HomelessBehavior specialBehavior = GetComponent<HomelessBehavior>();
@@ -245,26 +228,21 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
             return;
         }
 
-        // Decide if they order again or leave
         bool canOrderAgain = false;
 
         if (startedWithMeal)
         {
-            // If started with meal, they only order twice (Meal -> Dessert/Drink)
             if (orderCount < 2) canOrderAgain = true;
         }
         else
         {
-            // If started with Side/Drink, they can order up to 3 times
             if (orderCount < 3) canOrderAgain = true;
         }
 
-        // Add a random chance so they don't always order again
         if (canOrderAgain && Random.value < customerData.orderAgainChance)
         {
             Debug.Log($"{customerData.customerType} will order again");
             ChangeState(CustomerState.Thinking);
-            //patienceManager.BoostPatience(); OPTIONAL BOOST
         }
         else
         {
@@ -274,12 +252,11 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
 
     public void Fail()
     {
-        // Customer loses patience and leaves
         Debug.Log($"{name} has lost patience and is leaving.");
 
         if (customerData.customerType == CustomerType.FoodCritic)
         {
-            // TODO: insert instantly removing 1 star rating
+            // TODO: star rating penalty
         }
 
         LevelManager.main?.AddExp(-customerData.expPenalty);
@@ -324,6 +301,7 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
     {
         if (iconBackground != null)
             iconBackground.SetActive(showBackground);
+
         if (iconPlaceHolder != null)
             iconPlaceHolder.sprite = icon;
     }

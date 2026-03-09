@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Runtime.CompilerServices;
-using NUnit.Framework;
 using UnityEngine;
 
 enum PatienceState
@@ -28,7 +25,7 @@ public class PatienceManager : MonoBehaviour
     [SerializeField] private Sprite frustratedExpression;
     [SerializeField] private Sprite angryExpression;
 
-    private CustomerData customerData;
+    private CustomerDataSO customerData;
     [SerializeField] private float currentPatience; // serialized for testing
     private float currentMaxPatience;
     private float drainRate;

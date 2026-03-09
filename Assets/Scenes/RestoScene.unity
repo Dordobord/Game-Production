@@ -405,7 +405,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1409648099
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_Sprite: {fileID: 1869606734555673049, guid: 6e544a4d8df5a1f46af8fb354ad4d2d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3938,7 +3938,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 950663081
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.03333336, y: 0.03333336, z: 0}
@@ -5187,7 +5187,6 @@ MonoBehaviour:
   targetIncomeTxt: {fileID: 1922036798}
   currentIncomeTxt: {fileID: 1013041164}
   currentExpTxt: {fileID: 1757658083}
-  totalMoneyTxt: {fileID: 2089050683}
   dayManager: {fileID: 317694273}
 --- !u!1 &346538270
 GameObject:
@@ -5406,7 +5405,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 950663081
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -5445067943955278923, guid: 23f7d1b17d8f54d4a932614f835a35e3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -18396,7 +18395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &778224876
 Transform:
   m_ObjectHideFlags: 0
@@ -25183,7 +25182,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -957310769
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 2843454717843875581, guid: 4c748b5043ba7934f9520449f6f3b732, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -28260,6 +28259,9 @@ MonoBehaviour:
   - targetIncome: 300
   currentLevelIndex: 0
   totalMoney: 100
+  OnDayEnded:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1250362157
 Transform:
   m_ObjectHideFlags: 0
@@ -30425,7 +30427,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -259308749
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.03333336, y: 0.03333336, z: 0}
@@ -31563,7 +31565,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1621256105
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 6333003568599237631, guid: c2596a69190088b4aa74450964845aab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -34947,11 +34949,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0d987bb1e888145988250d00633783, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicCustomer: {fileID: 2336875219148557297, guid: 9a1f532d2a6b79849ad45f5445e4100b, type: 3}
-  specialCustomer:
-  - {fileID: 2336875219148557297, guid: 0c892ff952d35a74593b44d579a50935, type: 3}
-  - {fileID: 2336875219148557297, guid: 55b4779026056e645bd0950e9ac2ca65, type: 3}
+  basicCustomerPrefab: {fileID: 0}
+  criticCustomerPrefab: {fileID: 0}
+  homelessCustomerPrefab: {fileID: 0}
+  quotaCountText: {fileID: 0}
+  totalQuota: 0
+  criticLimit: 0
+  homelessLimit: 0
   spawnDelay: 5
+  activeCustomers: []
 --- !u!4 &1704917478
 Transform:
   m_ObjectHideFlags: 0
