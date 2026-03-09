@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Game/CustomerData")]
-public class CustomerData : ScriptableObject
+public class CustomerDataSO : ScriptableObject
 {
     [Header("Customer Information")]
     public CustomerType customerType;

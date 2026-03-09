@@ -58,9 +58,10 @@ public class CoffeeMachine : MonoBehaviour, IInteractable
         isBrewing = true;
         OnStartBrewing?.Invoke();
 
-        float speed;
-        speed = PlayerStats.main.Efficiency;
-        float finalTime = brewTime / speed;
+        float speed = PlayerStats.main.Efficiency;
+        float reduction = UpgradeManager.main.CoffeeMachine.GetValue();
+
+        float finalTime = Mathf.Max(0.1f, (brewTime - reduction) / speed);
 
         durationBar.EnableBar(finalTime);
 
@@ -72,11 +73,10 @@ public class CoffeeMachine : MonoBehaviour, IInteractable
             durationBar.UpdateValue(timer);
             yield return null;
         }
-        //Debug.Log("Brewing coffee...");
-        //yield return new WaitForSeconds(brewTime);
 
         isBrewing = false;
         coffeeReady = true;
+
         OnFinishBrewing?.Invoke();
         Debug.Log("Coffee is ready!");
     }

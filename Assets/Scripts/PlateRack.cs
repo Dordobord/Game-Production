@@ -2,14 +2,16 @@ using UnityEngine;
 
 public class PlateRack : MonoBehaviour, IInteractable
 {
-    [SerializeField] private int plateCount = 5; // Starting number of plates
-
+    [SerializeField] private int plateCount = 5; 
     private PlayerInventory playerInventory;
 
     [System.Obsolete]
     void Start()
     {
         playerInventory = FindObjectOfType<PlayerInventory>();
+        
+        int bonusPlates = (int)UpgradeManager.main.Plates.GetValue();
+        plateCount += bonusPlates;
     }
 
     public void Interact()

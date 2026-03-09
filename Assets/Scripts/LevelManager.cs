@@ -10,12 +10,17 @@ public class LevelData
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager main { get; private set; }
-    [SerializeField] private LevelData[] levels;
-    [SerializeField] private int currentLevelIndex = 0;
 
-    [SerializeField] private DayTimer dayTimer; //reference
-
+<<<<<<< HEAD
     private float currentIncome;
+=======
+    [SerializeField]private DayTimer dayTimer; 
+    [SerializeField]private LevelData[] levels;
+    [SerializeField]private int currentLevelIndex = 0;
+    [SerializeField]private int totalMoney;
+    
+    private int currentIncome;
+>>>>>>> Kitchen-Stations
     private int currentExp;
     private bool dayEnded;
 
@@ -26,6 +31,7 @@ public class LevelManager : MonoBehaviour
     public int TargetIncome => levels[currentLevelIndex].targetIncome;
     public int CurrentDay => currentLevelIndex + 1;
     public int CurrentExp => currentExp;
+    public int TotalMoney => totalMoney;
     public bool IsDayEnded => dayEnded;
 
     public UnityEvent OnDayEnded;
@@ -76,6 +82,9 @@ public class LevelManager : MonoBehaviour
             return;
         }
 
+        Debug.Log("Applying upgrades for next day");
+        UpgradeManager.main?.ApplyUpgrades();
+
         StartDay();
     }
 
@@ -84,6 +93,8 @@ public class LevelManager : MonoBehaviour
         if (dayEnded) return;
 
         currentIncome += amount;
+
+        totalMoney += amount;
     }
 
     public void AddExp(int amount)
@@ -92,5 +103,14 @@ public class LevelManager : MonoBehaviour
 
         currentExp += amount;
         playerStats?.AddExp(amount);
+    }
+
+    public bool TrySpendMoney(int amount)
+    {
+        if (totalMoney < amount) 
+            return false;
+
+        totalMoney -= amount;
+        return true;
     }
 }
