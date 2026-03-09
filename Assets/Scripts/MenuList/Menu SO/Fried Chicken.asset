@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e281713bfbb23d43a06f1730e2a4ef4, type: 3}
+  m_Name: Fried Chicken
+  m_EditorClassIdentifier: 
+  dishItemType: 10
+  dishSprite: {fileID: 5051735917503443728, guid: 52bc31e0619dd3a479b81e06e47d397d, type: 3}
+  category: 0
+  price: 0.5
+  cooker: 1
+  cookingTime: 15
+  cookedItem: 6
+  cookedSprite: {fileID: 0}
+  rawItem: 5
+  rawSprite: {fileID: 0}

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e281713bfbb23d43a06f1730e2a4ef4, type: 3}
+  m_Name: Bacon Cheese Burger
+  m_EditorClassIdentifier: 
+  dishItemType: 9
+  dishSprite: {fileID: 684711323539678859, guid: 52bc31e0619dd3a479b81e06e47d397d, type: 3}
+  category: 0
+  price: 1
+  cooker: 0
+  cookingTime: 25
+  cookedItem: 1
+  cookedSprite: {fileID: 0}
+  rawItem: 0
+  rawSprite: {fileID: 0}

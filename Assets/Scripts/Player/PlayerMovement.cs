@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
-{   
+{
     private PlayerStats stats;
     private Rigidbody2D _rb;
     private Animator _anim;
@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     private float x;
     private float y;
     private float idleTimer;
-  
     void Awake()
     {
         _rb = GetComponentInChildren<Rigidbody2D>();

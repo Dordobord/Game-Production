@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2cd88032f65b3a646b3d5832d8dba817, type: 3}
-  m_Name: Customer_VIP
+  m_Name: Critic Customer
   m_EditorClassIdentifier: 
-  customerName: Critic Customer
+  customerType: 2
   moveSpeed: 5
-  orderTimer: 10
-  serveTimer: 10
-  warningTimer: 3
-  reward: 100
-  penalty: 40
+  orderAgainChance: 0.9
+  minPatience: 80
+  maxPatience: 90
+  patienceDecreaseRate: 0.8
+  thinkingTimer: 8
+  eatingTimer: 15
+  tipChance: 1
+  tipMultiplier: 3
   expReward: 50
   expPenalty: 40
-  menuList: 090000000a0000000b0000000c000000
-  customerCol: {r: 1, g: 1, b: 1, a: 1}

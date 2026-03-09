@@ -6,9 +6,9 @@ public class Table : MonoBehaviour
     public Transform SeatPoint => seatPoint;
 
     public bool IsOccupied { get; private set; }
-    private Customer currentCustomer;
+    private CustomerBehavior currentCustomer;
 
-    public void AssignCustomer(Customer customer)
+    public void AssignCustomer(CustomerBehavior customer)
     {
         currentCustomer = customer;
         IsOccupied = true;

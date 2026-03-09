@@ -3,15 +3,32 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Game/CustomerData")]
 public class CustomerData : ScriptableObject
 {
-    public string customerName;
+    [Header("Customer Information")]
+    public CustomerType customerType;
     public float moveSpeed = 5f;
-    public float orderTimer = 15f;
-    public float serveTimer = 15f;
-    public float warningTimer = 5f;
-    public int reward = 50;
-    public int penalty = 20;
+    public float orderAgainChance = 0.6f;
+
+    [Header("Patience Settings")]
+    public float minPatience;
+    public float maxPatience;
+    public float patienceDecreaseRate = 0.25f;
+
+    [Header("Timer Settings")]
+    public float thinkingTimer = 5f;
+    public float eatingTimer = 10f;
+
+    [Header("Tip Settings")]
+    public float tipChance = 0.5f;
+    public float tipMultiplier = 1f;
+
+    [Header("Rewards and Penalties")]
     public int expReward = 50;
     public int expPenalty = 20;
-    public ItemType[] menuList;
-    public Color customerCol = Color.white;
+}
+
+public enum CustomerType
+{
+    Basic,
+    Homeless,
+    FoodCritic,
 }
