@@ -30,7 +30,7 @@ public class UIAbility : MonoBehaviour
 
     private void RefreshPanel()
     {
-        levelTxt.text = $"Level: {stats.Level}";
+        //levelTxt.text = $"Level: {stats.Level}";
         abilityPointsTxt.text = $"AP: {stats.AbilityPoints}";
         moveSpeedTxt.text = $"Move Speed: {stats.MoveSpeed}";
         efficiencyTxt.text = $"Efficiency: {stats.Efficiency}";

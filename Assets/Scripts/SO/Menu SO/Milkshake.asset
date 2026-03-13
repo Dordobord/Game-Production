@@ -10,15 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e281713bfbb23d43a06f1730e2a4ef4, type: 3}
-  m_Name: Fried Chicken
+  m_Name: Milkshake
   m_EditorClassIdentifier: 
-  dishItemType: 10
-  dishSprite: {fileID: 5051735917503443728, guid: 52bc31e0619dd3a479b81e06e47d397d, type: 3}
-  category: 0
-  price: 0.5
-  cooker: 1
-  cookingTime: 15
-  cookedItem: 6
+  dishItemType: 12
+  dishSprite: {fileID: 0}
+  category: 3
+  price: 0.45
+  restockPrice: 0.15
+  cooker: 0
+  cookingTime: 10
+  cookedItem: 0
   cookedSprite: {fileID: 0}
-  rawItem: 5
+  rawItem: 0
   rawSprite: {fileID: 0}
+  dayRequirement: 11

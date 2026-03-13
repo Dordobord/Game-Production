@@ -16,6 +16,7 @@ MonoBehaviour:
   dishSprite: {fileID: 684711323539678859, guid: 52bc31e0619dd3a479b81e06e47d397d, type: 3}
   category: 0
   price: 0.3
+  restockPrice: 0.1
   cooker: 0
   cookingTime: 15
   cookedItem: 1

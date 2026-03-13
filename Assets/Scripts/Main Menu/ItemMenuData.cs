@@ -10,6 +10,7 @@ public class ItemMenuData : ScriptableObject
     [Header("Item Menu Information")]
     public ItemCategory category;
     public float price;
+    public float restockPrice;
 
     [Header("Cooking Information")]
     public ItemCooker cooker;

@@ -5,16 +5,19 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats main { get; private set; }
-    [SerializeField]private int level = 1;
-    [SerializeField]private int currentExp;
-    [SerializeField]private int expToLvlUp = 40;
+    
+    [Header("Experience Settings")]
+    [SerializeField] private int totalExperience;
+    [SerializeField] private int dayExperience = 0;
+    [SerializeField] private int maxExp = 40;
 
-    [SerializeField]private int abilityPoints;
+    [Header("Ability Settings")]
+    [SerializeField] private int abilityPoints;    
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float efficiency = 1f;
     
-    [SerializeField]private float moveSpeed = 5f;
-    [SerializeField]private float efficiency = 1f;
-    
-    public int Level => level;
+    public int FetchExperience() => dayExperience;
+    public void ResetDayExperience() => dayExperience = 0;
     public int AbilityPoints => abilityPoints;
     public float MoveSpeed => moveSpeed;
     public float Efficiency => efficiency;
@@ -26,18 +29,18 @@ public class PlayerStats : MonoBehaviour
 
     public void AddExp(int amount)
     {
-        currentExp += amount;
-        IncreaseLevelChecker();
+        totalExperience += amount;
+        dayExperience += amount;
+        CheckCurrentExperience();
 
-        UIGameHUD.main.UpdateExperience(currentExp, expToLvlUp);
+        UIGameHUD.main.UpdateExperience(totalExperience, maxExp);
     }
 
-    private void IncreaseLevelChecker()
+    private void CheckCurrentExperience()
     {
-        if (currentExp < expToLvlUp) return;
+        if (totalExperience < maxExp) return;
 
-        currentExp -= expToLvlUp;
-        level++;
+        totalExperience -= maxExp;
         abilityPoints++;
     }
 

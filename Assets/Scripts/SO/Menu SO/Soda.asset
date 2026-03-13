@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e281713bfbb23d43a06f1730e2a4ef4, type: 3}
-  m_Name: Milkshake
+  m_Name: Soda
   m_EditorClassIdentifier: 
   dishItemType: 12
   dishSprite: {fileID: 0}
-  category: 3
-  price: 0.45
-  cooker: 0
-  cookingTime: 10
+  category: 2
+  price: 0.12
+  restockPrice: 0.04
+  cooker: 4
+  cookingTime: 5
   cookedItem: 0
   cookedSprite: {fileID: 0}
   rawItem: 0
   rawSprite: {fileID: 0}
-  dayRequirement: 11
+  dayRequirement: 5

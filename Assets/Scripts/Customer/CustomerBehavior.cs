@@ -160,18 +160,18 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
 
         if (orderCount == 0)
         {
-            availableOptions = MenuList.main.mainMenu.Where(x =>
+            availableOptions = MenuHandler.main.mainMenu.Where(x =>
                 x.category == ItemCategory.Side ||
                 x.category == ItemCategory.Drink ||
                 x.category == ItemCategory.Main).ToList();
         }
         else if (orderCount == 1)
         {
-            availableOptions = MenuList.main.mainMenu.Where(x => x.category == ItemCategory.Main).ToList();
+            availableOptions = MenuHandler.main.mainMenu.Where(x => x.category == ItemCategory.Main).ToList();
         }
         else if (orderCount == 2)
         {
-            availableOptions = MenuList.main.mainMenu.Where(x =>
+            availableOptions = MenuHandler.main.mainMenu.Where(x =>
                 x.category == ItemCategory.Dessert ||
                 x.category == ItemCategory.Drink).ToList();
         }

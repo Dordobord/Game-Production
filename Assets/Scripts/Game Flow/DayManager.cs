@@ -31,6 +31,8 @@ public class DayManager : MonoBehaviour
     private bool dayStarted = false;
     private bool dayEnded = false;
 
+    public int FetchCurrentDay() => currentDay;
+
     private void Awake() => main = this;
 
     public void InitializeDay(int day, GameObject layoutPrefab)
@@ -58,7 +60,7 @@ public class DayManager : MonoBehaviour
     {
         // Set office item to be not interactable (phone, vault, and clipboard)
         // Set menu of the day
-        MenuList.main.SetMainMenu(currentDay);
+        MenuHandler.main.SetMainMenu(currentDay);
 
         // Initialize customer spawner
         CustomerSpawner.main.InitializeSpawner(

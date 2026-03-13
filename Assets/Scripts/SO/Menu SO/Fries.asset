@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e281713bfbb23d43a06f1730e2a4ef4, type: 3}
-  m_Name: Burger Steak
+  m_Name: Fries
   m_EditorClassIdentifier: 
-  dishItemType: 1
-  dishSprite: {fileID: -5545233594733514784, guid: 52bc31e0619dd3a479b81e06e47d397d, type: 3}
-  category: 0
-  price: 0.45
-  cooker: 0
-  cookingTime: 20
-  cookedItem: 1
+  dishItemType: 11
+  dishSprite: {fileID: -8897046333276371233, guid: 52bc31e0619dd3a479b81e06e47d397d, type: 3}
+  category: 1
+  price: 0.18
+  restockPrice: 0.06
+  cooker: 1
+  cookingTime: 10
+  cookedItem: 8
   cookedSprite: {fileID: 0}
-  rawItem: 0
+  rawItem: 7
   rawSprite: {fileID: 0}
-  dayRequirement: 8
+  dayRequirement: 0

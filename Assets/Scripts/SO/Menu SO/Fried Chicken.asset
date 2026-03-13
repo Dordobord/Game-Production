@@ -10,15 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e281713bfbb23d43a06f1730e2a4ef4, type: 3}
-  m_Name: Fries
+  m_Name: Fried Chicken
   m_EditorClassIdentifier: 
-  dishItemType: 11
-  dishSprite: {fileID: -8897046333276371233, guid: 52bc31e0619dd3a479b81e06e47d397d, type: 3}
-  category: 1
-  price: 0.18
+  dishItemType: 10
+  dishSprite: {fileID: 5051735917503443728, guid: 52bc31e0619dd3a479b81e06e47d397d, type: 3}
+  category: 0
+  price: 0.5
+  restockPrice: 0.16
   cooker: 1
-  cookingTime: 10
-  cookedItem: 8
+  cookingTime: 15
+  cookedItem: 6
   cookedSprite: {fileID: 0}
-  rawItem: 7
+  rawItem: 5
   rawSprite: {fileID: 0}
+  dayRequirement: 0

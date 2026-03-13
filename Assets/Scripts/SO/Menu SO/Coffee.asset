@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e281713bfbb23d43a06f1730e2a4ef4, type: 3}
-  m_Name: Soda
+  m_Name: Coffee
   m_EditorClassIdentifier: 
   dishItemType: 12
-  dishSprite: {fileID: 0}
+  dishSprite: {fileID: -4116200947943101910, guid: 52bc31e0619dd3a479b81e06e47d397d, type: 3}
   category: 2
-  price: 0.12
-  cooker: 4
+  price: 0.1
+  restockPrice: 0.03
+  cooker: 3
   cookingTime: 5
-  cookedItem: 0
+  cookedItem: 12
   cookedSprite: {fileID: 0}
-  rawItem: 0
+  rawItem: 12
   rawSprite: {fileID: 0}
-  dayRequirement: 5
+  dayRequirement: 0

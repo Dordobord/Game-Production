@@ -17,16 +17,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private int maxDays = 5;
     [SerializeField] private int dayCounter = 0;
     [SerializeField] private List<DinerLayout> dinerLayouts = new List<DinerLayout>();
-    // [SerializeField] private int totalMoney;
 
-    // private float currentIncome;
-    // private int currentExp;
-
-    // public float CurrentIncome => currentIncome;
-    // public int TargetIncome => levels[currentLevelIndex].targetIncome;
-    // public int CurrentDay => currentLevelIndex + 1;
-    // public int CurrentExp => currentExp;
-    // public int TotalMoney => totalMoney;
+    public int FetchCurrentLevel() => currentLevel;
 
     void Awake()
     {
@@ -35,12 +27,15 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        StartDay(); // TODO: put this in level selection manager to start the game
+        InitializeLevel(1, 0); // TODO: put this in level selection manager to start the game
     }
 
-    public void StartDay()
+    public void InitializeLevel(int level, int day)
     {
+        currentLevel = level;
+        dayCounter = day;
 
+        DayManager.main.InitializeDay(dayCounter, null); // TODO: insert diner layout if there is a layout prefab
     }
 
     public void NextDay()
@@ -57,6 +52,6 @@ public class LevelManager : MonoBehaviour
         Debug.Log("Applying upgrades for next day");
         UpgradeManager.main?.ApplyUpgrades();
 
-        StartDay();
+        DayManager.main.InitializeDay(dayCounter, null);
     }
 }
