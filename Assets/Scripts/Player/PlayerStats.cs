@@ -23,10 +23,13 @@ public class PlayerStats : MonoBehaviour
     {
         main = this;
     }
+
     public void AddExp(int amount)
     {
         currentExp += amount;
         IncreaseLevelChecker();
+
+        UIGameHUD.main.UpdateExperience(currentExp, expToLvlUp);
     }
 
     private void IncreaseLevelChecker()

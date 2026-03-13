@@ -1,36 +1,32 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 [System.Serializable]
-public class LevelData
+public class DinerLayout
 {
-    public int targetIncome;
-}
+    public GameObject layoutPrefab;
+    public int levelRequirement;
+    public int dayRequirement;
+} 
 
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager main { get; private set; }
+    [SerializeField] private int currentLevel = 1;
+    [SerializeField] private int maxDays = 5;
+    [SerializeField] private int dayCounter = 0;
+    [SerializeField] private List<DinerLayout> dinerLayouts = new List<DinerLayout>();
+    // [SerializeField] private int totalMoney;
 
-    [SerializeField] private DayTimer dayTimer;
-    [SerializeField] private LevelData[] levels;
-    [SerializeField] private int currentLevelIndex = 0;
-    [SerializeField] private int totalMoney;
+    // private float currentIncome;
+    // private int currentExp;
 
-    private float currentIncome;
-    private int currentExp;
-    private bool dayEnded;
-
-    private PlayerMovement playerMovement;
-    private PlayerStats playerStats;
-
-    public float CurrentIncome => currentIncome;
-    public int TargetIncome => levels[currentLevelIndex].targetIncome;
-    public int CurrentDay => currentLevelIndex + 1;
-    public int CurrentExp => currentExp;
-    public int TotalMoney => totalMoney;
-    public bool IsDayEnded => dayEnded;
-
-    public UnityEvent OnDayEnded;
+    // public float CurrentIncome => currentIncome;
+    // public int TargetIncome => levels[currentLevelIndex].targetIncome;
+    // public int CurrentDay => currentLevelIndex + 1;
+    // public int CurrentExp => currentExp;
+    // public int TotalMoney => totalMoney;
 
     void Awake()
     {
@@ -39,74 +35,28 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        playerMovement = Object.FindAnyObjectByType<PlayerMovement>();
-        playerStats = Object.FindAnyObjectByType<PlayerStats>();
-
-        StartDay();
+        StartDay(); // TODO: put this in level selection manager to start the game
     }
 
     public void StartDay()
     {
-        currentIncome = 0;
-        currentExp = 0;
-        dayEnded = false;
 
-        //dayTimer?.StartTimer();
-
-        CustomerSpawner.main.StartNewDay();
-
-        playerMovement?.AllowMovement(true);
-    }
-
-    public void EndDay()
-    {
-        if (dayEnded) return;
-
-        dayEnded = true;
-        OnDayEnded?.Invoke();
-
-        playerMovement?.AllowMovement(false);
     }
 
     public void NextDay()
     {
-        currentLevelIndex++;
-
-        if (currentLevelIndex >= levels.Length)
+        if (dayCounter > maxDays)
         {
             Debug.Log("No more days!");
-            currentLevelIndex = levels.Length - 1;
+            // TODO: go to next level/level selection screen
             return;
         }
+
+        dayCounter++;
 
         Debug.Log("Applying upgrades for next day");
         UpgradeManager.main?.ApplyUpgrades();
 
         StartDay();
-    }
-
-    public void AddIncome(float amount)
-    {
-        if (dayEnded) return;
-
-        currentIncome += amount;
-        totalMoney += (int)amount;
-    }
-
-    public void AddExp(int amount)
-    {
-        if (dayEnded) return;
-
-        currentExp += amount;
-        playerStats?.AddExp(amount);
-    }
-
-    public bool TrySpendMoney(int amount)
-    {
-        if (totalMoney < amount)
-            return false;
-
-        totalMoney -= amount;
-        return true;
     }
 }

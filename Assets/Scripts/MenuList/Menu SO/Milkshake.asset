@@ -22,3 +22,4 @@ MonoBehaviour:
   cookedSprite: {fileID: 0}
   rawItem: 0
   rawSprite: {fileID: 0}
+  dayRequirement: 11

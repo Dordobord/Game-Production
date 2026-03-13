@@ -20,6 +20,9 @@ public class ItemMenuData : ScriptableObject
     public Sprite cookedSprite;
     public ItemType rawItem;
     public Sprite rawSprite;
+
+    [Header("Unlockable Settings")]
+    public int dayRequirement;
 }
 
 public enum ItemCategory

@@ -18,10 +18,10 @@ public class UIDayStats : MonoBehaviour
     {
         panel.SetActive(true);
 
-        dayTxt.text = $"Day {LevelManager.main.CurrentDay}";
-        incomeTxt.text = $"Income: ${LevelManager.main.CurrentIncome}";
-        targetTxt.text = $"Target: ${LevelManager.main.TargetIncome}";
-        expTxt.text = $"EXP Gained: {LevelManager.main.CurrentExp}";
+        // dayTxt.text = $"Day {LevelManager.main.CurrentDay}";
+        // incomeTxt.text = $"Income: ${LevelManager.main.CurrentIncome}";
+        // targetTxt.text = $"Target: ${LevelManager.main.TargetIncome}";
+        // expTxt.text = $"EXP Gained: {LevelManager.main.CurrentExp}";
     }
 
     public void ClosePanel()

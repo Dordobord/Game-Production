@@ -12,7 +12,6 @@ public class CustomerSpawner : MonoBehaviour
     [SerializeField] private GameObject homelessCustomerPrefab;
 
     [Header("Daily Quota Settings")]
-    [SerializeField] private TextMeshProUGUI quotaCountText;
     [SerializeField] private int totalQuota;
     [SerializeField] private int criticLimit;
     [SerializeField] private int homelessLimit;
@@ -40,7 +39,7 @@ public class CustomerSpawner : MonoBehaviour
         if (!dayActive) return;
 
         // Display quota
-        quotaCountText.text = $"{quotaCount} / {totalQuota}";
+        UIGameHUD.main.UpdateQuota(quotaCount, totalQuota);
 
         // Check timer if its time to spawn
         spawnTimer += Time.deltaTime;
@@ -61,8 +60,13 @@ public class CustomerSpawner : MonoBehaviour
         }
     }
 
-    public void StartNewDay()
+    public void InitializeSpawner(int quota, int critic, int homeless)
     {
+        // Setting up spawner settings
+        totalQuota = quota;
+        criticLimit = critic;
+        homelessLimit = homeless;
+
         GenerateSpawnPool();
         dayActive = true;
         spawnTimer = 0;
@@ -117,7 +121,7 @@ public class CustomerSpawner : MonoBehaviour
         dayActive = false;
         Debug.Log("Daily Quota Met and all customers left. Day Ending...");
 
-        LevelManager.main.EndDay();
+        DayManager.main.EndDay();
     }
 
     private void Shuffle(List<GameObject> list)

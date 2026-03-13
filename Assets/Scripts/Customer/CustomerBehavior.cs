@@ -16,7 +16,7 @@ public enum CustomerState
 public class CustomerBehavior : MonoBehaviour, IInteractable
 {
     [Header("Customer References")]
-    [SerializeField] private CustomerDataSO customerData;
+    [SerializeField] private CustomerData customerData;
     [SerializeField] private PatienceManager patienceManager;
     [SerializeField] private SpriteRenderer customerSR;
 
@@ -39,7 +39,7 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
     private bool startedWithMeal = false;
     private bool isExpressing = false;
 
-    public CustomerDataSO CustomerData => customerData;
+    public CustomerData CustomerData => customerData;
 
     public void Interact()
     {
@@ -160,18 +160,18 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
 
         if (orderCount == 0)
         {
-            availableOptions = MenuList.mainMenu.Where(x =>
+            availableOptions = MenuList.main.mainMenu.Where(x =>
                 x.category == ItemCategory.Side ||
                 x.category == ItemCategory.Drink ||
                 x.category == ItemCategory.Main).ToList();
         }
         else if (orderCount == 1)
         {
-            availableOptions = MenuList.mainMenu.Where(x => x.category == ItemCategory.Main).ToList();
+            availableOptions = MenuList.main.mainMenu.Where(x => x.category == ItemCategory.Main).ToList();
         }
         else if (orderCount == 2)
         {
-            availableOptions = MenuList.mainMenu.Where(x =>
+            availableOptions = MenuList.main.mainMenu.Where(x =>
                 x.category == ItemCategory.Dessert ||
                 x.category == ItemCategory.Drink).ToList();
         }
@@ -209,8 +209,8 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
         if (orderedItem.category != ItemCategory.Drink && orderedItem.category != ItemCategory.Dessert)
             DirtyPlateRack.main.IncreasePlate();
 
-        LevelManager.main?.AddIncome((float)orderedItem.price);
-        LevelManager.main?.AddExp(customerData.expReward);
+        PlayerWallet.main?.AddIncome(orderedItem.price);
+        PlayerStats.main?.AddExp(customerData.expReward);
 
         orderCount++;
 
@@ -258,14 +258,20 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
         {
             // TODO: star rating penalty
         }
-
-        LevelManager.main?.AddExp(-customerData.expPenalty);
+        PlayerStats.main?.AddExp(-customerData.expPenalty);
         ChangeState(CustomerState.Leaving);
     }
 
     private void Leave()
     {
         Debug.Log($"{name} is leaving.");
+
+        // Give tip base on chance
+        if(Random.value < customerData.tipChance)
+        {
+            float baseTip = 1f; // TODO: insert tip based on table level
+            PlayerWallet.main?.AddIncome(baseTip * customerData.tipMultiplier);
+        }
 
         if (table != null)
         {

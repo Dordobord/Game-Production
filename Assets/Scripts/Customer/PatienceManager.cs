@@ -25,7 +25,7 @@ public class PatienceManager : MonoBehaviour
     [SerializeField] private Sprite frustratedExpression;
     [SerializeField] private Sprite angryExpression;
 
-    private CustomerDataSO customerData;
+    private CustomerData customerData;
     [SerializeField] private float currentPatience; // serialized for testing
     private float currentMaxPatience;
     private float drainRate;

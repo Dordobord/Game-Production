@@ -1,40 +1,27 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MenuList : MonoBehaviour
 {
-    public static List<ItemMenuData> mainMenu = new List<ItemMenuData>();
-    [SerializeField] private List<ItemMenuData> menuDayOne;
-    [SerializeField] private List<ItemMenuData> menuDayFive;
-    [SerializeField] private List<ItemMenuData> menuDayEight;
-    [SerializeField] private List<ItemMenuData> menuDayEleven;
+    public static MenuList main { get; private set; }
 
-    void Start()
+    public List<ItemMenuData> mainMenu = new List<ItemMenuData>();
+    public List<ItemMenuData> listOfItems = new List<ItemMenuData>();
+
+    private void Awake() => main = this;
+
+    public void SetMainMenu(int day)
     {
-        // Start of the game, only the first menu is available
-        mainMenu = menuDayOne;
-    }
+        if(listOfItems == null) return;
 
-    void Update()
-    {
-        // Update the menu based on the current day
-        int currentDay = LevelManager.main.CurrentDay;
-
-        if (currentDay >= 1 && currentDay < 5)
+        foreach(ItemMenuData item in listOfItems)
         {
-            mainMenu = menuDayOne;
-        }
-        else if (currentDay >= 5 && currentDay < 8) // TODO: add kitchen station availability condition here
-        {
-            //mainMenu = menuDayFive;
-        }
-        else if (currentDay >= 8 && currentDay < 11)
-        {
-            //mainMenu = menuDayEight;
-        }
-        else if (currentDay >= 11)
-        {
-            //mainMenu = menuDayEleven;
+            if(item.dayRequirement <= day)
+            {
+                // if(){} <= add kitchen station condition here
+                mainMenu.Add(item);
+            }
         }
     }
 }

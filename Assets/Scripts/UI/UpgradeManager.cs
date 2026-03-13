@@ -54,7 +54,7 @@ public class UpgradeManager : MonoBehaviour
 
         int cost = upgrade.GetCost();
 
-        if (!LevelManager.main.TrySpendMoney(cost))
+        if (PlayerWallet.main.SpendMoney(cost))
         {
             Debug.Log("not enough money");
             return;
