@@ -56,6 +56,9 @@ TagManager:
   - name: Chair
     uniqueID: 4035658547
     locked: 0
+  - name: Baricade
+    uniqueID: 4138958835
+    locked: 0
   - name: Player
     uniqueID: 3337656527
     locked: 0
@@ -64,9 +67,6 @@ TagManager:
     locked: 0
   - name: CoffeeStation
     uniqueID: 2673711191
-    locked: 0
-  - name: Baricade
-    uniqueID: 4138958835
     locked: 0
   - name: Wall
     uniqueID: 4179987201
