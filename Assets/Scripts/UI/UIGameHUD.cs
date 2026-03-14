@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,9 @@ public class UIGameHUD : MonoBehaviour
     [Header("Experience Bar")]
     [SerializeField] private Image experienceFillImage; 
     [SerializeField] private TextMeshProUGUI experienceValueText;
+
+    [Header("Button")]
+    [SerializeField] private Button startDayButton;
 
     private void Awake() => main = this;
     
@@ -40,5 +44,10 @@ public class UIGameHUD : MonoBehaviour
     public void UpdateQuota(int current, int totalQuota)
     {
         quotaCounterText.text = $"{current} / {totalQuota}";
+    }
+
+    public void StartDayButtonVisibility(bool isVisible)
+    {
+        startDayButton.gameObject.SetActive(isVisible);
     }
 }

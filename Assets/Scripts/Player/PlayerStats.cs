@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
@@ -9,39 +10,50 @@ public class PlayerStats : MonoBehaviour
     [Header("Experience Settings")]
     [SerializeField] private int totalExperience;
     [SerializeField] private int dayExperience = 0;
-    [SerializeField] private int maxExp = 40;
+    [SerializeField] private int maxExperience = 1000;
 
     [Header("Ability Settings")]
-    [SerializeField] private int abilityPoints;    
+    [SerializeField] private int abilityPoints;
+    [SerializeField] private int newPoints = 0;       
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float efficiency = 1f;
     
-    public int FetchExperience() => dayExperience;
-    public void ResetDayExperience() => dayExperience = 0;
+    public int FetchNewPoints() => newPoints;
     public int AbilityPoints => abilityPoints;
     public float MoveSpeed => moveSpeed;
     public float Efficiency => efficiency;
 
-    void Start()
-    {
-        main = this;
-    }
+    void Awake() => main = this;
+    
 
     public void AddExp(int amount)
     {
-        totalExperience += amount;
         dayExperience += amount;
-        CheckCurrentExperience();
+        CheckDayExperience();
 
-        UIGameHUD.main.UpdateExperience(totalExperience, maxExp);
+        UIGameHUD.main.UpdateExperience(dayExperience, maxExperience);
     }
 
-    private void CheckCurrentExperience()
+    public void CheckDayExperience()
     {
-        if (totalExperience < maxExp) return;
+        if (dayExperience < maxExperience) return;
 
-        totalExperience -= maxExp;
-        abilityPoints++;
+        dayExperience -= maxExperience;
+        newPoints++;
+    }
+
+    public void ConfirmStatsChanges()
+    {
+        totalExperience = dayExperience;
+        abilityPoints = newPoints;
+    }
+
+    public void ResetNewExperienceAndPoints()
+    {
+        dayExperience = totalExperience;
+        newPoints = abilityPoints;
+
+        UIGameHUD.main.UpdateExperience(dayExperience, maxExperience);
     }
 
     public bool CanSpendPoints()

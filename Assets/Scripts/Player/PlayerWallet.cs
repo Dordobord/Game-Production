@@ -10,9 +10,9 @@ public class PlayerWallet : MonoBehaviour
     private void Awake() => main = this;
 
     public float CalculateIncome() => dayIncome - totalMoney;
-    public float FetchTotalMoney() => totalMoney;
+    public float FetchDayIncome() => dayIncome;
+    public float FetchSavings() => totalMoney;
     public void ResetDayIncome() => dayIncome = totalMoney;
-    
 
     public void AddIncome (float amount)
     {
@@ -41,12 +41,17 @@ public class PlayerWallet : MonoBehaviour
     public bool PayBills(float utilities, float stock)
     {
         float totalBill = utilities + stock;
+
         // Cannot afford bill, auto fail
         if(dayIncome < totalBill) return false;
 
         // Pay bills
         dayIncome -= totalBill;
-        totalMoney = dayIncome;
         return true;
+    }
+
+    public void ConfirmWalletChanges()
+    {
+        totalMoney = dayIncome;
     }
 }

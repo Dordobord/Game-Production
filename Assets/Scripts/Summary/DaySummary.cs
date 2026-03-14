@@ -32,34 +32,45 @@ public class DaySummary : MonoBehaviour
 
     public void SummarizeDay()
     {
+        isDaySuccess = true;
         float utilityBill = UtilityBillHandler.main.CalculateBill(LevelManager.main.FetchCurrentLevel());
         float stockBill = MenuHandler.main.CalculateStockBill();
+
         panel.SetActive(true);
 
         // General Summary
         dayText.text = $"END OF DAY {DayManager.main.FetchCurrentDay()}";
         quotaText.text = $"{CustomerSpawner.main.GetQuotaCount()} / {CustomerSpawner.main.GetMaxQuota()}";
-        abilityPointsText.text = $"{PlayerStats.main.AbilityPoints}";
+        abilityPointsText.text = $"{PlayerStats.main.FetchNewPoints()}";
+
+        if(!CustomerSpawner.main.IsQuotaMet()) isDaySuccess = false;
 
         // Financial Summary
         incomeText.text = $"{PlayerWallet.main.CalculateIncome()}";
-        savingsText.text = $"{PlayerWallet.main.FetchTotalMoney()}";
+        savingsText.text = $"{PlayerWallet.main.FetchSavings()}";
         utilitiesText.text = $"{utilityBill}";
         stockText.text = $"{stockBill}";
 
-        if(!PlayerWallet.main.PayBills(utilityBill, stockBill)) isDaySuccess = false;
+        if(!PlayerWallet.main.PayBills(utilityBill, stockBill)) 
+        {
+            isDaySuccess = false;
+            // Display player failed
+            totalText.text = ":(";
+        }
+        else
+        {
+            totalText.text = $"{PlayerWallet.main.FetchDayIncome()}";
+        }
 
-        totalText.text = $"{PlayerWallet.main.FetchTotalMoney()}";
-
-        //if(!isDaySuccess)
-            //SetUpButton(proceedButton, proceedText, "Try Again", RestartDay());
-        //else
-            //SetUpButton(proceedButton, proceedText, "Continue", NextDay());
+        if(!isDaySuccess)
+            SetUpButton(proceedButton, proceedText, "Try Again", () => LevelManager.main.RestartDay());
+        else
+            SetUpButton(proceedButton, proceedText, "Continue", () => LevelManager.main.NextDay());
     }
 
     public void ClosePanel()
     {
-        gameObject.SetActive(false);
+        panel.SetActive(false);
     }
 
     private void SetUpButton(Button actionButton, TMP_Text textbutton, string message, System.Action onButtonClicked)
@@ -69,6 +80,7 @@ public class DaySummary : MonoBehaviour
 
         actionButton.onClick.AddListener(() => {
             onButtonClicked?.Invoke();
+            ClosePanel();
         });
     }
 }

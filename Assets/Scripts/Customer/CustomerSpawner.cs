@@ -13,6 +13,7 @@ public class CustomerSpawner : MonoBehaviour
 
     [Header("Daily Quota Settings")]
     [SerializeField] private int totalQuota;
+    [SerializeField] private int maxAdditionalCustomers;
     [SerializeField] private int criticLimit;
     [SerializeField] private int homelessLimit;
 
@@ -28,6 +29,7 @@ public class CustomerSpawner : MonoBehaviour
 
     public int GetQuotaCount() => quotaCount;
     public int GetMaxQuota() => totalQuota;
+    public bool IsQuotaMet() => quotaCount >= totalQuota;
 
     void Awake()
     {
@@ -60,20 +62,21 @@ public class CustomerSpawner : MonoBehaviour
         }
     }
 
-    public void InitializeSpawner(int quota, int critic, int homeless)
+    public void InitializeSpawner(int quota, int critic, int homeless, bool isTutorial)
     {
         // Setting up spawner settings
+        quotaCount = 0;
         totalQuota = quota;
         criticLimit = critic;
         homelessLimit = homeless;
 
-        GenerateSpawnPool();
+        GenerateSpawnPool(isTutorial);
         dayActive = true;
         spawnTimer = 0;
         Debug.Log("Day Started. Total customers to serve: " + spawnPool.Count);
     }
 
-    private void GenerateSpawnPool()
+    private void GenerateSpawnPool(bool isTutorial)
     {
         spawnPool.Clear();
 
@@ -82,7 +85,12 @@ public class CustomerSpawner : MonoBehaviour
         for (int i = 0; i < homelessLimit; i++) spawnPool.Add(homelessCustomerPrefab);
 
         // Fill the rest with Basic Customers
-        int remaining = totalQuota - spawnPool.Count;
+        int totalWithAdditional = totalQuota;
+
+        // Only add customer allowance if it is not in tutorial
+        if(!isTutorial) totalWithAdditional += Random.Range(1, maxAdditionalCustomers);
+
+        int remaining = totalWithAdditional - spawnPool.Count;
         for (int i = 0; i < remaining; i++) spawnPool.Add(basicCustomerPrefab);
 
         // Shuffle the spawn pool 
@@ -107,12 +115,13 @@ public class CustomerSpawner : MonoBehaviour
     }
 
     // Call this from CustomerBehavior when they leave/destroy
-    public void UnregisterCustomer(CustomerBehavior cb)
+    public void UnregisterCustomer(CustomerBehavior cb, bool isSatisfied)
     {
         if (activeCustomers.Contains(cb))
         {
             activeCustomers.Remove(cb);
-            quotaCount++;
+
+            if(isSatisfied) quotaCount++;
         }
     }
 

@@ -36,8 +36,10 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
     private ItemMenuData orderedItem;
     private Sprite savedBubbleIcon;
     private int orderCount = 0;
+    private float bill;
     private bool startedWithMeal = false;
     private bool isExpressing = false;
+    private bool isSatisfied = false;
 
     public CustomerData CustomerData => customerData;
 
@@ -99,8 +101,9 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
             case CustomerState.Idle:
                 MoveToSeat();
                 break;
-
             case CustomerState.ReadyToOrder:
+                patienceManager.DrainPatience();
+                break;
             case CustomerState.Waiting:
                 patienceManager.DrainPatience();
                 break;
@@ -209,7 +212,7 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
         if (orderedItem.category != ItemCategory.Drink && orderedItem.category != ItemCategory.Dessert)
             DirtyPlateRack.main.IncreasePlate();
 
-        PlayerWallet.main?.AddIncome(orderedItem.price);
+        bill += orderedItem.price;
         PlayerStats.main?.AddExp(customerData.expReward);
 
         orderCount++;
@@ -246,6 +249,7 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
         }
         else
         {
+            isSatisfied = true;
             ChangeState(CustomerState.Leaving);
         }
     }
@@ -258,7 +262,10 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
         {
             // TODO: star rating penalty
         }
+
         PlayerStats.main?.AddExp(-customerData.expPenalty);
+
+        isSatisfied = false;
         ChangeState(CustomerState.Leaving);
     }
 
@@ -266,11 +273,17 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
     {
         Debug.Log($"{name} is leaving.");
 
-        // Give tip base on chance
-        if(Random.value < customerData.tipChance)
+        if(isSatisfied)
         {
-            float baseTip = 1f; // TODO: insert tip based on table level
-            PlayerWallet.main?.AddIncome(baseTip * customerData.tipMultiplier);
+            // Pay bill
+            PlayerWallet.main?.AddIncome(bill);
+
+            // Give tip base on chance
+            if(Random.value < customerData.tipChance)
+            {
+                float baseTip = 0.5f; // TODO: insert tip based on table level
+                PlayerWallet.main?.AddIncome(baseTip * customerData.tipMultiplier);
+            }
         }
 
         if (table != null)
@@ -279,7 +292,7 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
             table = null;
         }
 
-        CustomerSpawner.main.UnregisterCustomer(this);
+        CustomerSpawner.main.UnregisterCustomer(this, isSatisfied);
         Destroy(gameObject, 1f);
     }
 

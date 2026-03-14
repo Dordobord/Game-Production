@@ -28,8 +28,6 @@ public class DayManager : MonoBehaviour
     public UnityEvent OnDayEnded;
 
     private GameObject currentLayout;
-    private bool dayStarted = false;
-    private bool dayEnded = false;
 
     public int FetchCurrentDay() => currentDay;
 
@@ -37,36 +35,60 @@ public class DayManager : MonoBehaviour
 
     public void InitializeDay(int day, GameObject layoutPrefab)
     {
+        PlayerWallet.main?.ResetDayIncome();
+        PlayerStats.main?.ResetNewExperienceAndPoints();
+
+        UIGameHUD.main?.UpdateQuota(0, 0);
+        UIGameHUD.main?.UpdateDay(currentDay);
+        UIGameHUD.main.StartDayButtonVisibility(true);
         currentDay = day;
 
-        // Insert setting up diner layout based on level and day
-        // if (currentLayout != null)
-        //     Destroy(currentLayout);
+        bool isLayoutSame = currentLayout == layoutPrefab;
 
-        // currentLayout = Instantiate(layoutPrefab, layoutParent);
+        // Checks if the passed layoutPrefab variable is null and the layout is still the same
+        if(layoutPrefab != null && !isLayoutSame)
+        {
+            // Insert setting up diner layout based on level and day
+            if (currentLayout != null)
+                Destroy(currentLayout);
+
+            Debug.Log("Changing layout...");
+            currentLayout = Instantiate(layoutPrefab, layoutParent);
+        }
+        else
+        {
+            Debug.Log("Layout prefab is null or the current layout is the same.");
+        }
+
+        PreparationPhase();
     }
 
     public void PreparationPhase()
     {
-        UIGameHUD.main.UpdateDay(currentDay);
         PlayerMovement pm = player.GetComponent<PlayerMovement>();
 
         pm?.AllowMovement(true);
 
-        // Set office items to be interactable (phone, vault, and clipboard)
+        // TODO: Set office items to be interactable (phone, vault, and clipboard)
     }
 
     public void StartDay()
     {
-        // Set office item to be not interactable (phone, vault, and clipboard)
+        UIGameHUD.main.StartDayButtonVisibility(false);
+        
+        // TODO:Set office item to be not interactable (phone, vault, and clipboard)
+
         // Set menu of the day
         MenuHandler.main.SetMainMenu(currentDay);
 
         // Initialize customer spawner
+        bool tutorialDay = currentDay ==0;
+
         CustomerSpawner.main.InitializeSpawner(
             quotaPerDay[currentDay], 
             specialCustomerCount[currentDay].criticCount,
-            specialCustomerCount[currentDay].homelessCount
+            specialCustomerCount[currentDay].homelessCount,
+            tutorialDay
         );
     }
 
