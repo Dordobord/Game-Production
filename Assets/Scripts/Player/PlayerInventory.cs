@@ -7,19 +7,13 @@ public class PlayerInventory : MonoBehaviour
     public static PlayerInventory main;
 
     [Header("Inventory Settings")]
-    [SerializeField] private int maxSlots = 4;
+    [SerializeField] private int maxSlots = 6;
 
-    public List<ItemType> inventory = new List<ItemType>();
+    private List<ItemType> inventory = new List<ItemType>();
     public event Action OnInventoryChanged;
 
     private void Awake()
     {
-        if (main != null && main != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
         main = this;
     }
 
@@ -52,5 +46,23 @@ public class PlayerInventory : MonoBehaviour
     public bool HasItem(ItemType item)
     {
         return inventory.Contains(item);
+    }
+
+    public ItemType GetItem(int index)
+    {
+        if (index < 0 || index >= inventory.Count)
+            return default;
+        
+        return inventory[index];
+    }
+
+    public int GetItemCount()
+    {
+        return inventory.Count;
+    }
+
+    public bool isFull()
+    {
+        return inventory.Count >= maxSlots;
     }
 }

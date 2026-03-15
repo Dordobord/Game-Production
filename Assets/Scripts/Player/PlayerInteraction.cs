@@ -13,7 +13,7 @@ public class PlayerInteraction : MonoBehaviour
         FaceDirection();
         HighLightObject();
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && !UIPantryInventory.main.IsOpen)
             Interact();
     }
 
