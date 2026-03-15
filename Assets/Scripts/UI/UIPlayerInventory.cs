@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class UIInventory : MonoBehaviour
+public class UIPlayerInventory : MonoBehaviour
 {
     [SerializeField]private Image[] slots;
     [SerializeField]private Sprite emptySlot;
@@ -36,17 +36,18 @@ public class UIInventory : MonoBehaviour
     {
         for (int i = 0; i < slots.Length; i++)
         {
-            if (i < inventory.inventory.Count)
+            int itemCount = inventory.GetItemCount();
+            if (i < itemCount)
             {
-                ItemType item = inventory.inventory[i];
+                ItemType item = inventory.GetItem(i);
                 slots[i].sprite = iconDataBase.GetIcon(item);
-                slots[i].enabled = true;
             }
             else
             {
                 slots[i].sprite = emptySlot;
-                slots[i].enabled = true;
             }
+
+            slots[i].enabled = true;
         }
     }
 }
