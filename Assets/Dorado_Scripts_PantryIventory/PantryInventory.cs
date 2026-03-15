@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PantryInventory : MonoBehaviour
+public class PantryInventory : MonoBehaviour, IInteractable
 {
     [SerializeField]private int slots = 9;
     [SerializeField]private List<ItemType> allowedItems;
@@ -66,5 +66,10 @@ public class PantryInventory : MonoBehaviour
     public int GetItemCount()
     {
         return items.Count;
+    }
+
+    public void Interact()
+    {
+        UIPantryInventory.main.OpenPanel(this);
     }
 }

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -26,11 +25,11 @@ public class DayManager : MonoBehaviour
     [SerializeField] private Transform layoutParent;
     
     public UnityEvent OnDayEnded;
-
+    public bool isPrepPhase { get; private set; }
     private GameObject currentLayout;
-
+    private Transform kitchenStations;
+    private Transform officeStations;
     public int FetchCurrentDay() => currentDay;
-
     private void Awake() => main = this;
 
     public void InitializeDay(int day, GameObject layoutPrefab)
@@ -54,6 +53,9 @@ public class DayManager : MonoBehaviour
 
             Debug.Log("Changing layout...");
             currentLayout = Instantiate(layoutPrefab, layoutParent);
+
+            kitchenStations = currentLayout.transform.Find("KitchenStations");
+            officeStations = currentLayout.transform.Find("Office");
         }
         else
         {
@@ -63,21 +65,40 @@ public class DayManager : MonoBehaviour
         PreparationPhase();
     }
 
+    public void SetStations(Transform parent, bool state)
+    {
+        if (parent == null) return;
+
+        foreach (var interactable in parent.GetComponentsInChildren<IInteractable>())
+        {
+            //if interactable == Cookbook just skip and continue.
+            if (interactable is Cookbook)
+                continue;
+            (interactable as MonoBehaviour).enabled = state;
+        }
+    }
     public void PreparationPhase()
     {
+        isPrepPhase = true;
         PlayerMovement pm = player.GetComponent<PlayerMovement>();
 
         pm?.AllowMovement(true);
-
+ 
         // TODO: Set office items to be interactable (phone, vault, and clipboard)
+
+        SetStations(kitchenStations, false);
+        SetStations(officeStations, true);
     }
 
     public void StartDay()
     {
+        isPrepPhase = false;
+
         UIGameHUD.main.StartDayButtonVisibility(false);
         
         // TODO:Set office item to be not interactable (phone, vault, and clipboard)
-
+        SetStations(kitchenStations, true);
+        SetStations(officeStations, false);
         // Set menu of the day
         MenuHandler.main.SetMainMenu(currentDay);
 

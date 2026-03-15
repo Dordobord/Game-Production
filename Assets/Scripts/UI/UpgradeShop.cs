@@ -2,16 +2,19 @@ using UnityEngine;
 
 public class UpgradeShop : MonoBehaviour, IInteractable, IFocusable
 {
-    [SerializeField]private UIUpgradeShop uiUpgradeShop;
+    private UIUpgradeShop uiUpgradeShop;
+
     public void Interact()
     {
-        if (uiUpgradeShop == null) return; 
+        if (uiUpgradeShop == null)
+        {
+            uiUpgradeShop = FindFirstObjectByType<UIUpgradeShop>();
+        }
         uiUpgradeShop.OpenVault();
     }
 
     public void OnFocus()
     {
-        
     }
 
     public void OnLoseFocus()

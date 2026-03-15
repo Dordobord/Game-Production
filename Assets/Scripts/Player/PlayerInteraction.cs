@@ -54,9 +54,14 @@ public class PlayerInteraction : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, lastDirection, distance, interactMask);
 
         if (!hit) return;
-
+                
         if (hit.collider.TryGetComponent(out IInteractable interactable))
-            interactable.Interact();
+        {
+            MonoBehaviour mb = interactable as MonoBehaviour;//convert interface to monobehaviour
+
+            if (mb != null && mb.enabled)
+                interactable.Interact();
+        }
     }
 
     private void FaceDirection()

@@ -17,7 +17,7 @@ public class UIUpgradeShop : MonoBehaviour
 
     public void OpenVault()
     {
-        if (panel == null || phoneTxt == null)
+        if (panel == null)
             return;
 
         isOpen = true;

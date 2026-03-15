@@ -1,24 +1,25 @@
-using UnityEngine;
+// using UnityEngine;
 
-public class Pantry : MonoBehaviour, IInteractable
-{
-    [SerializeField] private ItemType itemToGive;
+// public class Pantry : MonoBehaviour, IInteractable
+// {
+//     [SerializeField] private ItemType itemToGive;
 
-    [System.Obsolete]
-    public void Interact()
-    {
-        PlayerInventory playerInventory = FindObjectOfType<PlayerInventory>();
-        if (playerInventory != null)
-        {
-            bool added = playerInventory.AddItem(itemToGive);
-            if (added)
-            {
-                Debug.Log("Added " + itemToGive + " to inventory.");
-            }
-            else
-            {
-                Debug.Log("Inventory full! Cannot add " + itemToGive);
-            }
-        }
-    }
-}
+//     [System.Obsolete]
+//     public void Interact()
+//     {
+//         PlayerInventory playerInventory = FindObjectOfType<PlayerInventory>();
+//         if (playerInventory != null)
+//         {
+//             bool added = playerInventory.AddItem(itemToGive);
+//             if (added)
+//             {
+//                 Debug.Log("Added " + itemToGive + " to inventory.");
+//             }
+//             else
+//             {
+//                 Debug.Log("Inventory full! Cannot add " + itemToGive);
+//             }
+//         }
+//     }
+//     Will not use this sc again you can delete this
+// }

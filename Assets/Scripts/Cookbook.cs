@@ -2,8 +2,13 @@ using UnityEngine;
 
 public class Cookbook : MonoBehaviour, IInteractable, IFocusable
 {
-    [SerializeField]private AssemblyStation assemblyStation;
-    [SerializeField]private UICookbook uiCookbook;
+    private AssemblyStation assemblyStation;
+    private UICookbook uiCookbook;
+    private void Awake()
+    {
+        assemblyStation = FindFirstObjectByType<AssemblyStation>();
+        uiCookbook = FindFirstObjectByType<UICookbook>();
+    }
 
     public void Interact()
     {
@@ -12,10 +17,7 @@ public class Cookbook : MonoBehaviour, IInteractable, IFocusable
         uiCookbook.OpenCookbook(assemblyStation.Recipes);
     }
 
-    public void OnFocus()
-    {
-        
-    }
+    public void OnFocus(){}
 
     public void OnLoseFocus()
     {
