@@ -19,6 +19,7 @@ public class KitchenStation : MonoBehaviour, IInteractable
     [SerializeField] private bool sendToPlateRack = false;
     [SerializeField] private PlateRack plateRack;
     [SerializeField] private UIDurationBar durationBar;
+    [SerializeField] private RestaurantUpgradeSO speedUpgrade;
 
     private bool isProcessing = false;
     private ItemType? currentInput = null;
@@ -88,16 +89,12 @@ public class KitchenStation : MonoBehaviour, IInteractable
         isProcessing = true;
 
         float speed = PlayerStats.main.Efficiency;
+
         float reduction = 0;
 
-        if (currentOutput == ItemType.CookedFries || currentOutput == ItemType.CookedChicken)
+        if (speedUpgrade != null)
         {
-            reduction = UpgradeManager.main.Fryer.GetValue();
-        }
-
-        if (currentOutput == ItemType.CookedBeef)
-        {
-            reduction = UpgradeManager.main.Grill.GetValue();
+            reduction = speedUpgrade.GetValue();
         }
 
         float finalTime = Mathf.Max(0.1f, (processingTime - reduction) / speed);

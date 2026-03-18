@@ -259,6 +259,7 @@ MonoBehaviour:
   sendToPlateRack: 0
   plateRack: {fileID: 0}
   durationBar: {fileID: 4100558004187416845}
+  speedUpgrade: {fileID: 11400000, guid: ffe208e92a31b7e409296ec6a7de8734, type: 2}
 --- !u!1001 &1773110466590422232
 PrefabInstance:
   m_ObjectHideFlags: 0

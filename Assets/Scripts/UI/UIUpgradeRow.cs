@@ -14,6 +14,18 @@ public class UIUpgradeRow : MonoBehaviour
     [SerializeField]private Color lockedCol;
     [SerializeField]private Color unlockedCol;
 
+    private Image[] buttonImages;
+
+
+    void Awake()
+    {
+        buttonImages = new Image[upgradeBtns.Length];
+
+        for (int i = 0; i < upgradeBtns.Length; i++)
+        {
+            buttonImages[i] = upgradeBtns[i].GetComponent<Image>();
+        }
+    }
     void Start()
     {
         RefreshUI();
@@ -23,7 +35,7 @@ public class UIUpgradeRow : MonoBehaviour
     {
         if (upgrade == null) return;
 
-        UpgradeManager.main.TryBuyUpgrade(upgrade);
+        UpgradeManager.main.TryUpgrade(upgrade);
 
         RefreshUI();
     }
@@ -32,42 +44,50 @@ public class UIUpgradeRow : MonoBehaviour
     {
         if (upgrade == null) return;
 
+        UpdateTexts();
+        UpdateButtons();
+    }
+
+    private void UpdateTexts()
+    {
         titleTxt.text = upgrade.UpgradeName;
 
         if (upgrade.IsMaxLevel())
         {
-            priceTxt.text = "MAX";
+            priceTxt.text = "Max Upgrade";
         }
         else
         {
             priceTxt.text = "$" + upgrade.GetCost();
         }
-        
-        int level = upgrade.GetCurrentLevel();
+    }
 
-        for (int i = 0; i < upgradeBtns.Length; i++)
+    private void UpdateButtons()
+{
+    int level = upgrade.GetCurrentLevel();
+
+    for (int i = 0; i < upgradeBtns.Length; i++)
+    {
+        bool isUnlocked = i < level;
+        bool isNextUpgrade = i == level;
+
+        if (isUnlocked)
         {
-            Image img = upgradeBtns[i].GetComponent<Image>();
+            buttonImages[i].color = unlockedCol;
+        }
+        else
+        {
+            buttonImages[i].color = lockedCol;
+        }
 
-            if (i < level)
-            {
-                img.color = unlockedCol;
-            }
-            else
-            {
-                img.color = lockedCol;
-            }
-
-            Button btn = upgradeBtns[i];
-
-            if (i == level)
-            {
-                btn.interactable = true;
-            }
-            else
-            {
-                btn.interactable = false;
-            }
+        if (isNextUpgrade)
+        {
+            upgradeBtns[i].interactable = true;
+        }
+        else
+        {
+            upgradeBtns[i].interactable = false;
         }
     }
+}
 }

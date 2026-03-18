@@ -6,6 +6,7 @@ public class CoffeeMachine : MonoBehaviour, IInteractable
 {
     [SerializeField]private float brewTime = 5f;
     [SerializeField]private UIDurationBar durationBar;
+    [SerializeField]private RestaurantUpgradeSO brewSpeedUpgrade;
 
     private bool isBrewing = false;
     private bool coffeeReady = false;
@@ -15,10 +16,9 @@ public class CoffeeMachine : MonoBehaviour, IInteractable
     public event Action OnFinishBrewing;
     public event Action OnClear;
 
-    [System.Obsolete]
     void Start()
     {
-        playerInventory = FindObjectOfType<PlayerInventory>();
+        playerInventory = PlayerInventory.main;
     }
 
     public void Interact()
@@ -42,11 +42,6 @@ public class CoffeeMachine : MonoBehaviour, IInteractable
                 coffeeReady = false;
                 OnClear?.Invoke();
             }
-            else
-            {
-                Debug.Log("Inventory full! Cannot take coffee.");
-            }
-
             return;
         }
 
@@ -59,7 +54,12 @@ public class CoffeeMachine : MonoBehaviour, IInteractable
         OnStartBrewing?.Invoke();
 
         float speed = PlayerStats.main.Efficiency;
-        float reduction = UpgradeManager.main.CoffeeMachine.GetValue();
+
+        float reduction = 0f;
+        if (brewSpeedUpgrade != null)
+        {
+            reduction = brewSpeedUpgrade.GetValue();
+        }
 
         float finalTime = Mathf.Max(0.1f, (brewTime - reduction) / speed);
 
@@ -78,6 +78,5 @@ public class CoffeeMachine : MonoBehaviour, IInteractable
         coffeeReady = true;
 
         OnFinishBrewing?.Invoke();
-        Debug.Log("Coffee is ready!");
     }
 }

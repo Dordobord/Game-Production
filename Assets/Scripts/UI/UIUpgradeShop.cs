@@ -4,8 +4,6 @@ using UnityEngine;
 public class UIUpgradeShop : MonoBehaviour
 {
     [SerializeField] private GameObject panel;
-    [SerializeField] private TextMeshProUGUI phoneTxt;
-
     private bool isOpen = false;
     public bool IsOpen => isOpen;
 

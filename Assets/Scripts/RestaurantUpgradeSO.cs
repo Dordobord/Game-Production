@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 [CreateAssetMenu(menuName = "Game/Restaurant Upgrade")]
 public class RestaurantUpgradeSO : ScriptableObject
@@ -11,10 +10,17 @@ public class RestaurantUpgradeSO : ScriptableObject
 
     private int currentLevel;
     private int pendingLevel;
+    private bool unlocked;
 
     public string UpgradeName => upgradeName;
     public int CurrentLevel => currentLevel;
     public int PendingLevel => pendingLevel;
+    public bool IsUnlocked => unlocked;
+
+    public void UnlockUpgrade()
+    {
+        unlocked = true;
+    }
 
     public int GetCurrentLevel()
     {
@@ -23,6 +29,7 @@ public class RestaurantUpgradeSO : ScriptableObject
 
     public bool CanUpgrade()
     {
+        if (!unlocked) return false;
         return currentLevel + pendingLevel < maxUpgradeLevel;
     }
 
@@ -30,18 +37,21 @@ public class RestaurantUpgradeSO : ScriptableObject
     {
         return GetCurrentLevel() >= maxUpgradeLevel;
     }
+
     public int GetCost()
     {
-        int level = GetCurrentLevel();
-
-        if (level >= upgradeCosts.Length)
+        if (upgradeCosts == null || upgradeCosts.Length == 0)
             return 0;
 
+        int level = Mathf.Clamp(GetCurrentLevel(), 0, upgradeCosts.Length - 1);
         return upgradeCosts[level];
     }
 
     public float GetValue()
     {
+        if (values == null || values.Length == 0)
+            return 0;
+
         int level = Mathf.Clamp(currentLevel, 0, values.Length - 1);
         return values[level];
     }
@@ -59,9 +69,10 @@ public class RestaurantUpgradeSO : ScriptableObject
         pendingLevel = 0;
     }
 
-    private void OnEnable()//Reset upgrade purchase when play mode (temporary).
+    private void OnEnable()
     {
         currentLevel = 0;
         pendingLevel = 0;
+        unlocked = false;
     }
 }
