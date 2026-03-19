@@ -12,6 +12,7 @@ public enum ItemType
     PlatedBurger,
     PlatedChicken,
     PlatedFries,
-    CoffeeCup
+    CoffeeCup,
+    Soda
 
 }

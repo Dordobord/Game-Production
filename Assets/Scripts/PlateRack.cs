@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlateRack : MonoBehaviour, IInteractable
 {
     [SerializeField] private int plateCount = 5; 
-    [SerializeField] private RestaurantUpgradeSO capacityUpgrade;
+    [SerializeField] private UpgradeSO capacityUpgrade;
     private PlayerInventory playerInventory;
 
     void Start()

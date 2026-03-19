@@ -15,6 +15,8 @@ public enum CustomerState
 
 public class CustomerBehavior : MonoBehaviour, IInteractable
 {
+    [SerializeField] private UpgradeSO tableUpgrade; //Upgrade script reference
+
     [Header("Customer References")]
     [SerializeField] private CustomerData customerData;
     [SerializeField] private PatienceManager patienceManager;
@@ -271,6 +273,7 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
 
     private void Leave()
     {
+        
         Debug.Log($"{name} is leaving.");
 
         if(isSatisfied)
@@ -278,11 +281,41 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
             // Pay bill
             PlayerWallet.main?.AddIncome(bill);
 
-            // Give tip base on chance
-            if(Random.value < customerData.tipChance)
+            float baseChance = customerData.tipChance; 
+            float upgradeChance = tableUpgrade.GetValue(); 
+
+            float finalChance = baseChance * upgradeChance;
+
+            if (Random.value < finalChance)
             {
-                float baseTip = 0.5f; // TODO: insert tip based on table level
-                PlayerWallet.main?.AddIncome(baseTip * customerData.tipMultiplier);
+                float minTip = 0f;
+                float maxTip = 0f;
+
+                int level = tableUpgrade.GetCurrentLevel();
+
+                if (level == 1)
+                {
+                    minTip = 0.01f;
+                    maxTip = 0.02f;
+                }
+                else if (level == 2)
+                {
+                    minTip = 0.03f;
+                    maxTip = 0.05f;
+                }
+                else if (level == 3)
+                {
+                    minTip = 0.06f;
+                    maxTip = 0.10f;
+                }
+
+                float tip = Random.Range(minTip, maxTip);
+
+                tip = Mathf.Round(tip * 100f) / 100f;
+
+                PlayerWallet.main?.AddIncome(tip);
+
+                Debug.Log($"Tip: {tip}");
             }
         }
 
@@ -295,7 +328,7 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
         CustomerSpawner.main.UnregisterCustomer(this, isSatisfied);
         Destroy(gameObject, 1f);
     }
-
+    
     public IEnumerator ShowTemporaryExpression(Sprite tempIcon, float duration)
     {
         isExpressing = true;

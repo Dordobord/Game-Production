@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1409648099
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6990f12bae9afb640aaf995d46979119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tableUpgrade: {fileID: 11400000, guid: edea8793aa378a44fbc72c0f0f5e05ff, type: 2}
   customerData: {fileID: 11400000, guid: 5967fd266a9f8a54bbfc589306ed66f7, type: 2}
   patienceManager: {fileID: 710882377067567968}
   customerSR: {fileID: 2274201187123653322}
@@ -201,7 +202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80a739adfdfb46843922a454254ebc6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chairUpgrade: {fileID: 11400000, guid: 0359386a0c272a446b8b81df7f4af06d, type: 2}
   customerBehavior: {fileID: 1540434481476140444}
+  boostPercent: 0.2
   showDuration: 3
   happyThreshold: 0.9
   frustratedThreshold: 0.6
@@ -299,7 +302,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1409648099
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 1
   m_Sprite: {fileID: -4943249500775151325, guid: e6aed36daa33fe1499b607715c1b7cd2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -386,7 +389,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2146890629
-  m_SortingLayer: 6
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 404931356017359144, guid: e028ab34ee675c9478a374af524aa866, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

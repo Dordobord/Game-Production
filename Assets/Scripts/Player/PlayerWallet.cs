@@ -24,18 +24,15 @@ public class PlayerWallet : MonoBehaviour
     public bool SpendMoney (float amount)
     {
         // If money is not enough
-        if(totalMoney > amount)
+        if(totalMoney < amount)
         {
             return false;
         }
         // Deduct total money
-        else
-        {
-            totalMoney -= amount;
-            UIGameHUD.main.UpdateIncome(totalMoney);
-
-            return true;
-        }
+        
+        totalMoney -= amount;
+        UIGameHUD.main.UpdateIncome(totalMoney);
+        return true;
     }
 
     public bool PayBills(float utilities, float stock)

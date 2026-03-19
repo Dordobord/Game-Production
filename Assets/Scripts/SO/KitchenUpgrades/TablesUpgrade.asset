@@ -12,11 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097c0c9590c0cf94aafc21ef6b723b90, type: 3}
   m_Name: TablesUpgrade
   m_EditorClassIdentifier: 
-  upgradeName: Tables
-  maxUpgradeLevel: 3
+  upgradeType: 1
+  cookerType: 0
+  UpgradeName: Tables
+  requiredLevel: 0
+  requiredDay: 0
+  unlockCost: 5
+  currentLevel: 0
+  maxLevel: 3
   upgradeCosts: 030000000500000008000000
-  values:
-  - 0
-  - 0
-  - 0
-  - 0
+  upgradeValues:
+  - 0.4
+  - 0.6
+  - 0.8
+  unlockedByDefault: 1
+  IsUnlocked: 1

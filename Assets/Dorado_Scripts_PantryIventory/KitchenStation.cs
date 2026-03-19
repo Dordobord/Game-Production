@@ -19,7 +19,7 @@ public class KitchenStation : MonoBehaviour, IInteractable
     [SerializeField] private bool sendToPlateRack = false;
     [SerializeField] private PlateRack plateRack;
     [SerializeField] private UIDurationBar durationBar;
-    [SerializeField] private RestaurantUpgradeSO speedUpgrade;
+    [SerializeField] private UpgradeSO speedUpgrade;
 
     private bool isProcessing = false;
     private ItemType? currentInput = null;
