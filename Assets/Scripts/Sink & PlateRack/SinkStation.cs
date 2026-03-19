@@ -13,7 +13,6 @@ public class SinkStation : MonoBehaviour, IInteractable
     [SerializeField] private Transform sinkLocation;
 
     [Header("Reference")]
-    [SerializeField] private PlayerMovement player;
     [SerializeField] private UIDurationBar durationBar;
     [SerializeField] private CleanPlateRack rack;
     [SerializeField] private DirtyPlateRack dirtyRack;
@@ -45,8 +44,8 @@ public class SinkStation : MonoBehaviour, IInteractable
 
         if (dirtyRack.TakePlate())
         {
-            player.AllowMovement(false);
-            player.gameObject.transform.position = sinkLocation.position;
+            PlayerMovement.main.AllowMovement(false);
+            PlayerMovement.main.gameObject.transform.position = sinkLocation.position;
 
             float speed;
             speed = PlayerStats.main.Efficiency;
@@ -64,7 +63,7 @@ public class SinkStation : MonoBehaviour, IInteractable
             }
 
             rack.IncreasePlate();
-            player.AllowMovement(true);
+            PlayerMovement.main.AllowMovement(true);
             Debug.Log("Finsihed washing a plate");
         }
         else

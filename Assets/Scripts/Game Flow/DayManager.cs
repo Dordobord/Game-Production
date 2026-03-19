@@ -38,7 +38,7 @@ public class DayManager : MonoBehaviour
         PlayerStats.main?.ResetNewExperienceAndPoints();
 
         UIGameHUD.main?.UpdateQuota(0, 0);
-        UIGameHUD.main?.UpdateDay(currentDay);
+        UIGameHUD.main?.UpdateDay(day);
         UIGameHUD.main.StartDayButtonVisibility(true);
         currentDay = day;
 
@@ -47,7 +47,7 @@ public class DayManager : MonoBehaviour
         // Checks if the passed layoutPrefab variable is null and the layout is still the same
         if(layoutPrefab != null && !isLayoutSame)
         {
-            // Insert setting up diner layout based on level and day
+            // Setting up diner layout based on level and day
             if (currentLayout != null)
                 Destroy(currentLayout);
 

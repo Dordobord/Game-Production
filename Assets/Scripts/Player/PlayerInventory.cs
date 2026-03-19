@@ -9,7 +9,7 @@ public class PlayerInventory : MonoBehaviour
     [Header("Inventory Settings")]
     [SerializeField] private int maxSlots = 6;
 
-    private List<ItemType> inventory = new List<ItemType>();
+    [SerializeField] private List<ItemType> inventory = new List<ItemType>();
     public event Action OnInventoryChanged;
 
     private void Awake()

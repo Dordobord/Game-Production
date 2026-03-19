@@ -1,18 +1,19 @@
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-[System.Serializable]
-public class Recipe
-{
-    public ItemType[] requiredItems;
-    public ItemType resultItem;
-}
 
 public class AssemblyStation : MonoBehaviour, IInteractable
 {
-    [SerializeField] private Recipe[] recipes;
+    [SerializeField] private List<ItemMenuData> menuOfTheDay = new List<ItemMenuData>();
 
-    public Recipe[] Recipes => recipes;
+    public List<ItemMenuData>  Recipes => menuOfTheDay;
     private PlayerInventory playerInventory;
+
+    private void Start()
+    {
+        menuOfTheDay = MenuHandler.main.GetTodayMenu();
+    }
 
     private PlayerInventory GetInventory()
     {
@@ -24,6 +25,7 @@ public class AssemblyStation : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        Debug.Log("Player attempting to assemble.");
         PlayerInventory inv = GetInventory();
 
         if (inv == null)
@@ -32,11 +34,11 @@ public class AssemblyStation : MonoBehaviour, IInteractable
             return;
         }
 
-        foreach (Recipe recipe in recipes)
+        foreach (ItemMenuData menuItem in menuOfTheDay)
         {
-            if (CanCraft(recipe, inv))
+            if (CanAssemble(menuItem, inv))
             {
-                Craft(recipe, inv);
+                Assemble(menuItem, inv);
                 return;
             }
         }
@@ -44,12 +46,12 @@ public class AssemblyStation : MonoBehaviour, IInteractable
         Debug.Log("No matching recipe.");
     }
 
-    private bool CanCraft(Recipe recipe, PlayerInventory inv)
+    private bool CanAssemble(ItemMenuData menuItem, PlayerInventory inv)
     {
-        if (recipe == null || recipe.requiredItems == null)
+        if (menuItem == null || menuItem.ingredients.Count < 1)
             return false;
 
-        foreach (ItemType item in recipe.requiredItems)
+        foreach (ItemType item in menuItem.ingredients)
         {
             if (!inv.HasItem(item))
                 return false;
@@ -58,14 +60,14 @@ public class AssemblyStation : MonoBehaviour, IInteractable
         return true;
     }
 
-    private void Craft(Recipe recipe, PlayerInventory inv)
+    private void Assemble(ItemMenuData menuItem, PlayerInventory inv)
     {
-        foreach (ItemType item in recipe.requiredItems)
+        foreach (ItemType item in menuItem.ingredients)
             inv.RemoveItem(item);
 
-        if (inv.AddItem(recipe.resultItem))
+        if (inv.AddItem(menuItem.dishItem))
         {
-            Debug.Log("Crafted: " + recipe.resultItem);
+            Debug.Log("Crafted: " + menuItem.dishItem);
             TutorialManager.main?.OnFoodAssembled();
         }
         else

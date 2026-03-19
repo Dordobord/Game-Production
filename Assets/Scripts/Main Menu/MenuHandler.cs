@@ -6,9 +6,11 @@ public class MenuHandler : MonoBehaviour
 {
     public static MenuHandler main { get; private set; }
 
-    [Header("Main Menu and Menu Items")]
-    public List<ItemMenuData> mainMenu = new List<ItemMenuData>();
-    public List<ItemMenuData> listOfItems = new List<ItemMenuData>();
+    [Header("Main Menu and Menu Items")]    
+    [SerializeField] private List<ItemMenuData> mainMenu = new List<ItemMenuData>();
+    [SerializeField] private List<ItemMenuData> listOfItems = new List<ItemMenuData>();
+
+    public List<ItemMenuData> GetTodayMenu() => mainMenu;
 
     private void Awake() => main = this;
 

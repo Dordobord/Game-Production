@@ -2,19 +2,19 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private PlayerStats stats;
-    private Rigidbody2D _rb;
-    private Animator _anim;
+    public static PlayerMovement main { get; private set; }
+    [SerializeField] private PlayerStats stats;
+    [SerializeField]private Rigidbody2D _rb;
+    [SerializeField] private Animator _anim;
     private bool moving;
     private Vector2 input;
     private float x;
     private float y;
     private float idleTimer;
+
     void Awake()
     {
-        _rb = GetComponentInChildren<Rigidbody2D>();
-        _anim = GetComponentInChildren<Animator>();
-        stats = GetComponent<PlayerStats>();
+        main = this;
     }
 
     void Update()

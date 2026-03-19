@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
 
 public class UICookbook : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class UICookbook : MonoBehaviour
             panel.SetActive(false);
     }
 
-    public void OpenCookbook(Recipe[] recipes)
+    public void OpenCookbook(List<ItemMenuData> recipes)
     {
         if (panel == null || recipeText == null)
             return;
@@ -35,35 +36,35 @@ public class UICookbook : MonoBehaviour
         panel.SetActive(false);
     }
 
-    private void ShowRecipes(Recipe[] recipes)
+    private void ShowRecipes(List<ItemMenuData> recipes)
     {
         recipeText.text = "";
 
-        if (recipes == null || recipes.Length == 0)
+        if (recipes == null || recipes.Count == 0)
         {
             recipeText.text = "No recipes available.";
             return;
         }
 
-        for (int i = 0; i < recipes.Length; i++)
+        for (int i = 0; i < recipes.Count; i++)
         {
             recipeText.text += FormatRecipe(recipes[i]) + "\n";
         }
     }
 
-    private string FormatRecipe(Recipe recipe) //gets item in the recipe list and converts it into string format hehe.
+    private string FormatRecipe(ItemMenuData recipe) //gets item in the recipe list and converts it into string format hehe.
     {
-        if (recipe == null || recipe.requiredItems == null || recipe.requiredItems.Length == 0) return "";
+        if (recipe == null || recipe.ingredients == null || recipe.ingredients.Count == 0) return "";
 
         string ingredients = "";
 
-        for (int i = 0; i < recipe.requiredItems.Length; i++) //loop through to check for items to be added 
+        for (int i = 0; i < recipe.ingredients.Count; i++) //loop through to check for items to be added 
         {
-            ingredients += recipe.requiredItems[i].ToString();
+            ingredients += recipe.ingredients[i].ToString();
 
-            if (i < recipe.requiredItems.Length - 1) ingredients += " + ";
+            if (i < recipe.ingredients.Count - 1) ingredients += " + ";
         }
 
-        return ingredients + " = " + recipe.resultItem;
+        return ingredients + " = " + recipe.dishItem;
     }
 }
