@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recipes:
-  - input: 0
+  - inputs: 00000000
     output: 1
   processingTime: 3.5
   sendToPlateRack: 0

@@ -18897,26 +18897,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5702258194818550645, guid: 3f41177e0b056104d93eca66d2f21bea, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 5702258194818550645, guid: 3f41177e0b056104d93eca66d2f21bea, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 5702258194818550645, guid: 3f41177e0b056104d93eca66d2f21bea, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 5702258194818550645, guid: 3f41177e0b056104d93eca66d2f21bea, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.247
-      objectReference: {fileID: 0}
-    - target: {fileID: 5702258194818550645, guid: 3f41177e0b056104d93eca66d2f21bea, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7297734607221545318, guid: 3f41177e0b056104d93eca66d2f21bea, type: 3}
       propertyPath: m_Name
       value: SodaStation

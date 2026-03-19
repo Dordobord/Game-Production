@@ -3,9 +3,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ItemMenuData", menuName = "Menu/ItemMenuData")]
 public class ItemMenuData : ScriptableObject
 {
-    [Header("Item Menu Data")]
+[Header("Item Menu Data")]
     public ItemType dishItemType;
+
+    [Header("Sprites (Temporary)")]
     public Sprite dishSprite;
+    public Sprite cookedSprite;
+    public Sprite rawSprite;
 
     [Header("Item Menu Information")]
     public ItemCategory category;
@@ -18,9 +22,7 @@ public class ItemMenuData : ScriptableObject
 
     [Header("Item States")]
     public ItemType cookedItem;
-    public Sprite cookedSprite;
     public ItemType rawItem;
-    public Sprite rawSprite;
 
     [Header("Unlockable Settings")]
     public int dayRequirement;

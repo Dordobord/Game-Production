@@ -36,7 +36,7 @@ public class UIPlayerInventory : MonoBehaviour
     {
         for (int i = 0; i < slots.Length; i++)
         {
-            int itemCount = inventory.GetItemCount();
+            int itemCount = inventory.GetTotalItemCount();
             if (i < itemCount)
             {
                 ItemType item = inventory.GetItem(i);
