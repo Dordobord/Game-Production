@@ -15,6 +15,8 @@ public enum CustomerState
 
 public class CustomerBehavior : MonoBehaviour, IInteractable
 {
+    [SerializeField] private UpgradeSO tableUpgrade; //Upgrade script reference
+
     [Header("Customer References")]
     [SerializeField] private CustomerData customerData;
     [SerializeField] private PatienceManager patienceManager;
@@ -28,6 +30,7 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
     // Table and pathfinding
     private Table table;
     private Transform[] path;
+    private Transform seatPosition;
     private int currentpathIndex;
     private bool isSeated;
 
@@ -47,7 +50,7 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
     {
         if (customerState == CustomerState.ReadyToOrder)
         {
-            Debug.Log("Customer has ordered: " + orderedItem.dishItemType);
+            Debug.Log("Customer has ordered: " + orderedItem.dishItem);
 
             SetCustomerBubble(orderedItem.dishSprite, true);
             customerState = CustomerState.Waiting;
@@ -56,10 +59,10 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
         {
             PlayerInventory inventory = PlayerInventory.main;
 
-            if (inventory == null || !inventory.HasItem(orderedItem.dishItemType))
+            if (inventory == null || !inventory.HasItem(orderedItem.dishItem))
                 return;
 
-            inventory.RemoveItem(orderedItem.dishItemType);
+            inventory.RemoveItem(orderedItem.dishItem);
 
             ChangeState(CustomerState.Eating);
 
@@ -83,7 +86,7 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
             return;
         }
 
-        table.AssignCustomer(this);
+        seatPosition = table.AssignSeatToCustomer(this);
         customerState = CustomerState.Idle;
 
         SeatPath seatPath = table.GetComponent<SeatPath>();
@@ -142,7 +145,7 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
             return;
         }
 
-        Vector3 target = table.SeatPoint.position;
+        Vector3 target = seatPosition.position;
         MoveTo(target);
 
         if ((transform.position - target).sqrMagnitude < 0.01f)
@@ -163,18 +166,18 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
 
         if (orderCount == 0)
         {
-            availableOptions = MenuHandler.main.mainMenu.Where(x =>
+            availableOptions = MenuHandler.main.GetTodayMenu().Where(x =>
                 x.category == ItemCategory.Side ||
                 x.category == ItemCategory.Drink ||
                 x.category == ItemCategory.Main).ToList();
         }
         else if (orderCount == 1)
         {
-            availableOptions = MenuHandler.main.mainMenu.Where(x => x.category == ItemCategory.Main).ToList();
+            availableOptions = MenuHandler.main.GetTodayMenu().Where(x => x.category == ItemCategory.Main).ToList();
         }
         else if (orderCount == 2)
         {
-            availableOptions = MenuHandler.main.mainMenu.Where(x =>
+            availableOptions = MenuHandler.main.GetTodayMenu().Where(x =>
                 x.category == ItemCategory.Dessert ||
                 x.category == ItemCategory.Drink).ToList();
         }
@@ -195,7 +198,7 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
 
         yield return new WaitForSeconds(Random.Range(customerData.thinkingTimer / 2f, customerData.thinkingTimer));
 
-        Debug.Log($"{customerData.customerType} is ready for order #{orderCount + 1}: {orderedItem.dishItemType}");
+        Debug.Log($"{customerData.customerType} is ready for order #{orderCount + 1}: {orderedItem.dishItem}");
 
         SetCustomerBubble(waitingIcon, true);
         customerState = CustomerState.ReadyToOrder;
@@ -224,7 +227,7 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
 
             if (table != null)
             {
-                table.ClearTable();
+                table.ClearSeat(this);
                 table = null;
             }
 
@@ -271,6 +274,7 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
 
     private void Leave()
     {
+        
         Debug.Log($"{name} is leaving.");
 
         if(isSatisfied)
@@ -278,24 +282,54 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
             // Pay bill
             PlayerWallet.main?.AddIncome(bill);
 
-            // Give tip base on chance
-            if(Random.value < customerData.tipChance)
+            float baseChance = customerData.tipChance; 
+            float upgradeChance = tableUpgrade.GetValue(); 
+
+            float finalChance = baseChance * upgradeChance;
+
+            if (Random.value < finalChance)
             {
-                float baseTip = 0.5f; // TODO: insert tip based on table level
-                PlayerWallet.main?.AddIncome(baseTip * customerData.tipMultiplier);
+                float minTip = 0f;
+                float maxTip = 0f;
+
+                int level = tableUpgrade.GetCurrentLevel();
+
+                if (level == 1)
+                {
+                    minTip = 0.01f;
+                    maxTip = 0.02f;
+                }
+                else if (level == 2)
+                {
+                    minTip = 0.03f;
+                    maxTip = 0.05f;
+                }
+                else if (level == 3)
+                {
+                    minTip = 0.06f;
+                    maxTip = 0.10f;
+                }
+
+                float tip = Random.Range(minTip, maxTip);
+
+                tip = Mathf.Round(tip * 100f) / 100f;
+
+                PlayerWallet.main?.AddIncome(tip);
+
+                Debug.Log($"Tip: {tip}");
             }
         }
 
         if (table != null)
         {
-            table.ClearTable();
+            table.ClearSeat(this);
             table = null;
         }
 
         CustomerSpawner.main.UnregisterCustomer(this, isSatisfied);
         Destroy(gameObject, 1f);
     }
-
+    
     public IEnumerator ShowTemporaryExpression(Sprite tempIcon, float duration)
     {
         isExpressing = true;

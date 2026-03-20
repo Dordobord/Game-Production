@@ -9,7 +9,7 @@ public class PlayerInventory : MonoBehaviour
     [Header("Inventory Settings")]
     [SerializeField] private int maxSlots = 6;
 
-    private List<ItemType> inventory = new List<ItemType>();
+    [SerializeField] private List<ItemType> inventory = new List<ItemType>();
     public event Action OnInventoryChanged;
 
     private void Awake()
@@ -56,13 +56,26 @@ public class PlayerInventory : MonoBehaviour
         return inventory[index];
     }
 
-    public int GetItemCount()
+    public int GetTotalItemCount()
     {
         return inventory.Count;
     }
-
     public bool isFull()
     {
         return inventory.Count >= maxSlots;
     }
+
+    public int GetItemCount(ItemType item)
+    {
+        int count = 0;
+
+        foreach (var i in inventory)
+        {
+            if (i.Equals(item))
+                count++;
+        }
+
+        return count;
+    }
+    
 }

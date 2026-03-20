@@ -1,10 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ItemMenuData", menuName = "Menu/ItemMenuData")]
 public class ItemMenuData : ScriptableObject
 {
     [Header("Item Menu Data")]
-    public ItemType dishItemType;
+    public ItemType dishItem;
     public Sprite dishSprite;
 
     [Header("Item Menu Information")]
@@ -16,11 +17,8 @@ public class ItemMenuData : ScriptableObject
     public ItemCooker cooker;
     public float cookingTime;
 
-    [Header("Item States")]
-    public ItemType cookedItem;
-    public Sprite cookedSprite;
-    public ItemType rawItem;
-    public Sprite rawSprite;
+    [Header("Item Requirements")]
+    public List<ItemType> ingredients;
 
     [Header("Unlockable Settings")]
     public int dayRequirement;
@@ -31,7 +29,7 @@ public enum ItemCategory
     Main,
     Side,
     Drink,
-    Dessert,
+    Dessert
 }
 
 public enum ItemCooker
@@ -40,5 +38,5 @@ public enum ItemCooker
     Fryer,
     Blender,
     CoffeeMachine,
-    SodaMachine,
+    SodaMachine
 }

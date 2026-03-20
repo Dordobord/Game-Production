@@ -12,15 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e281713bfbb23d43a06f1730e2a4ef4, type: 3}
   m_Name: Fried Chicken
   m_EditorClassIdentifier: 
-  dishItemType: 10
+  dishItem: 10
   dishSprite: {fileID: 5051735917503443728, guid: 52bc31e0619dd3a479b81e06e47d397d, type: 3}
   category: 0
   price: 0.5
   restockPrice: 0.16
   cooker: 1
   cookingTime: 15
-  cookedItem: 6
-  cookedSprite: {fileID: 0}
-  rawItem: 5
-  rawSprite: {fileID: 0}
+  ingredients: 0600000003000000
   dayRequirement: 0

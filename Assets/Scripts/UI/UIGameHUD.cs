@@ -1,5 +1,4 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +13,6 @@ public class UIGameHUD : MonoBehaviour
 
     [Header("Experience Bar")]
     [SerializeField] private Image experienceFillImage; 
-    [SerializeField] private TextMeshProUGUI experienceValueText;
 
     [Header("Button")]
     [SerializeField] private Button startDayButton;
@@ -26,9 +24,6 @@ public class UIGameHUD : MonoBehaviour
         float progress = currentXP / maxXP;
 
         experienceFillImage.fillAmount = Mathf.Clamp01(progress);
-
-        if (experienceValueText != null) 
-            experienceValueText.text = $"{currentXP} / {maxXP}";
     }
 
     public void UpdateIncome(float currentIncome)

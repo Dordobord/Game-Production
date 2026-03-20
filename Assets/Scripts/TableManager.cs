@@ -16,7 +16,7 @@ public class TableManager : MonoBehaviour
     {
         foreach (Table table in tables)
         {
-            if (table != null && !table.IsOccupied)
+            if (table != null && !table.IsTableFull)
                 return table;
         }
         return null;
@@ -27,7 +27,7 @@ public class TableManager : MonoBehaviour
         int count = 0;
         foreach (Table table in tables)
         {
-            if (table != null && !table.IsOccupied)
+            if (table != null && !table.IsTableFull)
                 count++;
         }
         return count;

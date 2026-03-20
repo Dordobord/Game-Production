@@ -145,18 +145,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3765292003383108484}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29c4ef64f3df0ca4a86fc5f2196e8494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   recipes:
-  - input: 0
+  - inputs: 00000000
     output: 1
   processingTime: 3.5
   sendToPlateRack: 0
   plateRack: {fileID: 0}
   durationBar: {fileID: 3329173913031034153}
+  speedUpgrade: {fileID: 11400000, guid: 29799a8cece43484a8176bdf06c0b083, type: 2}
 --- !u!114 &4123113655058649582
 MonoBehaviour:
   m_ObjectHideFlags: 0

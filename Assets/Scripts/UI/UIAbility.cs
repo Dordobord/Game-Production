@@ -1,20 +1,32 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIAbility : MonoBehaviour
 {
-    [SerializeField]private GameObject panel;
-    [SerializeField]private TextMeshProUGUI levelTxt;
-    [SerializeField]private TextMeshProUGUI abilityPointsTxt;
-    [SerializeField]private TextMeshProUGUI moveSpeedTxt;
-    [SerializeField]private TextMeshProUGUI efficiencyTxt;
+    public static UIAbility main {get; private set;}
+    [SerializeField] private GameObject panel;
+    [SerializeField] private Image experienceBar; 
+    [SerializeField] private TextMeshProUGUI experienceValueText;
+    [SerializeField] private TextMeshProUGUI abilityPointsTxt;
+    [SerializeField] private TextMeshProUGUI moveSpeedTxt;
+    [SerializeField] private TextMeshProUGUI efficiencyTxt;
 
-    private PlayerStats stats;
+    [SerializeField] private PlayerStats stats;
 
     void Awake()
     {
+        main = this;
         panel.SetActive(false);
-        stats = Object.FindAnyObjectByType<PlayerStats>();
+    }
+
+    void Update()
+    {
+        if(panel.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        {
+            ClosePanel();
+        }
     }
 
     public void OpenPanel()
@@ -30,8 +42,19 @@ public class UIAbility : MonoBehaviour
 
     private void RefreshPanel()
     {
-        //levelTxt.text = $"Level: {stats.Level}";
-        abilityPointsTxt.text = $"AP: {stats.AbilityPoints}";
+        // Experience bar
+        float currentXP = PlayerStats.main.TotalExperience;
+        float maxXP = PlayerStats.main.MaxExperience;
+        float progress = currentXP / maxXP;
+
+        experienceBar.fillAmount = Mathf.Clamp01(progress);
+
+        // Experience value text
+        if (experienceValueText != null) 
+            experienceValueText.text = $"{currentXP} / {maxXP}";
+
+        // Texts
+        abilityPointsTxt.text = $"Points: {stats.AbilityPoints}";
         moveSpeedTxt.text = $"Move Speed: {stats.MoveSpeed}";
         efficiencyTxt.text = $"Efficiency: {stats.Efficiency}";
     }

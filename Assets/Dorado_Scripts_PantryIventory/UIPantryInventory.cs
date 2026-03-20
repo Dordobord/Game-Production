@@ -80,7 +80,7 @@ public class UIPantryInventory : MonoBehaviour
     {
         if (selectingPlayer)
         {
-            if (selectedSlot >= playerInventory.GetItemCount()) 
+            if (selectedSlot >= playerInventory.GetTotalItemCount()) 
                 return;
             
             ItemType item = playerInventory.GetItem(selectedSlot);
@@ -171,7 +171,7 @@ public class UIPantryInventory : MonoBehaviour
 
         for (int i = 0; i < playerSlots.Length; i++)
         {
-            if (i < playerInventory.GetItemCount())
+            if (i < playerInventory.GetTotalItemCount())
             {
                 playerSlots[i].sprite = iconDb.GetIcon(playerInventory.GetItem(i));
             }
