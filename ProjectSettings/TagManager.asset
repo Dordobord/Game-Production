@@ -51,11 +51,11 @@ TagManager:
   - name: Furniture
     uniqueID: 950663081
     locked: 0
-  - name: KitchenStation
-    uniqueID: 577651497
-    locked: 0
   - name: Chair
     uniqueID: 4035658547
+    locked: 0
+  - name: KitchenStation
+    uniqueID: 577651497
     locked: 0
   - name: Baricade
     uniqueID: 4138958835
