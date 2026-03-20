@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,19 +11,29 @@ public class MenuHandler : MonoBehaviour
 
     public List<ItemMenuData> GetTodayMenu() => mainMenu;
 
+
     private void Awake() => main = this;
 
     public void SetMainMenu(int day)
     {
         if(listOfItems == null || listOfItems.Count == 0) return;
 
+        mainMenu.Clear();
+
         foreach(ItemMenuData item in listOfItems)
         {
-            if(item.dayRequirement <= day)
+            if(item.dayRequirement <= day && UpgradeManager.main.IsStationUnlocked(item.cooker))
             {
                 // if(){} <= add kitchen station condition here
                 mainMenu.Add(item);
             }
+        }
+
+        Debug.Log("Menu for Today" + day);
+
+        foreach (var item in mainMenu)
+        {
+            Debug.Log(item.name);
         }
     }
 

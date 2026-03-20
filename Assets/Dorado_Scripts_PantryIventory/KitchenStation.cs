@@ -7,7 +7,7 @@ public class KitchenStation : MonoBehaviour, IInteractable
     [System.Serializable]
     public struct KitchenRecipe
     {
-        public ItemType input;
+        public ItemType[] inputs;
         public ItemType output;
     }
 
@@ -19,9 +19,10 @@ public class KitchenStation : MonoBehaviour, IInteractable
     [SerializeField] private bool sendToPlateRack = false;
     [SerializeField] private PlateRack plateRack;
     [SerializeField] private UIDurationBar durationBar;
+    [SerializeField] private UpgradeSO speedUpgrade;
 
     private bool isProcessing = false;
-    private ItemType? currentInput = null;
+    private bool hasItem = false;
     private ItemType currentOutput;
 
     private PlayerInventory playerInventory;
@@ -45,16 +46,37 @@ public class KitchenStation : MonoBehaviour, IInteractable
             return;
 
         // Station is empty
-        if (currentInput == null)
+        if (!hasItem)
         {
             foreach (var recipe in recipes)
             {
-                if (playerInventory.HasItem(recipe.input))
-                {
-                    playerInventory.RemoveItem(recipe.input);
+                bool hasAllIngredients = true;
 
-                    currentInput = recipe.input;
+                foreach (var input in recipe.inputs)
+                {
+                    int required = 0;
+                    foreach (var i in recipe.inputs)
+                    {
+                        if (i.Equals(input))
+                            required++;
+                    }
+
+                    if (playerInventory.GetItemCount(input) < required)
+                    {
+                        hasAllIngredients = false;
+                        break;
+                    }
+                }
+
+                if (hasAllIngredients)
+                {
+                    foreach (var input in recipe.inputs)
+                    {
+                        playerInventory.RemoveItem(input);
+                    }
+
                     currentOutput = recipe.output;
+                    hasItem = true;
 
                     OnStartCooking?.Invoke();
                     StartCoroutine(ProcessItem());
@@ -68,7 +90,7 @@ public class KitchenStation : MonoBehaviour, IInteractable
             if (sendToPlateRack && plateRack != null)
             {
                 plateRack.AddPlate();
-                currentInput = null;
+                hasItem = false;
             }
             else
             {
@@ -76,7 +98,7 @@ public class KitchenStation : MonoBehaviour, IInteractable
 
                 if (added)
                 {
-                    currentInput = null;
+                    hasItem = false;
                     OnClear?.Invoke();
                 }
             }
@@ -88,16 +110,12 @@ public class KitchenStation : MonoBehaviour, IInteractable
         isProcessing = true;
 
         float speed = PlayerStats.main.Efficiency;
+
         float reduction = 0;
 
-        if (currentOutput == ItemType.CookedFries || currentOutput == ItemType.CookedChicken)
+        if (speedUpgrade != null)
         {
-            reduction = UpgradeManager.main.Fryer.GetValue();
-        }
-
-        if (currentOutput == ItemType.CookedBeef)
-        {
-            reduction = UpgradeManager.main.Grill.GetValue();
+            reduction = speedUpgrade.GetValue();
         }
 
         float finalTime = Mathf.Max(0.1f, (processingTime - reduction) / speed);

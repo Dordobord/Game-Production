@@ -29,7 +29,7 @@ public enum ItemCategory
     Main,
     Side,
     Drink,
-    Dessert,
+    Dessert
 }
 
 public enum ItemCooker
@@ -38,5 +38,5 @@ public enum ItemCooker
     Fryer,
     Blender,
     CoffeeMachine,
-    SodaMachine,
+    SodaMachine
 }

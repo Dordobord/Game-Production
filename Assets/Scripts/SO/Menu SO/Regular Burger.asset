@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dishItemType: 9
   dishSprite: {fileID: 1301675672196266632, guid: 52bc31e0619dd3a479b81e06e47d397d, type: 3}
+  cookedSprite: {fileID: 0}
+  rawSprite: {fileID: 0}
   category: 0
   price: 0.25
   restockPrice: 0.08
   cooker: 0
   cookingTime: 15
   cookedItem: 1
-  cookedSprite: {fileID: 0}
   rawItem: 0
-  rawSprite: {fileID: 0}
-  dayRequirement: 5
+  dayRequirement: 0

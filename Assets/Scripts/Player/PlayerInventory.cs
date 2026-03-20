@@ -56,13 +56,26 @@ public class PlayerInventory : MonoBehaviour
         return inventory[index];
     }
 
-    public int GetItemCount()
+    public int GetTotalItemCount()
     {
         return inventory.Count;
     }
-
     public bool isFull()
     {
         return inventory.Count >= maxSlots;
     }
+
+    public int GetItemCount(ItemType item)
+    {
+        int count = 0;
+
+        foreach (var i in inventory)
+        {
+            if (i.Equals(item))
+                count++;
+        }
+
+        return count;
+    }
+    
 }

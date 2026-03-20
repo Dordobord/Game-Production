@@ -12,11 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097c0c9590c0cf94aafc21ef6b723b90, type: 3}
   m_Name: CoffeeUpgrade
   m_EditorClassIdentifier: 
-  upgradeName: Coffee
-  maxUpgradeLevel: 3
+  upgradeType: 0
+  cookerType: 3
+  UpgradeName: Coffee
+  requiredLevel: 0
+  requiredDay: 0
+  unlockCost: 5
+  currentLevel: 3
+  maxLevel: 3
   upgradeCosts: 020000000400000006000000
-  values:
-  - 0
-  - 0.5
+  upgradeValues:
   - 0.5
   - 1
+  - 1.5
+  unlockedByDefault: 1
+  IsUnlocked: 1

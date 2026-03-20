@@ -270,13 +270,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6272485125256931259}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 565a076499c1e474783efce9327c7538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brewTime: 5
+  processTime: 5
   durationBar: {fileID: 2636550123516629936}
+  speedUpgrade: {fileID: 11400000, guid: 841708ac1114f97489c8963eddfd1523, type: 2}
+  dispensedItem: 12
 --- !u!114 &4697016015056350320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21214a95bdb48084e8fb094040c3753a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coffee: {fileID: 650830472368886819}
+  station: {fileID: 650830472368886819}
   anim: {fileID: 9073585101642050603}
 --- !u!1001 &352874006374215269
 PrefabInstance:
@@ -302,6 +304,10 @@ PrefabInstance:
     - target: {fileID: 3281591605955221204, guid: 276e9071c12629a4896f9fd7b807bb90, type: 3}
       propertyPath: m_Name
       value: UIBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281591605955221204, guid: 276e9071c12629a4896f9fd7b807bb90, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6802282463887945872, guid: 276e9071c12629a4896f9fd7b807bb90, type: 3}
       propertyPath: m_AnchorMax.x

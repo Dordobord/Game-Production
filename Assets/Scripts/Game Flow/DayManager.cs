@@ -40,8 +40,10 @@ public class DayManager : MonoBehaviour
         UIGameHUD.main?.UpdateQuota(0, 0);
         UIGameHUD.main?.UpdateDay(day);
         UIGameHUD.main.StartDayButtonVisibility(true);
-        currentDay = day;
 
+        currentDay = day;
+        Debug.Log($"GAME START → Level: {LevelManager.main.FetchCurrentLevel()} | Day: {currentDay}");
+        
         bool isLayoutSame = currentLayout == layoutPrefab;
 
         // Checks if the passed layoutPrefab variable is null and the layout is still the same

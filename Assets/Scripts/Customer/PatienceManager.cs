@@ -10,6 +10,8 @@ enum PatienceState
 
 public class PatienceManager : MonoBehaviour
 {
+    [SerializeField] private UpgradeSO chairUpgrade; //reference
+
     [Header("Customer Behavior Script Reference")]
     [SerializeField] private CustomerBehavior customerBehavior;
 
@@ -45,63 +47,95 @@ public class PatienceManager : MonoBehaviour
 
         // Initialize customer
         if (customerData == null) return;
-        currentPatience = Random.Range(customerData.minPatience, customerData.maxPatience);
-        currentMaxPatience = currentPatience;
+
+        float basePatience = Random.Range(customerData.minPatience, customerData.maxPatience);
+
+        float bonus = 0f;
+
+        if (chairUpgrade != null && chairUpgrade.IsUnlocked)
+        {
+            bonus = chairUpgrade.GetValue();
+        }
+
+        currentMaxPatience = basePatience + bonus;
+        currentPatience = currentMaxPatience;
+
         drainRate = customerData.patienceDecreaseRate;
     }
 
     void Update()
     {
-        float patiencePercent = currentPatience / currentMaxPatience;
+        float patiencePercent;
 
-        if (patiencePercent <= angryThreshold && currentState != PatienceState.Angry)
+        if (currentMaxPatience > 0)
         {
-            TriggerExpression(PatienceState.Angry, angryExpression);
+            patiencePercent = currentPatience / currentMaxPatience;
         }
-        else if (patiencePercent <= frustratedThreshold && patiencePercent > angryThreshold && currentState != PatienceState.Frustrated)
+        else
         {
-            TriggerExpression(PatienceState.Frustrated, frustratedExpression);
+            patiencePercent = 0f;
         }
-        else if (patiencePercent <= happyThreshold && patiencePercent > frustratedThreshold && currentState != PatienceState.Happy)
-        {
-            TriggerExpression(PatienceState.Happy, happyExpression);
-        }
-    }
 
-    private void TriggerExpression(PatienceState newState, Sprite icon)
-    {
-        currentState = newState;
-        StartCoroutine(customerBehavior.ShowTemporaryExpression(icon, showDuration));
-
+        UpdateState(patiencePercent);
     }
 
     public void DrainPatience()
     {
-        if (currentPatience > 0)
-            currentPatience -= drainRate * Time.deltaTime;
-        else
+        currentPatience -= drainRate * Time.deltaTime;
+        currentPatience = Mathf.Max(0f, currentPatience); // doesnt go beyond negatives
+
+        if (currentPatience <= 0f)
+        {
             customerBehavior.Fail();
+        }
 
     }
 
     public void BoostPatience()
     {
         float boostAmount = boostPercent * currentMaxPatience;
-        currentPatience += boostAmount;
+        currentPatience = Mathf.Min(currentMaxPatience, currentPatience + boostAmount); //wont go above the max limit
+        float patiencePercent;
 
-        float patiencePercent = currentPatience / currentMaxPatience;
+        if (currentMaxPatience > 0)
+        {
+            patiencePercent = currentPatience / currentMaxPatience;
+        }
+        else
+        {
+            patiencePercent = 0f;
+        }
 
-        if (patiencePercent >= angryThreshold && currentState != PatienceState.Frustrated)
-        {
-            currentState = PatienceState.Frustrated;
-        }
-        else if (patiencePercent >= frustratedThreshold && patiencePercent < angryThreshold && currentState != PatienceState.Happy)
-        {
-            currentState = PatienceState.Angry;
-        }
-        else if (patiencePercent >= happyThreshold && patiencePercent < frustratedThreshold && currentState != PatienceState.Initial)
-        {
-            currentState = PatienceState.Initial;
-        }
+        UpdateState(patiencePercent);
+    }
+
+    private void UpdateState(float patiencePercent)
+    {
+        PatienceState newState;
+
+        if (patiencePercent >= happyThreshold)
+            newState = PatienceState.Initial;
+        else if (patiencePercent >= frustratedThreshold)
+            newState = PatienceState.Happy;
+        else if (patiencePercent >= angryThreshold)
+            newState = PatienceState.Frustrated;
+        else
+            newState = PatienceState.Angry;
+
+        if (newState == currentState) return;
+
+        currentState = newState;
+
+        Sprite icon = null;
+
+        if (newState == PatienceState.Happy)
+            icon = happyExpression;
+        else if (newState == PatienceState.Frustrated)
+            icon = frustratedExpression;
+        else if (newState == PatienceState.Angry)
+            icon = angryExpression;
+
+        if (icon != null)
+            StartCoroutine(customerBehavior.ShowTemporaryExpression(icon, showDuration));
     }
 }
