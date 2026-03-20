@@ -12,8 +12,8 @@ public class SinkStation : MonoBehaviour, IInteractable
     [Header("Reference")]
     [SerializeField] private UIDurationBar durationBar;
     [SerializeField] private CleanPlateRack rack;
-    
-    private bool hasDirtyPlate = false;
+    [SerializeField] private DirtyPlateRack dirtyRack;
+
     private bool isWashing = false;
     private bool isOccupied = false;
 
@@ -26,18 +26,7 @@ public class SinkStation : MonoBehaviour, IInteractable
     {
         if (!isWashing && !isOccupied)
         {
-            if (!hasDirtyPlate)
-            {
-                if (PlayerInventory.main.HasItem(ItemType.DirtyPlate))
-                {
-                    PlayerInventory.main.RemoveItem(ItemType.DirtyPlate);
-                    hasDirtyPlate = true;
-                }
-            }
-            else if (hasDirtyPlate)
-            {
-                StartCoroutine(WashPlate());
-            }
+            StartCoroutine(WashPlate());
         }
     }
 
@@ -50,7 +39,7 @@ public class SinkStation : MonoBehaviour, IInteractable
     {
         isWashing = true;
 
-        if (hasDirtyPlate)
+        if (dirtyRack.TakePlate())
         {
             PlayerMovement.main.AllowMovement(false);
             PlayerMovement.main.gameObject.transform.position = sinkLocation.position;
@@ -71,7 +60,6 @@ public class SinkStation : MonoBehaviour, IInteractable
             }
 
             rack.IncreasePlate();
-            hasDirtyPlate = false;
             PlayerMovement.main.AllowMovement(true);
             Debug.Log("Finsihed washing a plate");
         }
