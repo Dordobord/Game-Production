@@ -253,9 +253,10 @@ MonoBehaviour:
   recipes:
   - inputs: 05000000
     output: 6
+    processingTime: 8
   - inputs: 07000000
     output: 8
-  processingTime: 3.5
+    processingTime: 6
   sendToPlateRack: 0
   plateRack: {fileID: 0}
   durationBar: {fileID: 4100558004187416845}

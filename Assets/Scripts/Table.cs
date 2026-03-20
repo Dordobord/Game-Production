@@ -39,18 +39,21 @@ public class Table : MonoBehaviour
 
     public SeatInstance GetAvailableSeat()
     {
+        List<SeatInstance> freeSeats = new List<SeatInstance>();
         foreach(SeatInstance seat in tableSeats)
         {
             if(seat != null && seat.seatPoint != null)
             {
                 if (!seat.isOccupied)
                 {
-                    return seat;
+                    freeSeats.Add(seat);
                 }
             }
         }
 
-        return null;
+        int randomFreeSeat = Random.Range(0, freeSeats.Count);
+
+        return freeSeats[randomFreeSeat];
     }
 
     public Transform AssignSeatToCustomer(CustomerBehavior customer)

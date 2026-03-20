@@ -50,5 +50,7 @@ public class PlayerWallet : MonoBehaviour
     public void ConfirmWalletChanges()
     {
         totalMoney = dayIncome;
+        
+        UIGameHUD.main.UpdateIncome(dayIncome);
     }
 }
