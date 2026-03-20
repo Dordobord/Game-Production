@@ -27,7 +27,7 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        InitializeLevel(1, 5, 5); // TODO: put this in level selection manager to start the game
+        InitializeLevel(1, 0, 5); // TODO: put this in level selection manager to start the game
     }
 
     public void InitializeLevel(int level, int day, int dayLimit)
