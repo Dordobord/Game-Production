@@ -18,16 +18,21 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private int dayCounter = 0;
     [SerializeField] private List<DinerLayout> dinerLayouts = new List<DinerLayout>();
 
+    [Header("INITIALIZE LEVEL FOR TESTING")]
+    [SerializeField] private int initialLevel = 1;
+    [SerializeField] private int initialDay = 0;
+    [SerializeField] private int initialMaxDay = 5;
+
     public int FetchCurrentLevel() => currentLevel;
 
     void Awake()
     {
         main = this;
     }
-
+ 
     void Start()
     {
-        InitializeLevel(1, 5, 5); // TODO: put this in level selection manager to start the game
+        InitializeLevel(initialLevel, initialDay, initialMaxDay); // TODO: put this in level selection manager to start the game
     }
 
     public void InitializeLevel(int level, int day, int dayLimit)
@@ -60,9 +65,9 @@ public class LevelManager : MonoBehaviour
 
     public void NextDay()
     {
-        if (dayCounter >= maxDays)
+        if (dayCounter > maxDays)
         {
-            Debug.Log("No more days!");
+            Debug.Log("No more days this level!");
             // TODO: go to next level/level selection screen
             return;
         }
@@ -75,6 +80,6 @@ public class LevelManager : MonoBehaviour
         PlayerWallet.main?.ConfirmWalletChanges();
         PlayerStats.main?.ConfirmStatsChanges();
 
-        DayManager.main?.InitializeDay(dayCounter, null);
+        InitializeLevel(currentLevel, dayCounter, maxDays);
     }
 }

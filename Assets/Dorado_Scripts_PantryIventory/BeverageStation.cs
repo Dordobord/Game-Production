@@ -7,7 +7,7 @@ public class BeverageStation : MonoBehaviour, IInteractable
     [SerializeField] private float processTime = 5f;
     [SerializeField] private UIDurationBar durationBar;
     [SerializeField] private UpgradeSO speedUpgrade;
-    [SerializeField] private ItemType dispensedItem; 
+    [SerializeField] private ItemMenuData dispensedItem; 
 
     private bool isPreparing = false;
     private bool itemReady = false;
@@ -35,7 +35,7 @@ public class BeverageStation : MonoBehaviour, IInteractable
 
         if (itemReady)
         {
-            bool added = playerInventory.AddItem(dispensedItem);
+            bool added = playerInventory.AddItem(dispensedItem.dishItem);
 
             if (added)
             {
@@ -46,10 +46,10 @@ public class BeverageStation : MonoBehaviour, IInteractable
             return;
         }
 
-        StartCoroutine(PrepareDrink());
+        StartCoroutine(PrepareDrink(dispensedItem.cookingTime));
     }
 
-    private IEnumerator PrepareDrink()
+    private IEnumerator PrepareDrink(float processingTime)
     {
         isPreparing = true;
         OnStartPreparing?.Invoke();
@@ -62,7 +62,7 @@ public class BeverageStation : MonoBehaviour, IInteractable
             reduction = speedUpgrade.GetValue();
         }
 
-        float finalTime = Mathf.Max(0.1f, (processTime - reduction) / speed);
+        float finalTime = Mathf.Max(0.1f, (processingTime - reduction) / speed);
 
         durationBar.EnableBar(finalTime);
 

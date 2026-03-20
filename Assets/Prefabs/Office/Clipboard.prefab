@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5950691046887683731}
   - component: {fileID: 6599018200738986429}
   - component: {fileID: 2004142294064896115}
+  - component: {fileID: 6043868296033990612}
   - component: {fileID: 2331028728291562540}
   m_Layer: 7
   m_Name: Clipboard
@@ -136,6 +137,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6043868296033990612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5731053797721820161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e02e4d0298f85144b3cfd252b05d0cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2331028728291562540
 MonoBehaviour:
   m_ObjectHideFlags: 0
