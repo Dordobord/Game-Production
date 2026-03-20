@@ -12,15 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e281713bfbb23d43a06f1730e2a4ef4, type: 3}
   m_Name: Soda
   m_EditorClassIdentifier: 
-  dishItemType: 13
-  dishSprite: {fileID: 0}
-  cookedSprite: {fileID: 0}
-  rawSprite: {fileID: 0}
+  dishItem: 13
+  dishSprite: {fileID: -4064791968467077934, guid: ff4d81c89b5471b469a7e70beede0b48, type: 3}
   category: 2
   price: 0.12
   restockPrice: 0.04
   cooker: 4
   cookingTime: 5
-  cookedItem: 13
-  rawItem: 13
+  ingredients: 
   dayRequirement: 5

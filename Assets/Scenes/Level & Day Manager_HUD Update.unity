@@ -1639,6 +1639,9 @@ MonoBehaviour:
   upgrade: {fileID: 11400000, guid: edea8793aa378a44fbc72c0f0f5e05ff, type: 2}
   titleTxt: {fileID: 126314336}
   priceTxt: {fileID: 1586116846}
+  lockTxt: {fileID: 0}
+  purchaseButton: {fileID: 0}
+  lockPanel: {fileID: 0}
   upgradeBtns:
   - {fileID: 1267986088}
   - {fileID: 1100823130}
@@ -2750,7 +2753,6 @@ MonoBehaviour:
   quotaCounterText: {fileID: 1181873149}
   currentIncomeText: {fileID: 225481582}
   experienceFillImage: {fileID: 1152871043}
-  experienceValueText: {fileID: 0}
   startDayButton: {fileID: 1971283571}
 --- !u!114 &344349682
 MonoBehaviour:
@@ -4786,6 +4788,9 @@ MonoBehaviour:
   upgrade: {fileID: 11400000, guid: 50c0f734f5c73774c9806f45933907d7, type: 2}
   titleTxt: {fileID: 622911337}
   priceTxt: {fileID: 1083098550}
+  lockTxt: {fileID: 0}
+  purchaseButton: {fileID: 0}
+  lockPanel: {fileID: 0}
   upgradeBtns:
   - {fileID: 430099586}
   - {fileID: 949769969}
@@ -5063,6 +5068,9 @@ MonoBehaviour:
   upgrade: {fileID: 11400000, guid: 841708ac1114f97489c8963eddfd1523, type: 2}
   titleTxt: {fileID: 378317009}
   priceTxt: {fileID: 1756329661}
+  lockTxt: {fileID: 0}
+  purchaseButton: {fileID: 0}
+  lockPanel: {fileID: 0}
   upgradeBtns:
   - {fileID: 2112475866}
   - {fileID: 1131317446}
@@ -5496,7 +5504,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 606809486}
-  phoneTxt: {fileID: 967295403}
 --- !u!222 &606809489
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5968,6 +5975,9 @@ MonoBehaviour:
   upgrade: {fileID: 11400000, guid: 0359386a0c272a446b8b81df7f4af06d, type: 2}
   titleTxt: {fileID: 835497459}
   priceTxt: {fileID: 705243634}
+  lockTxt: {fileID: 0}
+  purchaseButton: {fileID: 0}
+  lockPanel: {fileID: 0}
   upgradeBtns:
   - {fileID: 587385181}
   - {fileID: 774721558}
@@ -6305,10 +6315,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 715611341}
-  levelTxt: {fileID: 2123937293}
+  experienceBar: {fileID: 0}
+  experienceValueText: {fileID: 0}
   abilityPointsTxt: {fileID: 1771150545}
   moveSpeedTxt: {fileID: 1294695292}
   efficiencyTxt: {fileID: 996408489}
+  stats: {fileID: 0}
 --- !u!114 &715611344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7552,12 +7564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35beea9717942ea448ff98fef9821d78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tables: {fileID: 11400000, guid: edea8793aa378a44fbc72c0f0f5e05ff, type: 2}
-  chairs: {fileID: 11400000, guid: 0359386a0c272a446b8b81df7f4af06d, type: 2}
-  plates: {fileID: 11400000, guid: 50c0f734f5c73774c9806f45933907d7, type: 2}
-  coffeeMachine: {fileID: 11400000, guid: 841708ac1114f97489c8963eddfd1523, type: 2}
-  fryer: {fileID: 11400000, guid: ffe208e92a31b7e409296ec6a7de8734, type: 2}
-  grill: {fileID: 11400000, guid: 29799a8cece43484a8176bdf06c0b083, type: 2}
+  upgrades: []
 --- !u!1 &914265039
 GameObject:
   m_ObjectHideFlags: 0
@@ -12123,6 +12130,9 @@ MonoBehaviour:
   upgrade: {fileID: 11400000, guid: 29799a8cece43484a8176bdf06c0b083, type: 2}
   titleTxt: {fileID: 1229106110}
   priceTxt: {fileID: 1853057343}
+  lockTxt: {fileID: 0}
+  purchaseButton: {fileID: 0}
+  lockPanel: {fileID: 0}
   upgradeBtns:
   - {fileID: 1129161026}
   - {fileID: 32483929}
@@ -13469,6 +13479,9 @@ MonoBehaviour:
   upgrade: {fileID: 11400000, guid: ffe208e92a31b7e409296ec6a7de8734, type: 2}
   titleTxt: {fileID: 673066513}
   priceTxt: {fileID: 796450875}
+  lockTxt: {fileID: 0}
+  purchaseButton: {fileID: 0}
+  lockPanel: {fileID: 0}
   upgradeBtns:
   - {fileID: 1775722228}
   - {fileID: 510642537}
