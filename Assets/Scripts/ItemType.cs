@@ -7,13 +7,22 @@ public enum ItemType
     DirtyPlate,
     RawChicken,
     CookedChicken,
+    Bacon,
+    Cheese,
+    IceCream,
+    Milk,
+    Cherry,
+    Sprinkles,
     RawFries,
     CookedFries,
     PlatedBurger,
+    PlatedBaconCheeseBurger,
+    PlatedBurgerSteak,
+    PlatedCheeseBurger,
+    PlatedChickenSandwich,
     PlatedChicken,
     PlatedFries,
     CoffeeCup,
     Soda,
     Milkshake
-
 }
