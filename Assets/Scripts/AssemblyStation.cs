@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 
@@ -34,16 +33,31 @@ public class AssemblyStation : MonoBehaviour, IInteractable
             return;
         }
 
+        ItemMenuData bestMatch = null;
+        int highestIngredientCount = 0;
+
         foreach (ItemMenuData menuItem in menuOfTheDay)
         {
             if (CanAssemble(menuItem, inv))
             {
-                Assemble(menuItem, inv);
-                return;
+                int ingredientCount = menuItem.ingredients.Count;
+                
+                if (ingredientCount > highestIngredientCount)
+                {
+                    highestIngredientCount = ingredientCount;
+                    bestMatch = menuItem;
+                }
             }
         }
 
-        Debug.Log("No matching recipe.");
+        if (bestMatch != null)
+        {
+            Assemble(bestMatch, inv);
+        }
+        else
+        {
+            Debug.Log("No Matching Recipe");
+        }
     }
 
     private bool CanAssemble(ItemMenuData menuItem, PlayerInventory inv)

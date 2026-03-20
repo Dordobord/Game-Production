@@ -12,14 +12,21 @@ public class TableManager : MonoBehaviour
         main = this;
     }
 
-    public Table GetFreeTable()
+    public Table GetRandomFreeTable()
     {
+        List<Table> freeTables = new List<Table>();
+
         foreach (Table table in tables)
         {
             if (table != null && !table.IsTableFull)
-                return table;
+                freeTables.Add(table);
         }
-        return null;
+        
+        if (freeTables.Count == 0)
+            return null;
+        
+        int randomTable = Random.Range(0, freeTables.Count);
+        return freeTables[randomTable];
     }
 
     public int GetFreeTableCount()

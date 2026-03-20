@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2811509447112745848}
   - component: {fileID: 665174711087769216}
+  - component: {fileID: 780373447245286847}
   - component: {fileID: 1950808919333461721}
   - component: {fileID: 397623694483505970}
   - component: {fileID: 4123113655058649582}
-  - component: {fileID: 780373447245286847}
   m_Layer: 7
   m_Name: Grill
   m_TagString: Kitchen
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 577651497
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -8426120641452237186, guid: bb11527277652584c8f652450ceece69, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -92,6 +92,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &780373447245286847
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3765292003383108484}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 31290e9fd334547449bac70a9ef444e9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!61 &1950808919333461721
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -172,28 +194,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   station: {fileID: 397623694483505970}
   anim: {fileID: 780373447245286847}
---- !u!95 &780373447245286847
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3765292003383108484}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 31290e9fd334547449bac70a9ef444e9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8863941485940830078
 GameObject:
   m_ObjectHideFlags: 0

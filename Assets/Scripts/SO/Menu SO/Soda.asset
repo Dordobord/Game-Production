@@ -20,4 +20,5 @@ MonoBehaviour:
   cooker: 4
   cookingTime: 5
   ingredients: 
+  levelRequirement: 1
   dayRequirement: 5

@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class LevelSelection : MonoBehaviour
 {
@@ -12,16 +12,24 @@ public class LevelSelection : MonoBehaviour
         public int maxDays;
     }
     public LevelData[] levels;
+    public static LevelData selectedLevel;
 
     public void StartGame(int levelIndex)
     {
         if (levelIndex >= 0 && levelIndex < levels.Length)
         {
-            LevelData selected = levels[levelIndex];
+            selectedLevel = levels[levelIndex]; 
 
-            LevelManager.main.InitializeLevel(selected.levelID, selected.startingDay, selected.maxDays);
+            Debug.Log($"Starting {selectedLevel.levelName}");
+
+            SceneManager.LoadScene("GameScene");
+            // LevelData selected = levels[levelIndex];
+
+            // LevelManager.main.InitializeLevel(selected.levelID, selected.startingDay, selected.maxDays);
             
-            Debug.Log($"Level Selection Manager: Starting {selected.levelName}");
+            // Debug.Log($"Level Selection Manager: Starting {selected.levelName}");
         }
+
+        
     }
 }

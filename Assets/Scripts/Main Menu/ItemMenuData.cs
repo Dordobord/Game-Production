@@ -21,7 +21,8 @@ public class ItemMenuData : ScriptableObject
     public List<ItemType> ingredients;
 
     [Header("Unlockable Settings")]
-    public int dayRequirement;
+    public int levelRequirement = 1;
+    public int dayRequirement = 1;
 }
 
 public enum ItemCategory

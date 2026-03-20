@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 [System.Serializable]
@@ -27,7 +28,20 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        InitializeLevel(1, 0, 5); // TODO: put this in level selection manager to start the game
+        if (LevelSelection.selectedLevel.levelID != 0)
+        {
+            InitializeLevel(
+                LevelSelection.selectedLevel.levelID,
+                LevelSelection.selectedLevel.startingDay,
+                LevelSelection.selectedLevel.maxDays
+            );
+        }
+        else
+        {
+            Debug.LogWarning("No level selected! Defaulting to Level 1.");
+            InitializeLevel(1, 1, 5);
+        }
+        
     }
 
     public void InitializeLevel(int level, int day, int dayLimit)
@@ -63,7 +77,7 @@ public class LevelManager : MonoBehaviour
         if (dayCounter >= maxDays)
         {
             Debug.Log("No more days!");
-            // TODO: go to next level/level selection screen
+            SceneManager.LoadScene("LevelSelection");
             return;
         }
 

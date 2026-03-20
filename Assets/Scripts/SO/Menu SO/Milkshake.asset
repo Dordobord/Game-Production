@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e281713bfbb23d43a06f1730e2a4ef4, type: 3}
   m_Name: Milkshake
   m_EditorClassIdentifier: 
-  dishItem: 24
+  dishItem: 25
   dishSprite: {fileID: 1679858856943561366, guid: ff4d81c89b5471b469a7e70beede0b48, type: 3}
   category: 3
   price: 0.45
   restockPrice: 0.15
   cooker: 2
   cookingTime: 10
-  ingredients: 090000000a0000000b0000000c000000
-  dayRequirement: 11
+  ingredients: 0d000000090000000b0000000c000000
+  levelRequirement: 3
+  dayRequirement: 1

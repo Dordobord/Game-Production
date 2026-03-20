@@ -17281,17 +17281,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 1
   maxDays: 5
-  dayCounter: 0
+  dayCounter: 1
   dinerLayouts:
-  - layoutPrefab: {fileID: 5551498699398418818, guid: 4467d9a0b2731ef4097fb48d3079a3c3, type: 3}
-    levelRequirement: 1
-    dayRequirement: 0
   - layoutPrefab: {fileID: 8107944839327469675, guid: ef21a3bc48a51654faf947cfc18a8e59, type: 3}
     levelRequirement: 1
     dayRequirement: 1
   - layoutPrefab: {fileID: 2525655200120958887, guid: c6b12920cbb6c0c49996230577b6fbf4, type: 3}
     levelRequirement: 1
     dayRequirement: 5
+  - layoutPrefab: {fileID: 83794317388305562, guid: b1172599d6e66cd4d968a18fa8630dfb, type: 3}
+    levelRequirement: 2
+    dayRequirement: 1
+  - layoutPrefab: {fileID: 2761588828631329751, guid: 9cdfa8a58fe30704da759aed54fe7606, type: 3}
+    levelRequirement: 2
+    dayRequirement: 3
+  - layoutPrefab: {fileID: 6620186502241418773, guid: 67b7f4f4e17ba7042aa26e3677711a06, type: 3}
+    levelRequirement: 3
+    dayRequirement: 1
+  - layoutPrefab: {fileID: 2307925508278281933, guid: 0eed62486a7d947409a06e6bce0141fb, type: 3}
+    levelRequirement: 4
+    dayRequirement: 1
+  - layoutPrefab: {fileID: 6943232263085935214, guid: e9f60abeb6faf6a4f93b060f98d56f9f, type: 3}
+    levelRequirement: 5
+    dayRequirement: 1
 --- !u!4 &1273595754
 Transform:
   m_ObjectHideFlags: 0
@@ -23270,11 +23282,11 @@ RectTransform:
   - {fileID: 1209146805}
   - {fileID: 1583916895}
   - {fileID: 936983142}
-  - {fileID: 715611342}
   - {fileID: 1200478896}
   - {fileID: 1616096932}
-  - {fileID: 1797802432}
   - {fileID: 1868046502}
+  - {fileID: 715611342}
+  - {fileID: 1797802432}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -26108,6 +26120,10 @@ PrefabInstance:
     - target: {fileID: 7689799596163234200, guid: 8cfcc14152b15e4489802b8d9d5d3444, type: 3}
       propertyPath: maxSlots
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012470014934373076, guid: 8cfcc14152b15e4489802b8d9d5d3444, type: 3}
+      propertyPath: totalMoney
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8061012301360942297, guid: 8cfcc14152b15e4489802b8d9d5d3444, type: 3}
       propertyPath: maxExperience

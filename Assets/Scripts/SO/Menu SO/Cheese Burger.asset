@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e281713bfbb23d43a06f1730e2a4ef4, type: 3}
   m_Name: Cheese Burger
   m_EditorClassIdentifier: 
-  dishItem: 18
-  dishSprite: {fileID: 684711323539678859, guid: 52bc31e0619dd3a479b81e06e47d397d, type: 3}
+  dishItem: 19
+  dishSprite: {fileID: 3637204003994812790, guid: 52bc31e0619dd3a479b81e06e47d397d, type: 3}
   category: 0
   price: 0.3
   restockPrice: 0.1
   cooker: 0
   cookingTime: 15
   ingredients: 01000000020000000300000008000000
+  levelRequirement: 1
   dayRequirement: 5

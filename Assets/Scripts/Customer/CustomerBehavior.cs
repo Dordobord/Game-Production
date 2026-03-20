@@ -79,7 +79,7 @@ public class CustomerBehavior : MonoBehaviour, IInteractable
             return;
         }
 
-        table = TableManager.main.GetFreeTable();
+        table = TableManager.main.GetRandomFreeTable();
         if (table == null)
         {
             Destroy(gameObject);
