@@ -18011,27 +18011,27 @@ MonoBehaviour:
   maxDays: 5
   dayCounter: 1
   dinerLayouts:
-  - layoutPrefab: {fileID: 8107944839327469675, guid: ef21a3bc48a51654faf947cfc18a8e59, type: 3}
+  - layoutPrefab: {fileID: 8107944839327469675, guid: fd1b335d38c13484a9ea68056735401f, type: 3}
     levelRequirement: 1
     dayRequirement: 1
-  - layoutPrefab: {fileID: 2525655200120958887, guid: c6b12920cbb6c0c49996230577b6fbf4, type: 3}
+  - layoutPrefab: {fileID: 7043796945071588158, guid: 6af8819a6af0a3d42a7f8d4b77a29a62, type: 3}
     levelRequirement: 1
     dayRequirement: 5
-  - layoutPrefab: {fileID: 83794317388305562, guid: b1172599d6e66cd4d968a18fa8630dfb, type: 3}
+  - layoutPrefab: {fileID: 7664747604112418660, guid: b93936771f447c643ae251356c991ced, type: 3}
     levelRequirement: 2
-    dayRequirement: 1
-  - layoutPrefab: {fileID: 2761588828631329751, guid: 9cdfa8a58fe30704da759aed54fe7606, type: 3}
+    dayRequirement: 6
+  - layoutPrefab: {fileID: 9060304985973977049, guid: e2a6ccabf3d692b40af94371e6058f27, type: 3}
     levelRequirement: 2
-    dayRequirement: 3
-  - layoutPrefab: {fileID: 6620186502241418773, guid: 67b7f4f4e17ba7042aa26e3677711a06, type: 3}
+    dayRequirement: 9
+  - layoutPrefab: {fileID: 3448679533709128464, guid: a70e3fa9500bc974e8fa79ed658375d4, type: 3}
     levelRequirement: 3
-    dayRequirement: 1
-  - layoutPrefab: {fileID: 2307925508278281933, guid: 0eed62486a7d947409a06e6bce0141fb, type: 3}
+    dayRequirement: 11
+  - layoutPrefab: {fileID: 2524764163811121533, guid: 2d81b99032867c54f9d5014d4baec4c6, type: 3}
     levelRequirement: 4
-    dayRequirement: 1
-  - layoutPrefab: {fileID: 6943232263085935214, guid: e9f60abeb6faf6a4f93b060f98d56f9f, type: 3}
+    dayRequirement: 16
+  - layoutPrefab: {fileID: 5628787200569120715, guid: 1cf74881a49318f4e9f7fb221cb50ffd, type: 3}
     levelRequirement: 5
-    dayRequirement: 1
+    dayRequirement: 21
 --- !u!4 &1273595754
 Transform:
   m_ObjectHideFlags: 0
@@ -18062,7 +18062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentDay: 0
-  quotaPerDay: 02000000040000000f00000014000000190000001e000000140000001400000019000000190000001e0000000f0000001e000000230000002800000028000000
+  quotaPerDay: 0200000004000000080000000c0000000f0000000f00000014000000140000001400000014000000190000001900000019000000190000001e0000001e0000001e0000001e0000002300000023000000230000002300000028000000280000002800000032000000
   specialCustomerCount:
   - criticCount: 0
     homelessCount: 0

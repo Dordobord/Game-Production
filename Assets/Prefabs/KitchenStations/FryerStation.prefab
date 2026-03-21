@@ -277,8 +277,8 @@ MonoBehaviour:
   recipes:
   - inputs: 05000000
     output: 6
-  - inputs: 0d000000
-    output: 14
+  - inputs: 0e000000
+    output: 15
   processingTime: 3.5
   sendToPlateRack: 0
   plateRack: {fileID: 0}

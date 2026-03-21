@@ -74,14 +74,14 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 577651497
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 3
-  m_Sprite: {fileID: -1017085980167312377, guid: a503755dc6c800140aaa0a944dab189d, type: 3}
+  m_Sprite: {fileID: -1017085980167312377, guid: 4de19bfa3449aa24ba6296c93e7888a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1.125, y: 2.125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -181,5 +181,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dirtyPlatesCount: 0
   rackSpriteRenderer: {fileID: 8819621014330813768}
-  fullSprite: {fileID: -1017085980167312377, guid: a503755dc6c800140aaa0a944dab189d, type: 3}
-  emptySprite: {fileID: 6113389544073505186, guid: a503755dc6c800140aaa0a944dab189d, type: 3}
+  fullSprite: {fileID: -1017085980167312377, guid: 4de19bfa3449aa24ba6296c93e7888a7, type: 3}
+  emptySprite: {fileID: 6113389544073505186, guid: 4de19bfa3449aa24ba6296c93e7888a7, type: 3}
