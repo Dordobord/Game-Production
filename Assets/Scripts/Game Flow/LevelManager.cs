@@ -74,7 +74,7 @@ public class LevelManager : MonoBehaviour
 
     public void NextDay()
     {
-        if (dayCounter >= maxDays)
+        if (dayCounter > maxDays)
         {
             Debug.Log("No more days!");
             SceneManager.LoadScene("LevelSelection");
@@ -89,6 +89,6 @@ public class LevelManager : MonoBehaviour
         PlayerWallet.main?.ConfirmWalletChanges();
         PlayerStats.main?.ConfirmStatsChanges();
 
-        DayManager.main?.InitializeDay(dayCounter, null);
+        InitializeLevel(currentLevel, dayCounter, maxDays);
     }
 }
