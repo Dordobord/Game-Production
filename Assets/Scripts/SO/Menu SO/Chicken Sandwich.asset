@@ -12,15 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e281713bfbb23d43a06f1730e2a4ef4, type: 3}
   m_Name: Chicken Sandwich
   m_EditorClassIdentifier: 
-  dishItemType: 10
-  dishSprite: {fileID: 5051735917503443728, guid: 52bc31e0619dd3a479b81e06e47d397d, type: 3}
+  dishItem: 20
+  dishSprite: {fileID: 5937359996860213750, guid: ff4d81c89b5471b469a7e70beede0b48, type: 3}
   category: 0
   price: 0.85
   restockPrice: 0.33
   cooker: 1
   cookingTime: 15
-  cookedItem: 5
-  cookedSprite: {fileID: 0}
-  rawItem: 6
-  rawSprite: {fileID: 0}
-  dayRequirement: 8
+  ingredients: 060000000200000003000000
+  levelRequirement: 2
+  dayRequirement: 3

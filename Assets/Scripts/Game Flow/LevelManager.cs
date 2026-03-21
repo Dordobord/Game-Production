@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 [System.Serializable]
@@ -18,21 +19,29 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private int dayCounter = 0;
     [SerializeField] private List<DinerLayout> dinerLayouts = new List<DinerLayout>();
 
-    [Header("INITIALIZE LEVEL FOR TESTING")]
-    [SerializeField] private int initialLevel = 1;
-    [SerializeField] private int initialDay = 0;
-    [SerializeField] private int initialMaxDay = 5;
-
     public int FetchCurrentLevel() => currentLevel;
 
     void Awake()
     {
         main = this;
     }
- 
+
     void Start()
     {
-        InitializeLevel(initialLevel, initialDay, initialMaxDay); // TODO: put this in level selection manager to start the game
+        if (LevelSelection.selectedLevel.levelID != 0)
+        {
+            InitializeLevel(
+                LevelSelection.selectedLevel.levelID,
+                LevelSelection.selectedLevel.startingDay,
+                LevelSelection.selectedLevel.maxDays
+            );
+        }
+        else
+        {
+            Debug.LogWarning("No level selected! Defaulting to Level 1.");
+            InitializeLevel(1, 1, 5);
+        }
+        
     }
 
     public void InitializeLevel(int level, int day, int dayLimit)
@@ -67,8 +76,8 @@ public class LevelManager : MonoBehaviour
     {
         if (dayCounter > maxDays)
         {
-            Debug.Log("No more days this level!");
-            // TODO: go to next level/level selection screen
+            Debug.Log("No more days!");
+            SceneManager.LoadScene("LevelSelection");
             return;
         }
 

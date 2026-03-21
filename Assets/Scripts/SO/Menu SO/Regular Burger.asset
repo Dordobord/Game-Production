@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e281713bfbb23d43a06f1730e2a4ef4, type: 3}
   m_Name: Regular Burger
   m_EditorClassIdentifier: 
-  dishItem: 9
-  dishSprite: {fileID: 1301675672196266632, guid: 52bc31e0619dd3a479b81e06e47d397d, type: 3}
+  dishItem: 16
+  dishSprite: {fileID: -6871040156915331902, guid: ff4d81c89b5471b469a7e70beede0b48, type: 3}
   category: 0
   price: 0.25
   restockPrice: 0.08
   cooker: 0
   cookingTime: 15
   ingredients: 010000000200000003000000
-  dayRequirement: 5
+  levelRequirement: 1
+  dayRequirement: 0

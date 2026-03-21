@@ -112,8 +112,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1557723911395305697}
   - component: {fileID: 2139367995973211224}
+  - component: {fileID: 5927795051888015613}
   - component: {fileID: 7459423897108922610}
   - component: {fileID: 6443333275473440344}
+  - component: {fileID: 7484381961691489994}
   m_Layer: 7
   m_Name: FryerStation
   m_TagString: Kitchen
@@ -179,7 +181,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 577651497
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -8062444262008985974, guid: 4c21c2a71e4e2a547bb25fab3e300d62, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -192,6 +194,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5927795051888015613
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166205215498464465}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1d7083094aa5c294bbb9022126db716f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!61 &7459423897108922610
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -253,14 +277,27 @@ MonoBehaviour:
   recipes:
   - inputs: 05000000
     output: 6
-    processingTime: 8
-  - inputs: 07000000
-    output: 8
-    processingTime: 6
+  - inputs: 0d000000
+    output: 14
+  processingTime: 3.5
   sendToPlateRack: 0
   plateRack: {fileID: 0}
   durationBar: {fileID: 4100558004187416845}
   speedUpgrade: {fileID: 11400000, guid: ffe208e92a31b7e409296ec6a7de8734, type: 2}
+--- !u!114 &7484381961691489994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166205215498464465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef307269b8c8a94998764cd06168b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  station: {fileID: 6443333275473440344}
+  anim: {fileID: 5927795051888015613}
 --- !u!1001 &1773110466590422232
 PrefabInstance:
   m_ObjectHideFlags: 0

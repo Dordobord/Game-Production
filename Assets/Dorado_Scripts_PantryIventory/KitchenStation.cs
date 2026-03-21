@@ -9,13 +9,13 @@ public class KitchenStation : MonoBehaviour, IInteractable
     {
         public ItemType[] inputs;
         public ItemType output;
-        public float processingTime;
     }
 
     [Header("Recipes")]
     [SerializeField] private KitchenRecipe[] recipes;
 
     [Header("Station Settings")]
+    [SerializeField] private float processingTime = 3.5f;
     [SerializeField] private bool sendToPlateRack = false;
     [SerializeField] private PlateRack plateRack;
     [SerializeField] private UIDurationBar durationBar;
@@ -79,7 +79,7 @@ public class KitchenStation : MonoBehaviour, IInteractable
                     hasItem = true;
 
                     OnStartCooking?.Invoke();
-                    StartCoroutine(ProcessItem(recipe.processingTime));
+                    StartCoroutine(ProcessItem());
                     return;
                 }
             }
@@ -105,7 +105,7 @@ public class KitchenStation : MonoBehaviour, IInteractable
         }
     }
 
-    private IEnumerator ProcessItem(float processingTime)
+    private IEnumerator ProcessItem()
     {
         isProcessing = true;
 

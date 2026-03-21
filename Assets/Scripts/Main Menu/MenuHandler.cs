@@ -20,16 +20,21 @@ public class MenuHandler : MonoBehaviour
 
         mainMenu.Clear();
 
+        int currentLevel = LevelManager.main .FetchCurrentLevel();
+
         foreach(ItemMenuData item in listOfItems)
         {
-            if(item.dayRequirement <= day && UpgradeManager.main.IsStationUnlocked(item.cooker))
+            bool unlockByDay = item.dayRequirement <= day;
+            bool unlockByLevel = item.levelRequirement <= currentLevel;
+            bool stationUnlocked = UpgradeManager.main.IsStationUnlocked(item.cooker);
+
+            if (unlockByDay && unlockByLevel && stationUnlocked)
             {
-                // if(){} <= add kitchen station condition here
                 mainMenu.Add(item);
             }
         }
 
-        Debug.Log("Menu for Today" + day);
+        Debug.Log($"Menu for Level {currentLevel} - Day {day}");
 
         foreach (var item in mainMenu)
         {

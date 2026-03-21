@@ -15,10 +15,10 @@ MonoBehaviour:
   upgradeType: 0
   cookerType: 2
   UpgradeName: Blender
-  requiredLevel: 2
-  requiredDay: 3
+  requiredLevel: 3
+  requiredDay: 1
   unlockCost: 100
-  currentLevel: 3
+  currentLevel: 0
   maxLevel: 3
   upgradeCosts: 030000000500000007000000
   upgradeValues:
@@ -26,4 +26,4 @@ MonoBehaviour:
   - 1
   - 1.5
   unlockedByDefault: 0
-  IsUnlocked: 1
+  IsUnlocked: 0

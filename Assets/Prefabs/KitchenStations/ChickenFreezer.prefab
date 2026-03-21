@@ -167,7 +167,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5051735917503443728, guid: 52bc31e0619dd3a479b81e06e47d397d, type: 3}
+  m_Sprite: {fileID: 2894335330816259484, guid: 0f29208fa242f20408b8eccbc16fd4d2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -254,7 +254,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 577651497
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 1530873966880903992, guid: 286e6fa93252df94aacb8e539496828a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

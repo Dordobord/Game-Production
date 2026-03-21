@@ -12,15 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e281713bfbb23d43a06f1730e2a4ef4, type: 3}
   m_Name: Bacon Cheese Burger
   m_EditorClassIdentifier: 
-  dishItemType: 9
-  dishSprite: {fileID: 684711323539678859, guid: 52bc31e0619dd3a479b81e06e47d397d, type: 3}
+  dishItem: 17
+  dishSprite: {fileID: -591539063, guid: ff4d81c89b5471b469a7e70beede0b48, type: 3}
   category: 0
   price: 1
   restockPrice: 0.28
   cooker: 0
   cookingTime: 25
-  cookedItem: 1
-  cookedSprite: {fileID: 0}
-  rawItem: 0
-  rawSprite: {fileID: 0}
-  dayRequirement: 11
+  ingredients: 0100000007000000080000000200000003000000
+  levelRequirement: 3
+  dayRequirement: 1
