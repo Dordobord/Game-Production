@@ -17,6 +17,10 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (UIPantryInventory.main != null && UIPantryInventory.main.IsOpen)
+            {
+                return;
+            }
             TogglePause();
         }
     }
