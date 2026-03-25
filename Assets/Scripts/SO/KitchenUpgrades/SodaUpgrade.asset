@@ -16,7 +16,7 @@ MonoBehaviour:
   cookerType: 4
   UpgradeName: Soda
   requiredLevel: 1
-  requiredDay: 0
+  requiredDay: 5
   unlockCost: 100
   currentLevel: 0
   maxLevel: 3

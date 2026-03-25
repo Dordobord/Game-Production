@@ -108,7 +108,7 @@ public class DayManager : MonoBehaviour
         MenuHandler.main.SetMainMenu(currentDay);
 
         // Initialize customer spawner
-        bool tutorialDay = currentDay ==0;
+        bool tutorialDay = currentDay == 0;
 
         CustomerSpawner.main.InitializeSpawner(
             quotaPerDay[currentDay], 

@@ -1,12 +1,13 @@
+using Unity.VisualScripting;
 using UnityEngine;
-using TMPro;
-using System.Collections.Generic;
-
 public class UICookbook : MonoBehaviour
 {
-    [SerializeField] private GameObject panel;
-    [SerializeField] private TextMeshProUGUI recipeText;
+    [SerializeField]private GameObject panel;
+    [SerializeField]private GameObject[] pages;
+    [SerializeField]private GameObject nextBtn;
+    [SerializeField]private GameObject backBtn;
 
+    private int currentPage = 0;
     private bool isOpen = false;
     public bool IsOpen => isOpen;
 
@@ -16,15 +17,17 @@ public class UICookbook : MonoBehaviour
             panel.SetActive(false);
     }
 
-    public void OpenCookbook(List<ItemMenuData> recipes)
+    public void OpenCookbook()
     {
-        if (panel == null || recipeText == null)
+        if (panel == null || pages == null || pages.Length == 0)
             return;
 
         isOpen = true;
         panel.SetActive(true);
 
-        ShowRecipes(recipes);
+        currentPage = 0;
+        ShowPage(currentPage);
+        UpdateButtons();
     }
 
     public void CloseCookbook()
@@ -36,35 +39,37 @@ public class UICookbook : MonoBehaviour
         panel.SetActive(false);
     }
 
-    private void ShowRecipes(List<ItemMenuData> recipes)
+    private void UpdateButtons()
     {
-        recipeText.text = "";
+        backBtn.SetActive(currentPage > 0);
+        nextBtn.SetActive(currentPage < pages.Length - 1);
+    }
 
-        if (recipes == null || recipes.Count == 0)
+    public void NextPage()
+    {
+        if (currentPage < pages.Length - 1)
         {
-            recipeText.text = "No recipes available.";
-            return;
-        }
-
-        for (int i = 0; i < recipes.Count; i++)
-        {
-            recipeText.text += FormatRecipe(recipes[i]) + "\n";
+            currentPage++;
+            ShowPage(currentPage);
+            UpdateButtons();
         }
     }
 
-    private string FormatRecipe(ItemMenuData recipe) //gets item in the recipe list and converts it into string format hehe.
+    public void PreviousPage()
     {
-        if (recipe == null || recipe.ingredients == null || recipe.ingredients.Count == 0) return "";
-
-        string ingredients = "";
-
-        for (int i = 0; i < recipe.ingredients.Count; i++) //loop through to check for items to be added 
+        if (currentPage > 0)
         {
-            ingredients += recipe.ingredients[i].ToString();
-
-            if (i < recipe.ingredients.Count - 1) ingredients += " + ";
+            currentPage--;
+            ShowPage(currentPage);
+            UpdateButtons();
         }
+    }
 
-        return ingredients + " = " + recipe.dishItem;
+    public void ShowPage(int index)
+    {
+        for (int i = 0; i < pages.Length; i++)
+        {
+            pages[i].SetActive(i == index);
+        }
     }
 }

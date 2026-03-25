@@ -6,15 +6,22 @@ public class Cookbook : MonoBehaviour, IInteractable, IFocusable
     private UICookbook uiCookbook;
     private void Awake()
     {
-        assemblyStation = FindFirstObjectByType<AssemblyStation>();
         uiCookbook = FindFirstObjectByType<UICookbook>();
     }
 
     public void Interact()
     {
-        if (assemblyStation == null || uiCookbook == null) return;
+        if (uiCookbook == null) return;
 
-        uiCookbook.OpenCookbook(assemblyStation.Recipes);
+        if (uiCookbook.IsOpen)
+        {
+            uiCookbook.CloseCookbook();
+        }
+        else
+        {
+            uiCookbook.OpenCookbook();
+ 
+        }
     }
 
     public void OnFocus(){}

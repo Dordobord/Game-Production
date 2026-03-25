@@ -4,7 +4,8 @@ using UnityEngine.UI;
 
 public class DaySummary : MonoBehaviour
 {
-    [SerializeField] private GameObject panel;
+    [Header("References")]
+    [SerializeField] private GameObject summaryPanel;
 
     [Header("General Summary")]
     [SerializeField] private TextMeshProUGUI dayText;
@@ -28,7 +29,7 @@ public class DaySummary : MonoBehaviour
 
     void Awake()
     {
-        panel.SetActive(false);
+        summaryPanel.SetActive(false);
     }
 
     public void SummarizeDay()
@@ -37,7 +38,7 @@ public class DaySummary : MonoBehaviour
         float utilityBill = UtilityBillHandler.main.CalculateBill(LevelManager.main.FetchCurrentLevel());
         float stockBill = MenuHandler.main.CalculateStockBill();
 
-        panel.SetActive(true);
+        summaryPanel.SetActive(true);
 
         // General Summary
         dayText.text = $"END OF DAY {DayManager.main.FetchCurrentDay()}";
@@ -74,7 +75,7 @@ public class DaySummary : MonoBehaviour
 
     public void ClosePanel()
     {
-        panel.SetActive(false);
+        summaryPanel.SetActive(false);
     }
 
     private void SetUpButton(Button actionButton, TMP_Text textbutton, string message, System.Action onButtonClicked)

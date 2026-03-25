@@ -88,6 +88,7 @@ public class LevelManager : MonoBehaviour
 
         PlayerWallet.main?.ConfirmWalletChanges();
         PlayerStats.main?.ConfirmStatsChanges();
+        
 
         InitializeLevel(currentLevel, dayCounter, maxDays);
     }
