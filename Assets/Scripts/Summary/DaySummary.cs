@@ -21,7 +21,9 @@ public class DaySummary : MonoBehaviour
     [Header("Button Reference")]
     [SerializeField] private Button proceedButton;    
     [SerializeField] private TextMeshProUGUI proceedText;
-
+    
+    [Header("Stars")]
+    [SerializeField] private UIStarRating starUI; 
     private bool isDaySuccess = true;
 
     void Awake()
@@ -60,6 +62,9 @@ public class DaySummary : MonoBehaviour
         {
             totalText.text = $"{PlayerWallet.main.FetchDayIncome()}";
         }
+
+        int stars = CustomerSpawner.main.CalculateRating();
+        starUI.SetStarRating(stars);
 
         if(!isDaySuccess)
             SetUpButton(proceedButton, proceedText, "Try Again", () => LevelManager.main.RestartDay());

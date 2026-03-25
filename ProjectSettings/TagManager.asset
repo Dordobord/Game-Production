@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Kitchen
+  - Critic
+  - Homeless
   layers:
   - Default
   - TransparentFX

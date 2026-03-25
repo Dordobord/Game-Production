@@ -20,6 +20,11 @@ public class CustomerSpawner : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float spawnDelay = 1.5f;
 
+    [Header("Customer Tracker")]
+    private int criticSatisfied = 0;
+    private int criticFailed = 0;
+    private int homelessServed = 0;
+
     private List<GameObject> spawnPool = new List<GameObject>();
     [SerializeField] private List<CustomerBehavior> activeCustomers = new List<CustomerBehavior>(); // TODO: serialized for testing
 
@@ -69,6 +74,10 @@ public class CustomerSpawner : MonoBehaviour
         totalQuota = quota;
         criticLimit = critic;
         homelessLimit = homeless;
+
+        criticSatisfied = 0;
+        criticFailed = 0;
+        homelessServed = 0;
 
         GenerateSpawnPool(isTutorial);
         dayActive = true;
@@ -121,7 +130,21 @@ public class CustomerSpawner : MonoBehaviour
         {
             activeCustomers.Remove(cb);
 
-            if(isSatisfied) quotaCount++;
+            if (isSatisfied)
+            {
+                quotaCount++;
+
+                if (cb.CompareTag("Critic"))
+                    criticSatisfied++;
+                
+                if (cb.CompareTag("Homeless"))
+                    homelessServed++;
+            }
+            else
+            {
+                if (cb.CompareTag("Critic"))
+                    criticFailed++;
+            }
         }
     }
 
@@ -142,5 +165,37 @@ public class CustomerSpawner : MonoBehaviour
             list[i] = list[randomIndex];
             list[randomIndex] = temp;
         }
+    }
+
+    public void ClearAllCustomers()// Clear customers when restarting
+    {
+        foreach (CustomerBehavior cb in activeCustomers)
+        {
+            if (cb != null)
+            {
+                Destroy(cb.gameObject);
+            }
+        }
+
+        activeCustomers.Clear();
+        spawnPool.Clear();
+        quotaCount = 0;
+        dayActive = false;
+    }
+
+    public int CalculateRating()
+    {
+        int stars = 3;
+
+        if (criticFailed > 0)
+            stars--;
+
+        if (!IsQuotaMet())
+            stars--;
+
+        if (homelessServed > 0)
+            stars++;
+
+        return Mathf.Clamp(stars, 0, 3);
     }
 }

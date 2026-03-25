@@ -34,6 +34,11 @@ public class DayManager : MonoBehaviour
 
     public void InitializeDay(int day, GameObject layoutPrefab)
     {
+        if (CustomerSpawner.main != null)
+        {
+            CustomerSpawner.main.ClearAllCustomers();    
+        }
+
         PlayerWallet.main?.ResetDayIncome();
         PlayerStats.main?.ResetNewExperienceAndPoints();
 
@@ -42,7 +47,7 @@ public class DayManager : MonoBehaviour
         UIGameHUD.main.StartDayButtonVisibility(true);
 
         currentDay = day;
-        Debug.Log($"GAME START → Level: {LevelManager.main.FetchCurrentLevel()} | Day: {currentDay}");
+        Debug.Log($"Level: {LevelManager.main.FetchCurrentLevel()} | Day: {currentDay}");
         
         bool isLayoutSame = currentLayout == layoutPrefab;
 
@@ -59,6 +64,7 @@ public class DayManager : MonoBehaviour
             kitchenStations = currentLayout.transform.Find("KitchenStations");
             officeStations = currentLayout.transform.Find("Office");
         }
+        
         else
         {
             Debug.Log("Layout prefab is null or the current layout is the same.");
@@ -85,8 +91,6 @@ public class DayManager : MonoBehaviour
         PlayerMovement pm = player.GetComponent<PlayerMovement>();
 
         pm?.AllowMovement(true);
- 
-        // TODO: Set office items to be interactable (phone, vault, and clipboard)
 
         SetStations(kitchenStations, false);
         SetStations(officeStations, true);
@@ -98,7 +102,6 @@ public class DayManager : MonoBehaviour
 
         UIGameHUD.main.StartDayButtonVisibility(false);
         
-        // TODO:Set office item to be not interactable (phone, vault, and clipboard)
         SetStations(kitchenStations, true);
         SetStations(officeStations, false);
         // Set menu of the day
