@@ -4,6 +4,8 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject restaurantImage;
+
     [Header("Settings")]
     public GameObject settingsUIPanel;
     public GameObject creditsUIPanel;
@@ -15,6 +17,7 @@ public class MainMenu : MonoBehaviour
 
     void Awake()
     {
+        restaurantImage.SetActive(true);
         settingsUIPanel.SetActive(false);
         creditsUIPanel.SetActive(false);
 
@@ -31,6 +34,7 @@ public class MainMenu : MonoBehaviour
     public void SettingsPanel()
     {
         settingsUIPanel.SetActive(true);
+        restaurantImage.SetActive(false);
     }
 
     public void CreditsPanel()
@@ -41,6 +45,7 @@ public class MainMenu : MonoBehaviour
     public void SettingsPanelClose()
     {
         settingsUIPanel.SetActive(false);
+        restaurantImage.SetActive(true);
     }
 
     public void CreditsPanelClose()
@@ -52,11 +57,13 @@ public class MainMenu : MonoBehaviour
     public void StorePanel()
     {
         storeUIPanel.SetActive(true);
+        restaurantImage.SetActive(false);
     }
 
     public void StorePanelClose()
     {
         storeUIPanel.SetActive(false);
+        restaurantImage.SetActive(true);
     }
 
     public void BCPanel()
