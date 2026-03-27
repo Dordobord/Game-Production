@@ -32,7 +32,7 @@ public class ShopInventoryManager : MonoBehaviour
         Debug.Log("Item not found in OwnedItems list!");
     }
 
-    public bool Use(PremiumItemSO item)
+    public bool ConsumeItem(PremiumItemSO item)
     {
         foreach (var data in ownedItems)
         {

@@ -16,10 +16,10 @@ public class UIPremiumItemRow : MonoBehaviour
         RefreshUI();
     }
 
-    private void OnEnable()
-    {
-        RefreshUI();
-    }
+    // private void OnEnable()
+    // {
+    //     RefreshUI();
+    // }
 
     public void Buy()
     {

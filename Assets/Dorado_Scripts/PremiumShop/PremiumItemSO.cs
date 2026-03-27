@@ -13,4 +13,7 @@ public class PremiumItemSO : ScriptableObject
     [Header("Effect")]
     public int durationDays;
     public int amount;
+
+    [Header("Requirement")]
+    public ItemCooker requiredCooker;
 }

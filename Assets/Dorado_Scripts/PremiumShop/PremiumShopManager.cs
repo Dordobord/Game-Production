@@ -24,17 +24,24 @@ public class PremiumShopManager : MonoBehaviour
 
     public void Use(PremiumItemSO item)
     {
+        if (!UpgradeManager.main.IsStationUnlocked(item.requiredCooker))
+        {
+            Debug.Log("Station is locked, can't use item");
+            return;
+        }
+
         if (BoostManager.main.IsBoostActive(item.itemType))
         {
             Debug.Log($"{item.itemName} already active!");
             return;
         }
 
-        if (!ShopInventoryManager.main.Use(item))
+        if (!ShopInventoryManager.main.ConsumeItem(item))
         {
             Debug.Log("No item to use");
             return;
         }
+
 
         ApplyEffect(item);
     }

@@ -21,4 +21,4 @@ MonoBehaviour:
   cookingTime: 15
   ingredients: 060000000200000003000000
   levelRequirement: 2
-  dayRequirement: 3
+  dayRequirement: 8
