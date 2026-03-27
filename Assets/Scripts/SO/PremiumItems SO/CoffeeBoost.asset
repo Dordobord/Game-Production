@@ -17,3 +17,4 @@ MonoBehaviour:
   cost: 50
   durationDays: 3
   amount: 3
+  requiredCooker: 4
