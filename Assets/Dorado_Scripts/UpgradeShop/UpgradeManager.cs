@@ -58,7 +58,7 @@ public class UpgradeManager : MonoBehaviour
     }
 
     public bool IsStationUnlocked(ItemCooker cooker)
-    {
+    {   
         foreach (var upgrade in upgrades)
         {
             if (upgrade == null) continue;

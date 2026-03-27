@@ -24,7 +24,7 @@ public class PremiumShopManager : MonoBehaviour
 
     public void Use(PremiumItemSO item)
     {
-        if (!UpgradeManager.main.IsStationUnlocked(item.requiredCooker))
+        if (item.requiredCooker != ItemCooker.None && !UpgradeManager.main.IsStationUnlocked(item.requiredCooker))
         {
             Debug.Log("Station is locked, can't use item");
             return;
