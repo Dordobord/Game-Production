@@ -54,8 +54,11 @@ public class PatienceManager : MonoBehaviour
 
         if (chairUpgrade != null && chairUpgrade.IsUnlocked)
         {
-            bonus = chairUpgrade.GetValue();
+            bonus += chairUpgrade.GetValue(); //applies upgrade values
         }
+
+        int boost = BoostManager.main.GetBoostAmount(PremiumItemType.TVBoost); //applies boost item
+        bonus += boost;
 
         currentMaxPatience = basePatience + bonus;
         currentPatience = currentMaxPatience;

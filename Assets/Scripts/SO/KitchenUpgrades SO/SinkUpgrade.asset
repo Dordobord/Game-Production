@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 097c0c9590c0cf94aafc21ef6b723b90, type: 3}
-  m_Name: FryerUpgrade
+  m_Name: SinkUpgrade
   m_EditorClassIdentifier: 
-  upgradeType: 0
-  cookerType: 1
-  UpgradeName: Fryer
+  upgradeType: 1
+  cookerType: 0
+  UpgradeName: Plates
   requiredLevel: 0
   requiredDay: 0
-  unlockCost: 5
+  unlockCost: 100
   currentLevel: 0
   maxLevel: 3
-  upgradeCosts: 030000000500000007000000
+  upgradeCosts: 010000000100000005000000
   upgradeValues:
   - 0.5
   - 1

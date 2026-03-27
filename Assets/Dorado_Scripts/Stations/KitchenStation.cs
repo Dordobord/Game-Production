@@ -20,6 +20,7 @@ public class KitchenStation : MonoBehaviour, IInteractable
     [SerializeField] private PlateRack plateRack;
     [SerializeField] private UIDurationBar durationBar;
     [SerializeField] private UpgradeSO speedUpgrade;
+    [SerializeField]private PremiumItemType boostType;
 
     private bool isProcessing = false;
     private bool hasItem = false;
@@ -75,10 +76,29 @@ public class KitchenStation : MonoBehaviour, IInteractable
                         playerInventory.RemoveItem(input);
                     }
 
+                    OnStartCooking?.Invoke();
+
+                    bool hasBoost = !DayManager.main.isPrepPhase && BoostManager.main.IsBoostActive(boostType);
+                    if (hasBoost)//instantly give when boosted zzz
+                    {
+                        Debug.Log("Boost Active");
+                        
+                        bool added = playerInventory.AddItem(recipe.output);
+                        if (added)
+                        {
+                            OnFinishCooking?.Invoke();
+                            OnClear?.Invoke();
+                        }
+                        else
+                        {
+                            currentOutput = recipe.output;
+                            hasItem = true;
+                        }
+                        return;
+                    }  
                     currentOutput = recipe.output;
                     hasItem = true;
 
-                    OnStartCooking?.Invoke();
                     StartCoroutine(ProcessItem());
                     return;
                 }

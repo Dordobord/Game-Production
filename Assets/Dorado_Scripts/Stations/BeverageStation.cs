@@ -4,10 +4,11 @@ using System;
 
 public class BeverageStation : MonoBehaviour, IInteractable
 {
-    [SerializeField] private float processTime = 5f;
-    [SerializeField] private UIDurationBar durationBar;
-    [SerializeField] private UpgradeSO speedUpgrade;
-    [SerializeField] private ItemType dispensedItem; 
+    [SerializeField]private float processTime = 5f;
+    [SerializeField]private UIDurationBar durationBar;
+    [SerializeField]private UpgradeSO speedUpgrade;
+    [SerializeField]private ItemType dispensedItem; 
+    [SerializeField]private PremiumItemType boostType;
 
     private bool isPreparing = false;
     private bool itemReady = false;
@@ -46,7 +47,23 @@ public class BeverageStation : MonoBehaviour, IInteractable
             return;
         }
 
-        StartCoroutine(PrepareDrink());
+        //apply on prephase and is active
+        bool hasBoost = !DayManager.main.isPrepPhase && BoostManager.main.IsBoostActive(boostType);
+        if (hasBoost)
+        {
+            bool added = playerInventory.AddItem(dispensedItem);
+
+            if (added)
+            {
+                Debug.Log($"{boostType} is active");
+                OnClear?.Invoke();
+            }
+            return;
+        }
+        else
+        {
+            StartCoroutine(PrepareDrink());    
+        }
     }
 
     private IEnumerator PrepareDrink()

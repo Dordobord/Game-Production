@@ -18230,6 +18230,14 @@ PrefabInstance:
       propertyPath: dirtyRack
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 971709031227654528, guid: f1d11d32d9658614ab02a32f1d61413e, type: 3}
+      propertyPath: speedUpgrade
+      value: 
+      objectReference: {fileID: 11400000, guid: 50c0f734f5c73774c9806f45933907d7, type: 2}
+    - target: {fileID: 1782070283168878394, guid: f1d11d32d9658614ab02a32f1d61413e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7146867188235264061, guid: f1d11d32d9658614ab02a32f1d61413e, type: 3}
       propertyPath: m_Name
       value: DishSet
@@ -18286,6 +18294,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 7138513957275747760, guid: f1d11d32d9658614ab02a32f1d61413e, type: 3}
     - {fileID: 4386278257766672617, guid: f1d11d32d9658614ab02a32f1d61413e, type: 3}
+    - {fileID: 7832481788901323402, guid: f1d11d32d9658614ab02a32f1d61413e, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8909149095705918979, guid: f1d11d32d9658614ab02a32f1d61413e, type: 3}
       insertIndex: -1

@@ -15,7 +15,7 @@ public enum CustomerState
 
 public class CustomerBehavior : MonoBehaviour, IInteractable
 {
-    [SerializeField] private UpgradeSO tableUpgrade; //Upgrade script reference
+    [SerializeField]private UpgradeSO tableUpgrade; //Upgrade script reference
 
     [Header("Customer References")]
     [SerializeField] private CustomerData customerData;

@@ -1,5 +1,4 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,6 +37,11 @@ public class UIAbility : MonoBehaviour
     public void ClosePanel()
     {
         panel.SetActive(false);
+    }
+
+    public void OEnable()
+    {
+        RefreshPanel();
     }
 
     private void RefreshPanel()

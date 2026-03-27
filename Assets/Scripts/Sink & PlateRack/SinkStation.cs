@@ -12,6 +12,7 @@ public class SinkStation : MonoBehaviour, IInteractable
     [Header("Reference")]
     [SerializeField] private UIDurationBar durationBar;
     [SerializeField] private CleanPlateRack rack;
+    [SerializeField]private UpgradeSO speedUpgrade;
     
     private bool hasDirtyPlate = false;
     private bool isWashing = false;
@@ -57,7 +58,15 @@ public class SinkStation : MonoBehaviour, IInteractable
 
             float speed;
             speed = PlayerStats.main.Efficiency;
-            float finalTime = washingTime / speed;
+
+            float reduction = 0f;
+
+            if (speedUpgrade != null)
+            {
+                reduction = speedUpgrade.GetValue();
+            }
+
+            float finalTime = Mathf.Max(0.1f, (washingTime - reduction) / speed);
 
             durationBar.EnableBar(finalTime);
 

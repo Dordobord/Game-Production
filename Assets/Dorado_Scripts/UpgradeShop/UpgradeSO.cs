@@ -58,7 +58,6 @@ public class UpgradeSO : ScriptableObject
         return currentLevel;
     }
 
-    // Can the upgrade still level up
     public bool CanUpgrade()
     {
         return currentLevel < maxLevel;
@@ -88,7 +87,6 @@ public class UpgradeSO : ScriptableObject
         }
     }
 
-    // Value used by machines (like cooking speed reduction)
     public float GetValue()
     {
        if (!IsUnlocked || currentLevel <= 0)
@@ -102,7 +100,6 @@ public class UpgradeSO : ScriptableObject
         return upgradeValues[index];
     }
 
-    // Called every day when upgrades are applied
     public void ApplyUpgrade()
     {
         if (!IsUnlocked)
@@ -111,7 +108,6 @@ public class UpgradeSO : ScriptableObject
         Debug.Log("Applying upgrade: " + UpgradeName);
     }
 
-    // Optional: reset upgrade (useful for new game)
     public void ResetUpgrade()
     {
         currentLevel = 0;

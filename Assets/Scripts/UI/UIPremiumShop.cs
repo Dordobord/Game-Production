@@ -1,11 +1,8 @@
-using TMPro;
 using UnityEngine;
 
 public class UIPremiumShop : MonoBehaviour
 {
     [SerializeField] private GameObject panel;
-    [SerializeField] private TextMeshProUGUI vault;
-
     private bool isOpen = false;
     public bool IsOpen => isOpen;
 
@@ -17,7 +14,7 @@ public class UIPremiumShop : MonoBehaviour
 
     public void OpenVault()
     {
-        if (panel == null || vault == null)
+        if (panel == null)
             return;
 
         isOpen = true;

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5873015046302774488}
   - component: {fileID: -1871449885029883951}
   - component: {fileID: 9063268753347848863}
-  - component: {fileID: 3267049512094040635}
   m_Layer: 7
   m_Name: BlenderStation
   m_TagString: Untagged
@@ -175,12 +174,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipes:
   - inputs: 090000000d0000000b0000000c000000
-    output: 24
+    output: 25
   processingTime: 3.5
   sendToPlateRack: 0
   plateRack: {fileID: 0}
   durationBar: {fileID: 1969435165899184318}
   speedUpgrade: {fileID: 11400000, guid: 039b4ccca07f50e4fb7499b283939778, type: 2}
+  boostType: 2
 --- !u!114 &9063268753347848863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,20 +195,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgrade: {fileID: 11400000, guid: 039b4ccca07f50e4fb7499b283939778, type: 2}
   sprite: {fileID: 3500608826719362414}
---- !u!114 &3267049512094040635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5391626481537913958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eef307269b8c8a94998764cd06168b09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  station: {fileID: -1871449885029883951}
-  anim: {fileID: 5873015046302774488}
 --- !u!1 &7174790211223136228
 GameObject:
   m_ObjectHideFlags: 0

@@ -279,6 +279,7 @@ MonoBehaviour:
   durationBar: {fileID: 2636550123516629936}
   speedUpgrade: {fileID: 11400000, guid: 841708ac1114f97489c8963eddfd1523, type: 2}
   dispensedItem: 23
+  boostType: 3
 --- !u!114 &4697016015056350320
 MonoBehaviour:
   m_ObjectHideFlags: 0

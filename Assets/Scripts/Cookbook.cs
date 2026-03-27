@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Cookbook : MonoBehaviour, IInteractable, IFocusable
 {
-    private AssemblyStation assemblyStation;
     private UICookbook uiCookbook;
     private void Awake()
     {

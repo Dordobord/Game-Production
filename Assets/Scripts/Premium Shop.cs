@@ -2,11 +2,24 @@ using UnityEngine;
 
 public class PremiumShop : MonoBehaviour, IInteractable, IFocusable
 {
-    [SerializeField]private UIPremiumShop uiPremiumShop;
+    private UIPremiumShop uiPremiumShop;
+
+    void Awake()
+    {
+        uiPremiumShop = FindFirstObjectByType<UIPremiumShop>();
+    }
     public void Interact()
     {
         if (uiPremiumShop == null) return; 
-        uiPremiumShop.OpenVault();
+        
+        if (uiPremiumShop.IsOpen)
+        {
+            uiPremiumShop.CloseVault();
+        }
+        else
+        {
+            uiPremiumShop.OpenVault();
+        }
     }
 
     public void OnFocus()

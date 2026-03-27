@@ -35,6 +35,7 @@ public enum ItemCategory
 
 public enum ItemCooker
 {
+    None,
     Grill,
     Fryer,
     Blender,

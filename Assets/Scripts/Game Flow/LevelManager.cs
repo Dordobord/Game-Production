@@ -83,6 +83,9 @@ public class LevelManager : MonoBehaviour
 
         dayCounter++;
 
+        Debug.Log("Reduce timer for active boosts");
+        BoostManager.main?.ReduceDays();
+
         Debug.Log("Applying upgrades for next day");
         UpgradeManager.main?.ApplyUpgrades();
 

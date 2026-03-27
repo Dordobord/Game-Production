@@ -116,6 +116,8 @@ public class DayManager : MonoBehaviour
             specialCustomerCount[currentDay].homelessCount,
             tutorialDay
         );
+        
+        BoostManager.main?.OnBoostUpdated?.Invoke();
     }
 
     public void EndDay()
